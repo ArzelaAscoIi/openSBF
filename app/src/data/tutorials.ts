@@ -692,4 +692,134 @@ Ohne besondere Bezeichnung gilt ein allgemeines Liegeverbot:
 - Auf **Schifffahrtskanälen**
 - Auf **Schleusenkanälen**`,
   },
+  {
+    id: 'knoten',
+    title: 'Knoten & Tauwerk',
+    exam: 'see',
+    content: `## Knoten in der Praxisprüfung
+
+In der Praxisprüfung zum SBF See musst du von **9 möglichen Knoten mindestens 6 korrekt vorführen** und deren Verwendungszweck erklären. Gelingt einer nicht, kann ein Ersatzknoten abgefragt werden.
+
+Ein seemännischer Knoten sollte:
+- Leicht zu knüpfen sein
+- Sicher halten, auch unter Belastung
+- Leicht zu lösen sein, nachdem die Last wegfällt
+
+---
+
+## Grundbegriffe
+
+| Begriff | Bedeutung |
+|---|---|
+| Leine | Allgemeiner Begriff für Tauwerk auf dem Boot |
+| Tampen | Das lose Ende einer Leine |
+| Bucht | Eine einfach gelegte Schlaufe (ohne Kreuzung) |
+| Auge | Eine kreuzende Schlaufe in Ringform |
+| Törn | Eine Umschlingung um einen Gegenstand |
+| Halber Schlag | Umschlingung und Durchziehen der Leine um die stehende Part |
+| Slip | Abschluss mit einer Bucht – macht den Knoten schnell lösbar |
+| Stehende Part | Das belastete, feste Ende der Leine |
+| Laufende Part | Das lose, arbeitende Ende der Leine |
+
+---
+
+## Die 9 Prüfungsknoten
+
+### 1. Achtknoten
+
+**Verwendung:** Verhindert das Ausrauschen von Leinen, z. B. an Fallen oder Schoten. Dient als Endknoten.
+
+**Merkhilfe:** Den Tampen über die stehende Part legen, von unten durch das entstandene Auge führen → bildet eine „8"-Form.
+
+**Prüfungstipp:** Leichter zu lösen als ein Überhandknoten. Zeige den 8er-förmigen Querschnitt.
+
+---
+
+### 2. Kreuzknoten (Reef Knot)
+
+**Verwendung:** Verbindet zwei **gleich dicke** Leinen, z. B. bei Reffbändseln von Jollen.
+
+**Merksatz:** „Rechts über Links, dann Links über Rechts."
+
+**Prüfungstipp:** Der falsch geknüpfte „Altweiberknoten" (beide Halbknoten in gleicher Richtung) gilt als Fehler. Beide losen Enden müssen auf der gleichen Seite liegen.
+
+---
+
+### 3. Palstek
+
+**Verwendung:** Legt ein festes Auge, das sich **nicht zuzieht**. Unverzichtbar zum Anlegen, zum Befestigen der Schoten am Segel oder als Rettungsschlaufe.
+
+**Merkspruch:** „Die Seeschlange kommt aus dem See, umrundet den Baum und taucht wieder ein."
+
+**Prüfungstipp:** Das fertige Auge darf sich auch unter Belastung nicht verkleinern. Abschlusssicherung prüfen.
+
+---
+
+### 4. Schotstek (einfach & doppelt)
+
+**Verwendung:** Verbindet zwei Leinen mit **unterschiedlichem Durchmesser**. Der doppelte Schotstek sichert besser bei starker Belastung oder nassen Leinen.
+
+**Prüfungstipp:** Lose Enden müssen auf **derselben Seite** liegen. Für den doppelten Schotstek den Tampen ein zweites Mal durch die Bucht führen.
+
+---
+
+### 5. Webleinenstek
+
+**Verwendung:** Befestigt eine Leine an einer Stange oder einem Draht – typisch für **Fender** an der Reling.
+
+**Prüfungstipp:** Zwei Törns um den Gegenstand, dann beide Enden durch das Auge kreuzen. Liegt flach und verrutscht kaum.
+
+---
+
+### 6. Webleinenstek auf Slip
+
+**Verwendung:** Wie der Webleinenstek, aber mit **Bucht** als Abschluss – dadurch blitzschnell lösbar. Ideal zum schnellen Verstellen der Fenderhöhe.
+
+**Prüfungstipp:** Die Bucht (nicht der Tampen) wird durchgezogen. Erkläre explizit den Vorteil der schnellen Lösbarkeit.
+
+---
+
+### 7. Stopperstek
+
+**Verwendung:** Entlastet eine **unter Spannung stehende Leine**, z. B. bei Überläufern auf der Winsch.
+
+**Prüfungstipp:** Der Knoten bekneift sich unter Belastung in einer Richtung sehr gut. Zeige die korrekte Richtung relativ zur Last.
+
+---
+
+### 8. Rundtörn mit zwei halben Schlägen
+
+**Verwendung:** Längerfristiges Festmachen an **Stangen, Pollern oder Ringen**. Sicherer als der Webleinenstek für dauerhaften Einsatz.
+
+**Schritte:** Einen vollen Törn um den Gegenstand legen, dann zwei halbe Schläge um die stehende Part ausführen.
+
+**Prüfungstipp:** Etwas aufwändiger zu lösen als der Webleinenstek – erkläre wann man welchen bevorzugt.
+
+---
+
+### 9. Klampe belegen
+
+**Verwendung:** Festmachen des Bootes an Steg oder Poller, Befestigen von Fallen am Mast.
+
+**Schritte:** Einen Törn um die Klampe, dann Kreuzschläge in Form einer 8, abschließen mit einem **Kopfschlag** (letzter Kreuzschlag als Slip oder fest).
+
+**Prüfungstipp:** Kreuzschläge müssen sauber liegen. Der Kopfschlag muss korrekt unter den letzten Kreuzschlag gelegt werden – das wird genau beobachtet.
+
+---
+
+## Prüfungsstrategie
+
+| Situation | Bester Knoten |
+|---|---|
+| Leinenende sichern | Achtknoten |
+| Zwei gleiche Leinen verbinden | Kreuzknoten |
+| Festes Auge legen | Palstek |
+| Unterschiedliche Durchmesser verbinden | Schotstek (doppelt) |
+| Fender befestigen | Webleinenstek (auf Slip) |
+| Dauerhaft an Poller/Stange | Rundtörn mit zwei halben Schlägen |
+| Belastete Leine entlasten | Stopperstek |
+| Boot am Steg festmachen | Klampe belegen |
+
+> Übe jeden Knoten, bis du ihn sicher und zügig blindlings knüpfen kannst. Erkläre dabei laut den Verwendungszweck — Prüfer stellen oft Rückfragen.`,
+  },
 ];

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { DocumentTextIcon } from '@heroicons/react/24/outline';
 import { tutorials } from '@/data/tutorials';
 
 export default function LernenPage() {
@@ -52,6 +53,10 @@ function Section({
   tutorials: { id: string; title: string; exam: string }[];
   accent?: 'gold' | 'sea';
 }) {
+  const accentColor = accent === 'sea' ? 'var(--seafoam)' : 'var(--gold)';
+  const accentBg =
+    accent === 'sea' ? 'rgba(38, 136, 164, 0.10)' : 'rgba(188, 147, 50, 0.10)';
+
   return (
     <section>
       <div className="flex items-baseline gap-2 mb-4">
@@ -73,16 +78,17 @@ function Section({
             style={{
               background: 'var(--navy)',
               border: '1px solid var(--border)',
-              color: 'var(--white)',
             }}
           >
             <span
-              className="w-1.5 h-1.5 rounded-full shrink-0"
-              style={{
-                background: accent === 'sea' ? 'var(--seafoam)' : 'var(--gold)',
-              }}
-            />
-            <span className="text-sm">{t.title}</span>
+              className="shrink-0 w-7 h-7 rounded-md flex items-center justify-center"
+              style={{ background: accentBg }}
+            >
+              <DocumentTextIcon className="w-4 h-4" style={{ color: accentColor }} />
+            </span>
+            <span className="text-sm" style={{ color: 'var(--white)' }}>
+              {t.title}
+            </span>
           </Link>
         ))}
       </div>
