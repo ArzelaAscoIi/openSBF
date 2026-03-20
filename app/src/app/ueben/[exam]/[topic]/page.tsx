@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { Question, ExamType } from '@/lib/types';
 import { ProgressBar } from '@/components/ui/ProgressBar';
@@ -47,9 +47,10 @@ type AnswerKey = 'a' | 'b' | 'c' | 'd';
 export default function QuizPage() {
   const params = useParams();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const exam = params.exam as ExamType;
   const topicId = params.topic as string;
+
+  const initialQ = typeof window !== 'undefined' ? parseInt(new URLSearchParams(window.location.search).get('q') ?? '0', 10) : 0;
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -70,17 +71,14 @@ export default function QuizPage() {
     const shuffled = shuffleArray(workQueue);
     setQuestions(shuffled);
 
-    const qParam = parseInt(searchParams.get('q') ?? '0', 10);
-    const initialIdx = qParam > 0 && qParam < shuffled.length ? qParam : 0;
+    const initialIdx = initialQ > 0 && initialQ < shuffled.length ? initialQ : 0;
     setCurrentIdx(initialIdx);
   }, [topicId, exam]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (questions.length === 0) return;
-    const params = new URLSearchParams(searchParams.toString());
-    params.set('q', String(currentIdx));
-    router.replace(`?${params.toString()}`, { scroll: false });
-  }, [currentIdx, questions.length]); // eslint-disable-line react-hooks/exhaustive-deps
+    window.history.replaceState(null, '', `?q=${currentIdx}`);
+  }, [currentIdx, questions.length]);
 
   useEffect(() => {
     if (questions.length > 0 && questions[currentIdx]) {

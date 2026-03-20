@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'OpenSBF – Sportbootführerschein',
     short_name: 'OpenSBF',
-    description: 'Kostenlose Prüfungsvorbereitung für den Sportbootführerschein Binnen & See',
+    description: 'Open Source Community Projekt zur Prüfungsvorbereitung für den Sportbootführerschein Binnen & See',
     start_url: '/',
     display: 'standalone',
     background_color: '#060C18',

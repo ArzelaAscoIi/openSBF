@@ -75,7 +75,7 @@ export default function HomePage() {
               letterSpacing: '0.04em',
             }}
           >
-            Kostenlose Prüfungsvorbereitung
+            Open Source · Community Projekt
           </div>
 
           <h1
