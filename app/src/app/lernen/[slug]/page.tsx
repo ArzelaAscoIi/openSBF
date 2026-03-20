@@ -58,6 +58,27 @@ export default async function TutorialPage({ params }: Props) {
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-10">
+        {tutorial.videoUrl && (
+          <div className="mb-8">
+            <div
+              className="relative w-full rounded-xl overflow-hidden"
+              style={{
+                paddingBottom: '56.25%',
+                background: 'var(--navy)',
+                border: '1px solid var(--border)',
+              }}
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${extractYouTubeId(tutorial.videoUrl)}?rel=0`}
+                title={tutorial.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Content */}
         <div
           className="rounded-xl p-6 sm:p-8 mb-8"
@@ -265,4 +286,14 @@ function formatInline(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, `<strong style="color:var(--white);font-weight:600">$1</strong>`)
     .replace(/\*(.+?)\*/g, `<em>$1</em>`);
+}
+
+function extractYouTubeId(url: string): string {
+  const shortMatch = url.match(/youtu\.be\/([^?&]+)/);
+  if (shortMatch) return shortMatch[1];
+  const longMatch = url.match(/[?&]v=([^?&]+)/);
+  if (longMatch) return longMatch[1];
+  const embedMatch = url.match(/embed\/([^?&]+)/);
+  if (embedMatch) return embedMatch[1];
+  return url;
 }

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { loadProgress, getExamOverallProgress } from '@/lib/progress';
 import { getAllBinnenQuestions, getAllSeeQuestions } from '@/data/topics';
+import { CertificateCard } from '@/components/ui/CertificateCard';
 
 const features = [
   {
@@ -199,6 +200,14 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
+        {/* Certificates */}
+        {(binnenPct === 100 || seePct === 100) && (
+          <div className="mb-12 space-y-4">
+            {binnenPct === 100 && <CertificateCard exam="SBF Binnen" color="gold" />}
+            {seePct === 100 && <CertificateCard exam="SBF See" color="seafoam" />}
+          </div>
+        )}
 
         {/* Tutorial links */}
         <div
