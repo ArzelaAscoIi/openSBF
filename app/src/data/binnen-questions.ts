@@ -418,6 +418,7 @@ export const binnenSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Zwei weiße Lichter übereinander am stillliegenden Fahrzeug',
+    imagePath: '/questions/binnen-q104.png',
   },
   {
     id: 105,
