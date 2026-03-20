@@ -3,6 +3,7 @@ export interface TutorialSection {
   title: string;
   content: string;
   exam: 'binnen' | 'see' | 'both';
+  videoUrl?: string;
 }
 
 export const tutorials: TutorialSection[] = [

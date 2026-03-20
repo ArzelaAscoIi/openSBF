@@ -347,7 +347,7 @@ export default function QuizPage() {
                   }}
                 >
                   {selectedAnswer === currentQuestion.correctAnswer
-                    ? `Richtig — ${Math.min(correctCount + 1, CORRECT_THRESHOLD)}/${CORRECT_THRESHOLD}`
+                    ? 'Richtig'
                     : `Falsch — Richtig wäre Antwort ${['A', 'B', 'C', 'D'][shuffledOptions.findIndex((o) => o.originalKey === currentQuestion.correctAnswer)]}`}
                 </span>
                 <button
