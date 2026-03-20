@@ -24,10 +24,14 @@ export async function GET(request: NextRequest) {
     },
   );
 
-  const code = searchParams.get('code');
+  const tokenHash = searchParams.get('token_hash');
+  const type = searchParams.get('type');
 
-  if (code) {
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
+  if (tokenHash && type) {
+    const { error } = await supabase.auth.verifyOtp({
+      type: type as 'magiclink' | 'email',
+      token_hash: tokenHash,
+    });
 
     if (error) {
       return NextResponse.redirect(`${origin}/auth/login?error=${encodeURIComponent(error.message)}`);
