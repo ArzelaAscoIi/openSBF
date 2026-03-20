@@ -201,13 +201,13 @@ export function NavBar() {
               </div>
 
               <div className="flex items-center gap-1">
-                {mounted && <UserMenu />}
                 <Disclosure.Button
                   className="md:hidden p-1.5 rounded-md"
                   style={{ color: 'var(--muted)' }}
                 >
                   {open ? <XMarkIcon className="h-5 w-5" /> : <Bars3Icon className="h-5 w-5" />}
                 </Disclosure.Button>
+                {mounted && <UserMenu />}
               </div>
             </div>
           </div>
