@@ -12,7 +12,7 @@ Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teue
 
 ### 🌐 Live-Version
 
-[https://open-rha56srt8-kristofs-projects-03cd34cf.vercel.app](https://open-rha56srt8-kristofs-projects-03cd34cf.vercel.app?_vercel_share=g0tfmtkfnYeq0PcKYcIBw4b5CyDIwVxY)
+[opensbf.de](opensbf.de)
 
 ### 📚 Inhalte
 
