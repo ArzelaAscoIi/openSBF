@@ -1,15 +1,19 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
+import { useAuth } from '@/hooks/useAuth';
+import { loadProgress, saveProgress } from '@/lib/progress';
+import { syncProgressWithCloud } from '@/lib/supabase/progress';
 
-const STORAGE_KEY = 'opensbf_progress';
+type SyncStatus = 'idle' | 'syncing' | 'synced' | 'error';
 
 export default function UserMenu() {
+  const { user, loading } = useAuth();
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'ok' | 'err'>('idle');
-  const [msg, setMsg] = useState('');
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const menuRef = useRef<HTMLDivElement>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
@@ -21,59 +25,41 @@ export default function UserMenu() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  function handleExport() {
-    const raw = localStorage.getItem(STORAGE_KEY) ?? '{}';
-    const blob = new Blob([raw], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `opensbf-fortschritt-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    setOpen(false);
+  // Auto-sync on login
+  useEffect(() => {
+    if (!user) return;
+    handleSync();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
+
+  async function handleSync() {
+    if (!user) return;
+    setSyncStatus('syncing');
+    try {
+      const supabase = createClient();
+      const local = loadProgress();
+      const merged = await syncProgressWithCloud(supabase, user.id, local);
+      saveProgress(merged);
+      setSyncStatus('synced');
+      setTimeout(() => setSyncStatus('idle'), 3000);
+    } catch {
+      setSyncStatus('error');
+    }
   }
 
-  function handleImportFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      try {
-        const imported = JSON.parse(ev.target?.result as string);
-        if (typeof imported !== 'object' || !imported.questions) throw new Error();
-
-        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{"questions":{}}');
-        const merged = { ...imported.questions };
-        for (const [k, v] of Object.entries(current.questions ?? {})) {
-          const imp = merged[k];
-          const cur = v as { correctCount: number };
-          merged[k] = imp
-            ? { ...imp, correctCount: Math.max(imp.correctCount, cur.correctCount) }
-            : cur;
-        }
-        localStorage.setItem(
-          STORAGE_KEY,
-          JSON.stringify({ ...imported, questions: merged, lastUpdated: new Date().toISOString() }),
-        );
-
-        setStatus('ok');
-        setMsg('Importiert — Seite neu laden?');
-      } catch {
-        setStatus('err');
-        setMsg('Ungültige Datei.');
-      }
-    };
-    reader.readAsText(file);
-    if (fileRef.current) fileRef.current.value = '';
+  async function handleSignOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    setOpen(false);
   }
 
   return (
     <div ref={menuRef} className="relative">
       <button
-        onClick={() => { setOpen((o) => !o); setStatus('idle'); }}
+        onClick={() => { setOpen((o) => !o); }}
         className="w-8 h-8 rounded-full flex items-center justify-center transition-colors hover:bg-white/10"
-        style={{ color: 'var(--muted)' }}
-        title="Fortschritt exportieren / importieren"
+        style={{ color: user ? 'var(--gold-light)' : 'var(--muted)' }}
+        title={user ? `Angemeldet als ${user.email}` : 'Anmelden'}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -91,57 +77,77 @@ export default function UserMenu() {
         </svg>
       </button>
 
-      {open && (
+      {open && !loading && (
         <div
-          className="absolute right-0 mt-2 w-64 rounded-xl py-2 z-50"
+          className="absolute right-0 mt-2 w-72 rounded-xl py-2 z-50"
           style={{
             background: 'var(--navy)',
             border: '1px solid var(--border)',
             boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
           }}
         >
-          <div className="px-4 py-2 border-b" style={{ borderColor: 'var(--border)' }}>
-            <p className="text-xs font-semibold" style={{ color: 'var(--white)' }}>Fortschritt</p>
-            <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>Zwischen Geräten synchronisieren</p>
-          </div>
-
-          <div className="px-4 py-3 space-y-2">
-            <button
-              onClick={handleExport}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left"
-              style={{ color: 'var(--white)' }}
-            >
-              <span className="text-base leading-none">↓</span>
-              Exportieren
-            </button>
-
-            <button
-              onClick={() => fileRef.current?.click()}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left"
-              style={{ color: 'var(--white)' }}
-            >
-              <span className="text-base leading-none">↑</span>
-              Importieren
-            </button>
-
-            <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={handleImportFile} />
-
-            {status !== 'idle' && (
-              <div className="pt-1">
-                <p
-                  className="text-xs px-3"
-                  style={{ color: status === 'ok' ? 'var(--green-signal)' : 'var(--red-signal)' }}
-                >
-                  {msg}
-                  {status === 'ok' && (
-                    <button onClick={() => window.location.reload()} className="ml-1 underline">
-                      Laden
-                    </button>
-                  )}
+          {user ? (
+            <>
+              <div className="px-4 py-2 border-b" style={{ borderColor: 'var(--border)' }}>
+                <p className="text-xs font-semibold truncate" style={{ color: 'var(--white)' }}>
+                  {user.email}
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                  Fortschritt wird automatisch gespeichert
                 </p>
               </div>
-            )}
-          </div>
+
+              <div className="px-4 py-3 space-y-1">
+                <button
+                  onClick={handleSync}
+                  disabled={syncStatus === 'syncing'}
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left disabled:opacity-50"
+                  style={{ color: 'var(--white)' }}
+                >
+                  <span className="text-base leading-none">
+                    {syncStatus === 'syncing' ? '⟳' : syncStatus === 'synced' ? '✓' : '↕'}
+                  </span>
+                  {syncStatus === 'syncing'
+                    ? 'Synchronisiere…'
+                    : syncStatus === 'synced'
+                      ? 'Synchronisiert'
+                      : syncStatus === 'error'
+                        ? 'Fehler – erneut versuchen'
+                        : 'Mit Cloud synchronisieren'}
+                </button>
+
+                <button
+                  onClick={handleSignOut}
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left"
+                  style={{ color: 'var(--muted)' }}
+                >
+                  <span className="text-base leading-none">→</span>
+                  Abmelden
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="px-4 py-2 border-b" style={{ borderColor: 'var(--border)' }}>
+                <p className="text-xs font-semibold" style={{ color: 'var(--white)' }}>Fortschritt</p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                  Anmelden für geräteübergreifende Synchronisierung
+                </p>
+              </div>
+
+              <div className="px-4 py-3 space-y-1">
+                <Link
+                  href="/auth/login"
+                  onClick={() => setOpen(false)}
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5"
+                  style={{ color: 'var(--gold-light)' }}
+                >
+                  <span className="text-base leading-none">⚓</span>
+                  Anmelden / Registrieren
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>
