@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { NavBar } from '@/components/layout/NavBar';
+import { Footer } from '@/components/layout/Footer';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>
         <NavBar />
         <main>{children}</main>
+        <Footer />
         <ServiceWorkerRegistration />
       </body>
     </html>
