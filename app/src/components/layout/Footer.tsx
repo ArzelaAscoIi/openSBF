@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FeedbackModal } from '@/components/ui/FeedbackModal';
 
 export function Footer() {
   return (
@@ -54,6 +55,9 @@ export function Footer() {
                 >
                   Fehler melden / Mitmachen
                 </a>
+              </li>
+              <li>
+                <FeedbackModal />
               </li>
             </ul>
           </div>

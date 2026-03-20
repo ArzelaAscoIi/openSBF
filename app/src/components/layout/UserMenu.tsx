@@ -7,12 +7,9 @@ import { useAuth } from '@/hooks/useAuth';
 import { loadProgress, saveProgress } from '@/lib/progress';
 import { syncProgressWithCloud } from '@/lib/supabase/progress';
 
-type SyncStatus = 'idle' | 'syncing' | 'synced' | 'error';
-
 export default function UserMenu() {
   const { user, loading } = useAuth();
   const [open, setOpen] = useState(false);
-  const [syncStatus, setSyncStatus] = useState<SyncStatus>('idle');
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,25 +22,23 @@ export default function UserMenu() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  // Auto-sync on login
   useEffect(() => {
     if (!user) return;
     handleSync();
+    const interval = setInterval(handleSync, 60_000);
+    return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id]);
 
   async function handleSync() {
     if (!user) return;
-    setSyncStatus('syncing');
     try {
       const supabase = createClient();
       const local = loadProgress();
       const merged = await syncProgressWithCloud(supabase, user.id, local);
       saveProgress(merged);
-      setSyncStatus('synced');
-      setTimeout(() => setSyncStatus('idle'), 3000);
     } catch {
-      setSyncStatus('error');
+      // silent background sync — errors are non-fatal
     }
   }
 
@@ -98,24 +93,6 @@ export default function UserMenu() {
               </div>
 
               <div className="px-4 py-3 space-y-1">
-                <button
-                  onClick={handleSync}
-                  disabled={syncStatus === 'syncing'}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left disabled:opacity-50"
-                  style={{ color: 'var(--white)' }}
-                >
-                  <span className="text-base leading-none">
-                    {syncStatus === 'syncing' ? '⟳' : syncStatus === 'synced' ? '✓' : '↕'}
-                  </span>
-                  {syncStatus === 'syncing'
-                    ? 'Synchronisiere…'
-                    : syncStatus === 'synced'
-                      ? 'Synchronisiert'
-                      : syncStatus === 'error'
-                        ? 'Fehler – erneut versuchen'
-                        : 'Mit Cloud synchronisieren'}
-                </button>
-
                 <button
                   onClick={handleSignOut}
                   className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left"
