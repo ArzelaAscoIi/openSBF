@@ -11,6 +11,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Für Sportboote von weniger als 11,03 kW (15 PS) Nutzleistung und weniger als 20 m Länge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die SportBootFüV knüpft die Pflicht zum SBF Binnen an diese Nutzleistungs- und Längengrenzen; darunter reicht oft keine Prüfung, darüber ist der Nachweis vorgeschrieben.',
     topic: 'fuehrerschein',
   },
   {
@@ -23,6 +24,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Auf allen Seewasserstraßen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der SBF Binnen gilt für die Bundeswasserstraßen im Binnenbereich; Landesgewässer und Seewasserstraßen sind davon nicht umfasst.',
     topic: 'fuehrerschein',
   },
   {
@@ -35,6 +37,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Bei fehlender Zuverlässigkeit nach einer begangener Ordnungswidrigkeit.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nach den Vorschriften über Führerscheine kann der Nachweis entzogen werden, wenn Tauglichkeit oder Zuverlässigkeit nicht mehr gewährleistet sind.',
     topic: 'fuehrerschein',
   },
   {
@@ -47,6 +50,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es ist alles zu tun, was zur Vermeidung von Beschädigungen an Fahrzeugen, Anlagen oder Ufern, Behinderung der Schifffahrt und Beeinträchtigung der Umwelt nötig ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die allgemeine Sorgfaltspflicht verlangt umfassende Gefahrenabwehr für Leben, Sachen, Verkehr und Umwelt; die anderen Antworten nennen nur Teile oder verkehren sie ins Gegenteil.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -59,6 +63,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Bei mittelbar drohender Gefahr für sich oder andere.' },
     ],
     correctAnswer: 'a',
+    hint: 'Abweichen von Verkehrsregeln ist nur bei unmittelbar drohender Gefahr gerechtfertigt; mittelbare Gefahr oder bloße Begegnung reicht nicht.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -71,6 +76,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Besitz eines Sportbootführerscheins Binnen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Motoren bis 11,03 kW gilt auf Binnenwasserstraßen kein SBF-Zwang; das Mindestalter von 16 Jahren für den Rudergänger bleibt jedoch vorgeschrieben.',
     topic: 'fuehrerschein',
   },
   {
@@ -83,6 +89,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Mindestalter 16 Jahre.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf dem Rhein über 11,03 kW ist ein anerkannter Befähigungsnachweis (SBF Binnen mit Maschine oder Gleichwertiges) erforderlich.',
     topic: 'fuehrerschein',
   },
   {
@@ -95,6 +102,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sie muss mindestens 14 Jahre alt und körperlich, geistig und fachlich geeignet sein.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Stellvertreter am Ruder muss mindestens 16 Jahre alt sein und die Fahrzeugführung sicher beherrschen; ein SBF ist dafür nicht zwingend vorgeschrieben.',
     topic: 'fuehrerschein',
   },
   {
@@ -107,6 +115,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'In der Binnenschiffsuntersuchungsordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'WSV, ELWIS und Wasserschutzpolizei sind die zentralen Informationsquellen zu Beschränkungen und aktuellen Meldungen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -119,6 +128,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Alle Informationen und Weisungen zu empfangen und zu geben und nach allen Seiten genügend freie Sicht zu haben.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Rudergänger muss sehen, hören und kommunizieren können; nur die Kombination aus Funk/Sicht/Schall erfüllt die sichere Steuerung.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -131,6 +141,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Bis zu einer Länge von weniger als 15 m (mit Ruder und Bugspriet).' },
     ],
     correctAnswer: 'a',
+    hint: 'Der SBF Binnen gilt nur für Sportboote unter 20 m Länge (ohne Ruder und Bugspriet); längere Boote fallen nicht unter diese Regelung.',
     topic: 'fuehrerschein',
   },
   {
@@ -143,6 +154,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wassermotorräderverordnung, Wasserskiverordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'BinSchStrO und Rhein-Schifffahrtspolizeiverordnung regeln den Verkehr auf Bundeswasserstraßen bzw. am Rhein.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -155,6 +167,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wassermotorräderverordnung, Wasserskiverordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Für Mosel und Donau gelten die jeweiligen schifffahrtspolizeilichen Sonderverordnungen, nicht die BinSchStrO allein.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -167,6 +180,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Moselschifffahrtspolizeiverordnung, Binnenschiffsuntersuchungsordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wassermotorräder und Wasserski werden durch eigene Verordnungen geregelt, nicht durch die BinSchStrO.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -179,6 +193,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein Baggerunternehmen ist zu verständigen, damit das Hindernis beseitigt wird.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grundberührung im Fahrwasser kann die Fahrrinne gefährden; die Behörden müssen die genaue Stelle wissen, um Maßnahmen zu ergreifen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -191,6 +206,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es ist der Teil der Wasserstraße, deren Tiefe bei 2,50 m und mehr beginnt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fahrwasser ist der tatsächlich vom Verkehr genutzte Streifen; die Fahrrinne ist der verwaltungsrechtlich vorgehaltene Teil.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -203,6 +219,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es ist der Teil der Wasserstraße, deren Breite mindestens 88 m und deren Tiefe mindestens 2,50 m beträgt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Fahrrinne ist der mit Mindestbreiten/-tiefen für den durchgehenden Verkehr vorgehaltene bzw. angestrebte Bereich.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -215,6 +232,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Durch Bekanntgaben der Hochwasserschutzzentrale.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wasserstände und Hochwasser werden über NIF, Rundfunk, TV und Internet veröffentlicht; nur Aushänge reichen nicht.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -227,6 +245,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'An den Pegeln und den Einsenkungsmarken der Fahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Pegel und Hochwassermarken zeigen den Wasserstand vor Ort; andere Stellen ersetzen diese Messung nicht.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -239,6 +258,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überholverbot und Fahrverbot für Fahrzeuge ohne Sprechfunk.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hochwassermarke I löst typischerweise Tempolimits und Funkvorgaben aus; Totalsperre ist erst bei höheren Stufen zu erwarten.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -251,6 +271,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Verbot der Schifffahrt bei Nacht und unsichtigem Wetter.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hochwassermarke II bedeutet in der Regel Einstellung der Schifffahrt zum Schutz von Leben und Anlagen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -263,6 +284,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Bei der Talfahrt liegt die rechte Uferseite links.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rechts/links wird flussaufwärts von der Quelle zur Mündung definiert; Tal/Berg sind andere Begriffe.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -275,6 +297,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die Fahrt in Richtung Mündung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bergfahrt auf Flüssen ist die Fahrt zur Quelle, also gegen die Strömung.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -287,6 +310,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die Fahrt gegen die Strömung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf Kanälen ist „zu Berg“ in Teil II BinSchStrO festgelegt, nicht durch die Flussdefinition der Quelle.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -299,6 +323,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Grüne Spierentonnen oder Schwimmstangen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rote Stumpftonnen markieren die rechte Fahrrinnenseite bzw. die Seite zum rechten Ufer in der üblichen Kennzeichnung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -311,6 +336,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Grüne Spierentonnen oder Schwimmstangen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grüne Spitztonnen markieren die linke Fahrrinnenseite; rot/grün entspricht Steuerbord/Backbord der Fahrrinne.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -323,6 +349,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die rechte Fahrrinnenseite, gekennzeichnet durch grüne Spitztonnen oder Schwimmstangen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Bergfahrer hat links die grüne Fahrrinnenseite an Steuerbord – das passt zur Tonnage der Fahrrinne.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -335,6 +362,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrrinnenspaltung. In Fahrtrichtung rechts halten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-grün gestreift kennzeichnet eine Fahrrinnenteilung; beide Arme sind befahrbar, sofern nichts anderes angeordnet ist.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -347,6 +375,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Stangen mit Toppzeichen: grüner Kegel, Spitze nach unten, oder grün-weiß gestreifte Schwimmstange mit grünem Kegel.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hindernisse rechts: roter Kegel Spitze unten bzw. rot-weiß mit rotem Zylinder – international vereinheitlichte Toppzeichen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -359,6 +388,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrrinnenrand an der rechten Seite der Wasserstraße.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün-weiß mit grünem Kegel kennzeichnet ein Hindernis auf der linken Seite der Fahrwasserrichtung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -371,6 +401,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Begegnen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf Kanälen ist Ankern wegen Enge und Verkehrsführung verboten; Wenden/Begegnen sind nicht pauschal verboten.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -383,6 +414,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein Fahrzeug über 135 m.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei weiße Lichter übereinander zeigen einen gefährlichen Ankerlieger, dessen Anker die Fahrrinne beeinträchtigen kann.',
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Zwei weiße Lichter übereinander am stillliegenden Fahrzeug',
@@ -397,6 +429,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein von allen Seiten sichtbares weißes Blinklicht auf der Fahrwasserseite.' },
     ],
     correctAnswer: 'a',
+    hint: 'Stillliegende Kleinfahrzeuge zeigen ein weißes Rundumlicht auf der Fahrwasserseite, damit sie von allen Seiten erkennbar sind.',
     topic: 'lichter',
   },
   {
@@ -409,6 +442,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Mit einem roten Döpper.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gelbe Döpper markieren tagsüber behindernde Anker nach den Vorschriften für Schifffahrtszeichen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -421,6 +455,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ausfahrt verboten, Schließen der Schleuse wird vorbereitet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot oder rot-grün vor der Schleuse: kein Einfahren; grün signalisiert später freie Einfahrt nach Vorbereitung.',
     topic: 'schleusen',
   },
   {
@@ -433,6 +468,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kleinfahrzeuge fahren nach den Fahrzeugen, die nicht Kleinfahrzeuge sind und ohne Aufforderung in die Schleuse ein.' },
     ],
     correctAnswer: 'a',
+    hint: 'Berufsschifffahrt hat Vorrang; Kleinfahrzeuge folgen auf Anweisung, um die Kammer sicher zu nutzen.',
     topic: 'schleusen',
   },
   {
@@ -445,6 +481,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein blaues Licht meldet brennbare Ladung; beim Liegen gilt der vorgeschriebene Sicherheitsabstand.',
     topic: 'lichter',
   },
   {
@@ -457,6 +494,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei blaue Lichter: gesundheitsschädliche Ladung mit größerem Sicherheitsabstand als bei brennbaren Stoffen.',
     topic: 'lichter',
   },
   {
@@ -469,6 +507,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Drei blaue Lichter: explosive Ladung mit dem größten vorgeschriebenen Abstand.',
     topic: 'lichter',
   },
   {
@@ -481,6 +520,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wenn es 18 m oder länger ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleinfahrzeuge sind Sportboote unter 20 m; ab 20 m gelten die Regeln für größere Fahrzeuge.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -493,6 +533,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Topplicht: weiß 112,5°, Hecklicht 225° weiß, Seitenlichter: Backbord rot und Steuerbord grün, jeweils 112,5°.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die vorgeschriebenen Sektoren (Topplicht 225°, Heck 135°, Seiten je 112,5°) verhindern Überlappungen und Verwechslungen.',
     topic: 'lichter',
   },
   {
@@ -505,6 +546,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Topp- und Hecklicht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleinfahrzeuge ohne Maschine führen mindestens ein weißes Rundumlicht; Seitenlichter sind dafür nicht die Mindestausstattung.',
     topic: 'lichter',
   },
   {
@@ -517,6 +559,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überholen nicht möglich.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein langer Ton bedeutet „Achtung“ oder Aufmerksamkeit nach BinSchStrO-Schallzeichen.',
     topic: 'schallzeichen',
   },
   {
@@ -529,6 +572,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überholen nicht möglich.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vier kurze Töne melden Manövrierunfähigkeit; andere Kombinationen haben andere Bedeutungen.',
     topic: 'schallzeichen',
   },
   {
@@ -541,6 +585,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Achtung!' },
     ],
     correctAnswer: 'a',
+    hint: 'Fünf kurze Töne bedeuten „Überholen nicht möglich“ und warnen vor einem riskanten Überholversuch.',
     topic: 'schallzeichen',
   },
   {
@@ -553,6 +598,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Eine Folge von mindestens 8 Tönen von je etwa einer viertel Sekunde Dauer und mit je einer viertel Sekunde Pause.' },
     ],
     correctAnswer: 'a',
+    hint: 'Sehr kurze Töne sind mindestens sechs Viertelsekunden-Töne mit Viertelsekunden-Pausen – einheitlich definiert.',
     topic: 'schallzeichen',
   },
   {
@@ -565,6 +611,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überholen nicht möglich.' },
     ],
     correctAnswer: 'a',
+    hint: 'Sehr kurze Töne warnen unmittelbar vor Kollisionsgefahr und fordern sofortige Aufmerksamkeit.',
     topic: 'schallzeichen',
   },
   {
@@ -577,6 +624,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'In der Binnenschifferpatentverordnung, bei der Wasserstraßen- und Schifffahrtsverwaltung und der Wasserschutzpolizei.' },
     ],
     correctAnswer: 'a',
+    hint: 'Höchstgeschwindigkeiten stehen in der BinSchStrO und können bei WSV/Polizei erfragt werden.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -589,6 +637,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Zügig überholen. Dicht am Ufer entlang fahren, eventuelle Schallzeichen müssen von Kleinfahrzeugen beachtet werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Überholen muss zügig und mit ausreichend Abstand erfolgen; unnötige Behinderung und rücksichtsloses Beschleunigen sind falsch.',
     topic: 'ausweichregeln',
   },
   {
@@ -601,6 +650,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wenn sich zwei Fahrzeuge einander nähern und beide Fahrzeuge ihren Kurs nach steuerbord ändern.' },
     ],
     correctAnswer: 'a',
+    hint: 'Konstante Peilung (kein seitliches Vorbeiziehen des anderen) zeigt Kollisionsgefahr nach Navigationsregeln.',
     topic: 'ausweichregeln',
   },
   {
@@ -613,6 +663,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Rechtzeitig, klar erkennbar und vorsichtig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ausweichen muss früh, deutlich und entschlossen erfolgen; die Richtung hängt von der Situation ab, nicht pauschal Steuerbord.',
     topic: 'ausweichregeln',
   },
   {
@@ -625,6 +676,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ausweichpflichtig ist das Fahrzeug, welches das andere an seiner Backbordseite sieht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleinfahrzeuge weichen größeren Fahrzeugen auf kreuzenden Kursen aus, wenn Gefahr besteht.',
     topic: 'ausweichregeln',
   },
   {
@@ -637,6 +689,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kleinfahrzeuge sind gegenüber Fahrzeugen, die nicht Kleinfahrzeuge sind, ausweichpflichtig. Sie brauchen aber keinen besonderen Raum zum Manövrieren frei zu geben.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleinfahrzeuge sind gegenüber Nicht-Kleinfahrzeugen ausweichpflichtig und müssen Raum für deren Manöver lassen.',
     topic: 'ausweichregeln',
   },
   {
@@ -649,6 +702,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Liegestelle für alle Fahrzeuge, für Kleinfahrzeuge verboten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Explosivliegeplätze sind für Kleinfahrzeuge gesperrt; das Tafelzeichen weist auf die Gefahrenklasse hin.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -661,6 +715,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Liegestelle für Fahrzeuge mit gefährlichen Gütern, nicht für Kleinfahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Diese Tafeln erlauben ungefährliche Ladungen und auch Kleinfahrzeuge; gefährliche Güter sind ausgeschlossen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -673,6 +728,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Vor Brücken und nach Hochspannungsleitungen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf Schifffahrts- und Schleusenkanälen gilt ohne besondere Kennzeichnung ein Liegeverbot.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -685,6 +741,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die Durchfahrt ist nur durch diese Brückenöffnung und in beide Richtungen gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die grüne Markierung zeigt die empfohlene Brückenöffnung mit Gegenverkehr in beiden Richtungen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -697,6 +754,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die Durchfahrt ist nur durch diese Brückenöffnung und nur in eine Richtung gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein rotes Licht/Verbot der Gegenrichtung bedeutet: empfohlene Durchfahrt nur für eine Fahrtrichtung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -709,6 +767,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Empfohlene Durchfahrt mit Gegenverkehr.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei Tafeln: Durchfahrt nur in der markierten Öffnung zwischen ihnen, nicht seitlich außen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -721,6 +780,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Empfohlene Durchfahrt mit Gegenverkehr.' },
     ],
     correctAnswer: 'a',
+    hint: 'Empfohlene Durchfahrt zwischen den Tafeln ist ein Hinweis, keine alleinige Sperre außerhalb ohne weiteres Zeichen.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -733,6 +793,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Durchfahrt nur neben der Tafel erlaubt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grünes Licht mit Gegenverkehr: empfohlene Öffnung, Begegnung erlaubt.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -745,6 +806,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Durchfahrt nur außerhalb der beiden Tafeln erlaubt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot zeigt: empfohlene Durchfahrt ohne Gegenverkehr in dieser Öffnung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -757,6 +819,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schutzbedürftige Anlage.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Zeichen verbietet die Durchfahrt und sperrt die Schifffahrt im Wehrbereich.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -769,6 +832,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Das letzte Kleinfahrzeug muss so weit einfahren, dass es beim Füllen der Schleuse nicht auf den Drempel aufsetzen kann.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das letzte Boot muss den Drempel freihalten; Leinen müssen Stöße vermeiden und zum Fieren taugen.',
     topic: 'schleusen',
   },
   {
@@ -781,6 +845,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug ohne Maschinenantrieb länger als 110 m.' },
     ],
     correctAnswer: 'a',
+    hint: 'Drei Topplichter in Dreieck und die angegebenen Hecklichter kennzeichnen sehr lange Maschinenfahrzeuge.',
     topic: 'lichter',
   },
   {
@@ -793,6 +858,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug eines Schleppverbandes.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schlepptrossen-Sichtzeichen identifizieren das Schleppfahrzeug an der Spitze des Verbandes.',
     topic: 'sichtzeichen',
   },
   {
@@ -805,6 +871,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schleppfahrzeug an der Spitze eines Schleppverbandes.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Sichtzeichen kennzeichnet ein geschlepptes Fahrzeug innerhalb des Schleppverbandes.',
     topic: 'sichtzeichen',
   },
   {
@@ -817,6 +884,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schubverband unter 110 m Länge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schubverbände zeigen die vorgeschriebenen kombinierten Lichter von vorn, die sich von Einzelfahrzeugen unterscheiden.',
     topic: 'lichter',
   },
   {
@@ -829,6 +897,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schubverband von Steuerbordseite.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nicht frei fahrende Fähren haben ein eigenes Lichtbild gemäß BinSchStrO.',
     topic: 'lichter',
   },
   {
@@ -841,6 +910,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schubverband von Steuerbordseite.' },
     ],
     correctAnswer: 'a',
+    hint: 'Frei fahrende Fähren unterscheiden sich in den Lichtern von fest geführten Fähren.',
     topic: 'lichter',
   },
   {
@@ -853,6 +923,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Eine blaue Flagge entspricht einem blauen Licht: brennbare Ladung mit Mindestabstand.',
     topic: 'sichtzeichen',
   },
   {
@@ -865,6 +936,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei blaue Flaggen entsprechen gesundheitsschädlicher Ladung mit größerem Abstand.',
     topic: 'sichtzeichen',
   },
   {
@@ -877,6 +949,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug der Überwachungsbehörden im Einsatz.' },
     ],
     correctAnswer: 'a',
+    hint: 'Drei blaue Flaggen melden explosive Ladung und den größten Sicherheitsabstand.',
     topic: 'sichtzeichen',
   },
   {
@@ -889,6 +962,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes Fahrzeug, das einseitig nicht passierbar ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der rote Ball zeigt ein von der Behörde gewährtes Vorrangrecht an bestimmten Stellen.',
     topic: 'sichtzeichen',
   },
   {
@@ -901,6 +975,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die Handlampe nach oben halten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Handlampe soll die eigenen Segel beleuchten, damit andere das Fahrzeug erkennen und Kollisionen vermeiden.',
     topic: 'lichter',
   },
   {
@@ -913,6 +988,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es muss ein zweites weißes Topplicht geführt werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Mit laufendem Motor gilt das Fahrzeug als maschinengetrieben; Seitenlichter (Zweifarbenlaterne) sind erforderlich.',
     topic: 'lichter',
   },
   {
@@ -925,6 +1001,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Lichter eines Kleinfahrzeugs mit Maschinenantrieb und ein zweites weißes Topplicht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schleppendes Kleinfahrzeug mit Motor führt die Lichter des Maschinenkleinfahrzeugs.',
     topic: 'lichter',
   },
   {
@@ -937,6 +1014,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Weißes Funkellicht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das geschleppte Boot führt ein weißes Rundumlicht, nicht die vollen Maschinenlichter des Zuges.',
     topic: 'lichter',
   },
   {
@@ -949,6 +1027,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es wechselt den Kurs nach Steuerbord und hält die Geschwindigkeit.' },
     ],
     correctAnswer: 'a',
+    hint: 'Segelfahrzeug gegenüber Maschine: Segler ist „Wind-Stand“-Fahrzeug und behält Kurs/ Geschwindigkeit.',
     topic: 'ausweichregeln',
   },
   {
@@ -961,6 +1040,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es muss ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei mit Seitenlichtern/Maschine: das eine ist gegenüber dem anderen „Wind-Stand“, je nach Rollenverteilung in der BinSchStrO.',
     topic: 'ausweichregeln',
   },
   {
@@ -973,6 +1053,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es muss nicht ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Segelsurfer gelten wie Segelfahrzeug ohne Maschine; Motorboote weichen aus.',
     topic: 'ausweichregeln',
   },
   {
@@ -985,6 +1066,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Beide Segelyachten, weil eines als Kleinfahrzeug mit Maschinenantrieb gilt und das andere den Wind von Backbord hat.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schwarzer Kegel zeigt Maschinennutzung an; dann gelten die Regeln für Maschinenfahrzeuge gegenüber reinem Segler.',
     topic: 'ausweichregeln',
   },
   {
@@ -997,6 +1079,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wenn sie den Wind von derselben Seite haben, müssen beide Fahrzeuge ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei unterschiedlicher Windseite weicht der mit Wind von Backbord dem mit Wind von Steuerbord aus.',
     topic: 'ausweichregeln',
   },
   {
@@ -1009,6 +1092,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün-weiß-grün mit Rundumlichtern: Arbeitsgerät, Vorbeifahrt möglich, Sog vermeiden.',
     topic: 'sichtzeichen',
   },
   {
@@ -1021,6 +1105,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Tagsüber gelten die gleichen Sichtzeichen wie nachts die Lichter für schwimmende Arbeitsgeräte.',
     topic: 'sichtzeichen',
   },
   {
@@ -1033,6 +1118,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der roten Seite gestattet; rot-weiße Seite gesperrt. Sog und Wellenschlag vermeiden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-weiße Seite frei, rote Seite gesperrt: Festlieger oder Wrack, eng passieren und Sog vermeiden.',
     topic: 'lichter',
   },
   {
@@ -1045,6 +1131,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der roten Seite gestattet; rot-weiße Seite gesperrt. Sog und Wellenschlag vermeiden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Tagsüber zeigen dieselben Tafeln die passierbare Seite des festliegenden Wracks.',
     topic: 'sichtzeichen',
   },
   {
@@ -1057,6 +1144,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an der roten Seite gestattet; grüne Seite gesperrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün frei, rot gesperrt: Arbeitsgerät; die andere Antwort ergänzt fälschlich das Sog-Verbot.',
     topic: 'lichter',
   },
   {
@@ -1069,6 +1157,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an der roten Seite gestattet; grüne Seite gesperrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Sichtzeichen spiegeln dasselbe grün/rot-Schema wie die Lichter für schwimmende Geräte.',
     topic: 'sichtzeichen',
   },
   {
@@ -1081,6 +1170,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Seite mit dem rot-weiß-roten Tafelzeichen gestattet; grün-weiß-grüne Seite gesperrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün-weiß-grün gegenüber rot-weiß-rot markiert die freie bzw. gesperrte Seite eines schwimmenden Geräts.',
     topic: 'sichtzeichen',
   },
   {
@@ -1093,6 +1183,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei grüne und ein weißes Licht ohne Sog-Hinweis: Vorbeifahrt beidseitig möglich.',
     topic: 'lichter',
   },
   {
@@ -1105,6 +1196,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Tagessichtzeichen ohne Zusatz „Sog vermeiden“ entsprechen der lichten Fassung.',
     topic: 'sichtzeichen',
   },
   {
@@ -1117,6 +1209,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Antwort A beschreibt die Bedeutung des gezeigten Sichtzeichens: schwimmendes Arbeitsgerät mit Vorbeifahrt auf beiden Seiten; die übrigen Varianten betreffen festgefahrene Fahrzeuge oder Sperren.',
     topic: 'sichtzeichen',
   },
   {
@@ -1129,6 +1222,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schwimmende Anlage / Schwimmkörper. Vorbeifahrt in möglichst weitem Abstand, Geschwindigkeit vermindern, Sog und Wellenschlag vermeiden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-weiße Flagge/Lichter kennzeichnen besonders schutzbedürftige Fahrzeuge: langsam, weit weg, kein Sog.',
     topic: 'sichtzeichen',
   },
   {
@@ -1141,6 +1235,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Gesperrte Wasserfläche, Verbot der Durchfahrt und Sperrung der Schifffahrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Tafel erlaubt Kleinfahrzeuge ohne Motor in der Sperre; andere Antworten sind zu weit gehend.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1153,6 +1248,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrverbot für Kleinfahrzeuge ohne laufende Antriebsmaschine.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Zeichen verbietet Maschinenfahrzeuge; Ruderboote ohne Motor sind nicht gemeint.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1165,6 +1261,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Durch rot-grün gestreifte Tonnen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Geschützte Badezonen sind mit gelben Tonnen gekennzeichnet.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1177,6 +1274,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wenden über Backbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein langer und zwei kurze Töne melden Wenden über Steuerbord.',
     topic: 'schallzeichen',
   },
   {
@@ -1189,6 +1287,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kursänderung nach Steuerbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein langer und drei kurze Töne melden Wenden über Backbord.',
     topic: 'schallzeichen',
   },
   {
@@ -1201,6 +1300,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei lang, ein kurz: Überholen auf der Steuerbordseite des Vorausfahrenden anzeigen.',
     topic: 'schallzeichen',
   },
   {
@@ -1213,6 +1313,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei lang, zwei kurz: Überholen auf der Backbordseite des Vorausfahrenden.',
     topic: 'schallzeichen',
   },
   {
@@ -1225,6 +1326,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein langer Ton: Hafen-/Nebenwasserstraße mit Kursänderung nach Steuerbord.',
     topic: 'schallzeichen',
   },
   {
@@ -1237,6 +1339,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überholen an der Steuerbordseite des Vorausfahrenden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zwei kurze Töne: Hafen-/Nebenwasserstraße mit Kursänderung nach Backbord.',
     topic: 'schallzeichen',
   },
   {
@@ -1249,6 +1352,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Eine Gruppe von kurzen und langen Tönen im Intervall geben. Bei Nacht ein rotes Blinklicht einschalten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Manövrierunfähigkeit: vier kurze Töne plus Tag/Nacht-Sichtzeichen nach Vorschrift.',
     topic: 'schallzeichen',
   },
   {
@@ -1261,6 +1365,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeuge begegnen sich an Steuerbord. Dieses Zeichen gilt auch für alle Kleinfahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Blaue Tafel mit Funkellicht: Begegnung an Steuerbord; für Kleinfahrzeuge nur Hinweis, kein Zwangssignal.',
     topic: 'sichtzeichen',
   },
   {
@@ -1273,6 +1378,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Das aus- und die einfahrenden Fahrzeuge passieren sich an der Backbordseite, das Kleinfahrzeug hat Vorrang.' },
     ],
     correctAnswer: 'a',
+    hint: 'In Schleusen gilt dasselbe Begegnungszeichen: Passieren an Steuerbord, Kleinfahrzeuge achten verstärkt.',
     topic: 'schleusen',
   },
   {
@@ -1285,6 +1391,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeuge die geschoben werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Geschleppte oder längsseits gekuppelte Kleinfahrzeuge zeigen nur ein weißes Rundumlicht in Fahrt.',
     topic: 'lichter',
   },
   {
@@ -1297,6 +1404,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es darf ein anderes Kleinfahrzeug, das sein steuerbordseitiges Ufer anhält, zum Ausweichen zwingen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Uferhaltendes Boot darf nicht durch kreuzendes Segeln in die Enge getrieben werden.',
     topic: 'ausweichregeln',
   },
   {
@@ -1309,6 +1417,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Beide Fahrzeuge sind ausweichpflichtig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Segler gegenüber Maschinenfahrzeug am Ufer: Segler weicht aus (Regel der wechselnden Ausweichpflicht nach Fahrzeugart).',
     topic: 'ausweichregeln',
   },
   {
@@ -1321,6 +1430,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Beide Fahrzeuge sind ausweichpflichtig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Mit schwarzem Kegel (Motor) gilt das Segelfahrzeug als maschinengetrieben und ist ausweichpflichtig gegenüber reinem Maschinenfahrzeug.',
     topic: 'ausweichregeln',
   },
   {
@@ -1333,6 +1443,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ausweichpflichtig ist das Fahrzeug, welches den Wind von Backbord hat.' },
     ],
     correctAnswer: 'a',
+    hint: 'Mit schwarzem Kegel ist Boot A als motorisiertes Segelfahrzeug ausweichpflichtig gegenüber reinem Segler B.',
     topic: 'ausweichregeln',
   },
   {
@@ -1345,6 +1456,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Beide sind ausweichpflichtig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Maschinenfahrzeug weicht dem Segler, der die Fahrrinne kreuzt, aus (Vorrang des Seglers in dieser Konstellation).',
     topic: 'ausweichregeln',
   },
   {
@@ -1357,6 +1469,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'B ist ausweichpflichtig. Segelfahrzeuge mit Wind von Steuerbord müssen Segelfahrzeugen mit Wind von Backbord ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wind von Backbord muss Wind von Steuerbord ausweichen – klassische Segelregel der BinSchStrO.',
     topic: 'ausweichregeln',
   },
   {
@@ -1369,6 +1482,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'B ist ausweichpflichtig. Das leeseitige Boot muss dem luvseitigen ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei gleichem Wind weicht das luvseitige (windwärts) dem leeseitigen aus.',
     topic: 'ausweichregeln',
   },
   {
@@ -1381,6 +1495,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Boot B ist ausweichpflichtig, weil es sich um ein Kleinfahrzeug handelt und Kleinfahrzeuge anderen Kleinfahrzeugen unter Segel ausweichen müssen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei unklarer Windlage hat der mit Wind von Backbord größere Vorsichtspflicht und weicht aus.',
     topic: 'ausweichregeln',
   },
   {
@@ -1393,6 +1508,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Boot C, weil leeseitig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das leeseitige Boot (A) darf Kurs halten; die luvseitigen müssen ausweichen.',
     topic: 'ausweichregeln',
   },
   {
@@ -1405,6 +1521,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'A gegenüber B und C, C gegenüber B.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kurshaltepflicht: das am weitesten lee stehende weicht zuerst; hier A gegenüber B und C, B gegenüber C.',
     topic: 'ausweichregeln',
   },
   {
@@ -1417,6 +1534,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Rettungswesten anlegen und mit geeigneten Mitteln Hilfe herbeiholen. Gegebenenfalls Segel bergen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nach Seenot- und Erste-Hilfe-Logik zählt zuerst Personensicherung und Warten auf Hilfe; unkontrolliertes Herumschwimmen ist oft gefährlicher.',
     topic: 'sicherheit',
   },
   {
@@ -1429,6 +1547,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeuge, die an einer Regatta teilnehmen, müssen unbeteiligten Fahrzeugen ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Für Nicht-Teilnehmer gelten die Verkehrsregeln der BinSchStrO, nicht die Wettfahrtregeln.',
     topic: 'ausweichregeln',
   },
   {
@@ -1441,6 +1560,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Geschlepptes Kleinfahrzeug.' },
     ],
     correctAnswer: 'a',
+    hint: 'Topplicht und grün-rotes Seitenlichtpaar zeigen ein Kleinfahrzeug mit Maschine.',
     topic: 'lichter',
   },
   {
@@ -1453,6 +1573,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Beide sind ausweichpflichtig.' },
     ],
     correctAnswer: 'a',
+    hint: 'Maschinenkleinfahrzeug weicht dem Segler auf kreuzendem Kurs aus.',
     topic: 'ausweichregeln',
   },
   {
@@ -1465,6 +1586,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kleinfahrzeug unter Segel mit Maschinenantrieb.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nur ein weißes Licht deutet auf ein Kleinfahrzeug ohne Maschinenantrieb hin.',
     topic: 'lichter',
   },
   {
@@ -1477,6 +1599,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kleinfahrzeug unter Segel mit Maschinenantrieb.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zweifarbenlaterne plus Topplicht: fahrendes Motor-Kleinfahrzeug von achtern.',
     topic: 'lichter',
   },
   {
@@ -1489,6 +1612,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Durchfahrt für Kleinfahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün-weiße Zusatzlichter weisen auf Sog- und Wellenschlaggefahr hin.',
     topic: 'lichter',
   },
   {
@@ -1501,6 +1625,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Vor Hafeneinmündungen, an Lade-, Lösch- und Liegeplätzen, in der Nähe nicht frei fahrender Fähren, auf gekennzeichneten Strecken, in der Nähe schwimmender Schifffahrtszeichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vor Häfen, Anlegeplätzen, Fähren, gekennzeichneten Strecken und Arbeitsschiffen ist Tempo zu reduzieren.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1513,6 +1638,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Empfohlene Fahrtrichtung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Pfeil: verbindliche Fahrtrichtung, nicht nur Empfehlung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1525,6 +1651,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Achtung Ausfahrt aus Hafen oder Nebenfahrwasser.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rotes Licht beim Ein-/Ausfahrtszeichen verbietet die Einfahrt in Hafen/Nebenwasserstraße.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1537,6 +1664,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: '10 km/h für größere Fahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Tafel begrenzt die Geschwindigkeit über Grund, bezogen auf das Ufer (10 km/h).',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1549,6 +1677,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Gebot: Vor dem Schild anhalten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ausrufezeichen: allgemeines Gebot besonderer Vorsicht.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1561,6 +1690,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wendeverbot in der Mitte des Fahrwassers.' },
     ],
     correctAnswer: 'a',
+    hint: 'U-Form: Wendeverbot an dieser Stelle.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1573,6 +1703,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Vorgeschriebener Wendeplatz. Stillliegen von Kleinfahrzeugen erlaubt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Empfohlener Wendeplatz – dort Stillliegen verboten, um Kollisionen zu vermeiden.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1585,6 +1716,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sicherheitstor.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Symbol zeigt ein Wehr, nicht eine Schleuse oder Brücke.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1597,6 +1729,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Dämmerung, Nebel, Schneefall, starker Regen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Unsichtiges Wetter liegt bei eingeschränkter Sicht durch Nebel, Schnee oder starken Regen vor; reine Dunkelheit ist nicht „unsichtiges Wetter“ im Sinne der Frage.',
     topic: 'seemannschaft',
   },
   {
@@ -1609,6 +1742,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Mit einer Radaranlage ohne Wendeanzeiger und einer Sprechfunkanlage für den Binnenschifffahrtsfunk.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fahrt bei unsichtigem Wetter auf den betroffenen Strecken erfordert zugelassenes Radar und Binnenschifffunk.',
     topic: 'seemannschaft',
   },
   {
@@ -1621,6 +1755,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Auf allen Wasserstraßen ist ohne Radar und ECDIS die Fahrt unverzüglich einzustellen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf den ausgewiesenen Wasserstraßen ist ohne Radar und Sprechfunk bei unsichtigem Wetter Fahrtende zu machen.',
     topic: 'seemannschaft',
   },
   {
@@ -1633,6 +1768,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Bessere Erkennbarkeit des Sportbootes bei unsichtigem Wetter.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein Radarreflektor erhöht die elektromagnetische Rückstrahlfläche für Radar anderer Fahrzeuge.',
     topic: 'technik',
   },
   {
@@ -1645,6 +1781,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein Schutzkleinspannungsschalter.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fehlerstromschutzschalter schützen vor lebensgefährlichen Leckströmen an Landstrom.',
     topic: 'technik',
   },
   {
@@ -1657,6 +1794,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Drei kurze Töne geben, keine Glockenschläge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Not: wiederholte lange Töne oder Glockenschläge sind international übliche Hilferufe.',
     topic: 'sicherheit',
   },
   {
@@ -1669,6 +1807,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schützenswertes Fahrzeug, Vermeidung von Sog und Wellenschlag.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Kreisen einer roten Flagge meldet Notstand und Hilfebedarf am Tag; es ist kein Manövrierbehinderungszeichen.',
     topic: 'sicherheit',
   },
   {
@@ -1681,6 +1820,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kreisförmiges Schwenken der Arme ist zu vermeiden, das Surfsegel ist möglichst senkrecht zu stellen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Segelsurfer ohne Hupe: Arme schwenken signalisiert Not analog zu anderen Kleinfahrzeugen.',
     topic: 'sicherheit',
   },
   {
@@ -1693,6 +1833,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'An Bord sammeln. Die Abgabe ist an jeder Schleuse möglich.' },
     ],
     correctAnswer: 'a',
+    hint: 'Abfälle gehören an Land in die Entsorgung; Einleiten ins Wasser ist verboten.',
     topic: 'umwelt',
   },
   {
@@ -1705,6 +1846,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Einer Person jeden Alters, die körperlich und geistig geeignet ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Ruder darf nur an mindestens 16-jährige, geeignete Personen übergeben werden.',
     topic: 'fuehrerschein',
   },
   {
@@ -1717,6 +1859,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Alle Schiffe müssen mit Fäkalientanks ausgerüstet sein und geeignete Behältnisse für die getrennte Aufnahme von Abfällen an Bord haben.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kein Abfall ins Wasser; Fäkalien und Öle sind an Land zu entsorgen.',
     topic: 'umwelt',
   },
   {
@@ -1729,6 +1872,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Unterwasserarbeiten dürfen nur von zertifizierten Fachbetrieben, nach den Bestimmungen des Umweltschutzes ausgeführt werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Antifouling-Staub und Abfall sind als Sondermüll zu fassen und umweltgerecht zu entsorgen.',
     topic: 'umwelt',
   },
   {
@@ -1741,6 +1885,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Rettungsweste anlegen. Segel setzen, versuchen die Gewässermitte anzulaufen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Sturm: Rettungsweste, Segel reduzieren, geschützten Anlauf suchen – nicht mehr Segelfläche riskieren.',
     topic: 'sicherheit',
   },
   {
@@ -1753,6 +1898,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die rechte Fahrrinnenseite, gekennzeichnet durch grüne Spitztonnen oder Schwimmstangen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Talfahrer hat links die grüne Fahrrinnenseite an Backbord – spiegelbildlich zur Bergfahrt.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -1765,6 +1911,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Besseres Wetter, Sonne.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fallender Luftdruck deutet auf Tiefdruck und oft schlechteres Wetter mit Wind.',
     topic: 'wetter',
   },
   {
@@ -1777,6 +1924,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schlechtes Wetter, Starkwind oder Sturm.' },
     ],
     correctAnswer: 'a',
+    hint: 'Steigender Druck spricht meist für ruhigeres, freundlicheres Wetter.',
     topic: 'wetter',
   },
   {
@@ -1789,6 +1937,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Überall, ohne die Schifffahrt zu gefährden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wasserski nur in ausgewiesenen Tafelbereichen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1801,6 +1950,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sonnenaufgang bis -untergang, Sicht 300 m und mehr.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wasserski nur bei Tag und mindestens 1000 m Sicht.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1813,6 +1963,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Er muss uferseitig des Kielwassers fahren.' },
     ],
     correctAnswer: 'a',
+    hint: 'Skifahrer muss im Kielwasser bleiben, um seitliche Abdrift und Kollisionen zu vermeiden.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1825,6 +1976,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ab Hochwassermarke I nur im Fahrwasser.' },
     ],
     correctAnswer: 'a',
+    hint: 'Außerhalb der Zonen: Wassermotorrad nur bei Tour mit klarem Geradeauskurs erlaubt.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1837,6 +1989,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Am Rande der Fahrrinne fahren.' },
     ],
     correctAnswer: 'a',
+    hint: 'Klarer Geradeauskurs ist vorgeschrieben, um unkontrollierte Kurvenfahrten zu vermeiden.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1849,6 +2002,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Auf allen deutschen Wasserstraßen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Segelfahrerlaubnis in Berlin/Brandenburg ist landesrechtlich beschränkt.',
     topic: 'fuehrerschein',
   },
   {
@@ -1861,6 +2015,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Weil die jeweils geltenden Vorschriften wichtige Informationen über die Brückendurchfahrtshöhen enthalten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fremde Gewässer können andere Regeln haben; nur Information sichert rechtmäßiges Fahren.',
     topic: 'fuehrerschein',
   },
   {
@@ -1873,6 +2028,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Der Sportbootführerschein mit dem Geltungsbereich Seeschifffahrtsstraßen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf dem Rhein bis 25 m ist das Sportpatent (oder gleichwertiger Nachweis) erforderlich.',
     topic: 'fuehrerschein',
   },
   {
@@ -1885,6 +2041,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Der Sportbootführerschein mit dem Geltungsbereich Binnenschifffahrtsstraßen zum Führen von Sportbooten mit Antriebsmaschine oder das Sportpatent.' },
     ],
     correctAnswer: 'a',
+    hint: 'Für 20–25 m außerhalb Rhein sind Sportschifferzeugnis oder Sportpatent erforderlich; SBF allein reicht nicht.',
     topic: 'fuehrerschein',
   },
   {
@@ -1897,6 +2054,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'In der Kleinfahrzeugkennzeichenverordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Teil II BinSchStrO listet die Wasserstraßen und Grenzen; Teil I enthält Regeln.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1909,6 +2067,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Es ist gegebenenfalls die Genehmigung des Eigentümers einzuholen sowie die Binnenschifffahrtsstraßen-Ordnung zu beachten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Landesgewässer: Eigentümerbefahren und Befahrensordnung beachten.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1921,6 +2080,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kennzeichen gemäß Konformitätserklärung (CE-Zeichen).' },
     ],
     correctAnswer: 'a',
+    hint: 'Amtliche und amtlich anerkannte Kennzeichen sind zulässig.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1933,6 +2093,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Der Allgemeine Deutsche Automobilclub.' },
     ],
     correctAnswer: 'a',
+    hint: 'WSA-Zuteilung von amtlichen Kennzeichen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1945,6 +2106,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Die europäische Schiffsnummer, gefolgt vom Kennbuchstaben für die ausstellende Organisation.' },
     ],
     correctAnswer: 'a',
+    hint: 'Anerkannte Kennzeichen: IBS-Nummer plus Organisationsbuchstabe.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1957,6 +2119,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Amtsgerichte, bei denen ein Schiffsregister geführt wird.' },
     ],
     correctAnswer: 'a',
+    hint: 'DMYV, DSV und ADAC dürfen amtlich anerkannte Kennzeichen vergeben.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1969,6 +2132,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ab 15 m Schiffslänge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Eintragung ab 10 m³ Verdrängung im Binnenschiffsregister.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1981,6 +2145,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Er muss die Geschwindigkeit anpassen und soweit wie möglich in der Fahrwassermitte bleiben, besondere Geschwindigkeitsbegrenzungen und Fahrtbeschränkungen sind nicht zu beachten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hochwasser: Geschwindigkeit anpassen, Fahrwassermitte wenn möglich, lokale Verbote beachten.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -1993,6 +2158,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Er hat das Verbot der Schifffahrt bei Nacht zu beachten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hochwassermarke II: Fahrt unverzüglich einstellen.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -2005,6 +2171,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sie befindet sich auf der linken Fahrrinnenseite und muss an Backbordseite des Schiffes passiert werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zu Tal: rote Tonne rechte Fahrrinnenseite, an Steuerbord vorbeifahren.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2017,6 +2184,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sie befindet sich auf der linken Fahrrinnenseite und muss an der Steuerbordseite des Schiffes passiert werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zu Berg: rote Tonne rechte Fahrrinnenseite, an Backbord vorbeifahren.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2029,6 +2197,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Sie befindet sich auf der rechten Fahrrinnenseite und muss an der Backbordseite des Schiffes passiert werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gegenstrom: grüne Tonne links, an Steuerbord passieren.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2041,6 +2210,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Kenntlichmachung einer Untiefe im Brückenbereich.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gelbe Tonnen mit Reflektor markieren Brückenpfeiler auf dem Radarschirm.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2053,6 +2223,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Empfohlene Durchfahrt mit Gegenverkehr ohne seitliche Begrenzung der erlaubten Brückendurchfahrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Tafeln zeigen empfohlene Durchfahrt mit Gegenverkehr und seitliche Begrenzung.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2065,6 +2236,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schutzbedürftige Anlage.' },
     ],
     correctAnswer: 'a',
+    hint: 'Durchfahrtssperre an der Brücke: Schifffahrt gesperrt.',
     topic: 'schifffahrtszeichen',
   },
   {
@@ -2077,6 +2249,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Autoreifen sind schwimmfähig und können in der Schleuse zu erheblichen Störungen führen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Autoreifen sind nicht schwimmfähig und können in Schleusen Klemmen und Störungen verursachen.',
     topic: 'schleusen',
   },
   {
@@ -2089,6 +2262,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Drei weiße Topplichter waagerecht nebeneinander, die Seitenlichter und drei weiße Hecklichter waagerecht nebeneinander.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schubverband: Dreieck-Topplichter, Seitenlichter, drei Hecklichter nebeneinander.',
     topic: 'lichter',
   },
   {
@@ -2101,6 +2275,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein Fahrzeug, das brennbare Stoffe geladen hat.' },
     ],
     correctAnswer: 'a',
+    hint: 'Roter Wimpel: Schleusenvorrang nach örtlichen Vorschriften.',
     topic: 'schleusen',
   },
   {
@@ -2113,6 +2288,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Wenn das Fahrzeug eine Länge von mehr als 20 m hat.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleinfahrzeug: unter 20 m Länge.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -2125,6 +2301,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Schutzbedürftiges Fahrzeug, Sog und Wellenschlag vermeiden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-weiße Flagge/Lichter: schutzbedürftiges Fahrzeug – vorsichtig und mit Abstand.',
     topic: 'sichtzeichen',
   },
   {
@@ -2137,6 +2314,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Eine rote Flagge zeigen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Manövrierunfähigkeit: rote Flagge statt vier kurzer Töne bei Tag.',
     topic: 'schallzeichen',
   },
   {
@@ -2149,6 +2327,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Ein rotes Licht zeigen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Nacht: rotes schwenkendes Licht statt vier kurzer Töne.',
     topic: 'schallzeichen',
   },
   {
@@ -2161,6 +2340,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Das SRC-Sprechfunkzeugnis für den Binnenschifffahrtsfunk.' },
     ],
     correctAnswer: 'a',
+    hint: 'Binnenschifffunk erfordert das UKW-Sprechfunkzeugnis für den Binnenschifffahrtsfunk.',
     topic: 'fuehrerschein',
   },
   {
@@ -2173,6 +2353,7 @@ export const binnenSpecificQuestions: Question[] = [
       { key: 'd', text: 'Eine Fahrt am Tage mit Radar.' },
     ],
     correctAnswer: 'a',
+    hint: 'Radarfahrt ist Fahrt bei unsichtigem Wetter unter Nutzung des Radars.',
     topic: 'seemannschaft',
   },
 ];
@@ -2188,6 +2369,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Eine Yacht mit zwei Kielen hintereinander.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein Kimmkieler hat zwei Kiele nebeneinander (Kimm), nicht zwei Kiele in Reihe.',
     topic: 'segeln',
   },
   {
@@ -2200,6 +2382,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Der Kiel lässt sich aufholen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kimmkieler können mit beiden Kielen auf Grund stehen und trockenfallen.',
     topic: 'segeln',
   },
   {
@@ -2212,6 +2395,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Eine Yacht mit zwei Seitenkielen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kielschwertyacht: flacher Kiel plus Schwert für Tiefgang und Aufholbarkeit.',
     topic: 'segeln',
   },
   {
@@ -2224,6 +2408,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Durch das Druckgefälle zwischen Luft- und Wasserdruck.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bodenlenzventile nutzen den Fahrtunterdruck, um Bilgewater abzusaugen.',
     topic: 'segeln',
   },
   {
@@ -2236,6 +2421,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Fähigkeit eines Schiffes über Jahre die Rumpfform auch bei starker Beanspruchung beizubehalten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Formstabilität entsteht durch breiten Rumpf und Wasserlinienform, nicht nur durch Ballast.',
     topic: 'segeln',
   },
   {
@@ -2248,6 +2434,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Fähigkeit eines Schiffes, durch seine Rumpfform der Krängung entgegenzuwirken.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gewichtsstabilität kommt vom tief liegenden Ballast gegen Krängung.',
     topic: 'segeln',
   },
   {
@@ -2260,6 +2447,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Trimarane sind vorwiegend "gewichtsstabil".' },
     ],
     correctAnswer: 'a',
+    hint: 'Kielyachten sind überwiegend gewichtsstabil.',
     topic: 'segeln',
   },
   {
@@ -2272,6 +2460,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Kielschwertyachten sind vorwiegend "formstabil".' },
     ],
     correctAnswer: 'a',
+    hint: 'Jollen sind typischerweise formstabil (breiter Rumpf).',
     topic: 'segeln',
   },
   {
@@ -2284,6 +2473,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Durch Ausfahren von sogenannten Trimmklappen oder eines Zusatzschwertes.' },
     ],
     correctAnswer: 'a',
+    hint: 'Trapeze und Ausreiten verlagern Gewicht nach außen und erhöhen das richtende Moment.',
     topic: 'segeln',
   },
   {
@@ -2296,6 +2486,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Es nimmt anfangs ab und erreicht sein Minimum, bis Auftriebs- und Gewichtsschwerpunkt übereinander liegen, anschließend kentert die Jolle.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Jolle steigt das Moment bis zu einem Maximum, dann sinkt es bis zur Kentergrenze.',
     topic: 'segeln',
   },
   {
@@ -2308,6 +2499,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Es nimmt bis 90° Krängung ab und dann stetig zu.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kielyacht: richtendes Moment wächst lange mit Krängung und kippt erst bei sehr großen Winkeln.',
     topic: 'segeln',
   },
   {
@@ -2320,6 +2512,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Segel bergen, Motor starten und in Rückwärtsfahrt das Ufer ansteuern.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ruderbruch: Ersatznotruder/Paddel, Fahrwasser verlassen, Manövrierunfähigkeit signalisieren.',
     topic: 'segeln',
   },
   {
@@ -2332,6 +2525,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Durch Ersetzen der Pinne durch ein Rad.' },
     ],
     correctAnswer: 'a',
+    hint: 'Pinnenausleger bringt die Pinne bei Krängung in Reichweite.',
     topic: 'segeln',
   },
   {
@@ -2344,6 +2538,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Damit es nicht durch UV-Strahlung beschädigt wird.' },
     ],
     correctAnswer: 'a',
+    hint: 'Tauwerk klar aufschießen verhindert Knoten und Verheddern im Ernstfall.',
     topic: 'segeln',
   },
   {
@@ -2356,6 +2551,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Damit sie nicht mit den Schoten verwechselt werden können.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fallen klar, damit sie sicher und schnell gefiert werden können.',
     topic: 'segeln',
   },
   {
@@ -2368,6 +2564,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Vorstag, Unterwant, Achterstag.' },
     ],
     correctAnswer: 'a',
+    hint: 'Eckpunkte: Kopf, Hals, Schothorn.',
     topic: 'segeln',
   },
   {
@@ -2380,6 +2577,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Kopf, Hals, Schothorn.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kanten: Vorliek, Unterliek, Achterliek.',
     topic: 'segeln',
   },
   {
@@ -2392,6 +2590,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Der Möglichkeit das Segel auch bei Starkwind nutzen zu können.' },
     ],
     correctAnswer: 'a',
+    hint: 'Latten geben Profil und steifen das Segel.',
     topic: 'segeln',
   },
   {
@@ -2404,6 +2603,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Killen führt zu Beschädigungen an nebeneinander liegenden Schiffen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Killen knickt das Tuch und zerstört Nähte auf Dauer.',
     topic: 'segeln',
   },
   {
@@ -2416,6 +2616,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Weil Feuchtigkeit in das Segel eindringen kann.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleine Risse wachsen unter Winddruck schnell zu großen Schäden.',
     topic: 'segeln',
   },
   {
@@ -2428,6 +2629,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'An den Trimmfäden im Großsegel.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rauch, Flaggen und Landzeichen zeigen den wahren Wind.',
     topic: 'segeln',
   },
   {
@@ -2440,6 +2642,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Windrichtung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Windex zeigt den scheinbaren Wind an Bord (Wind plus Fahrt).',
     topic: 'segeln',
   },
   {
@@ -2452,6 +2655,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Auf Raumschotkurs.' },
     ],
     correctAnswer: 'a',
+    hint: 'Auf Vorwindkurs stimmen Fahrtwind und wahrer Wind in der Richtung überein.',
     topic: 'segeln',
   },
   {
@@ -2464,6 +2668,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Der scheinbare Wind ist unabhängig von der Windrichtung immer schwächer als der wahre Wind.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vorwind: Fahrtwind gegen den wahren Wind – scheinbarer Wind schwächer.',
     topic: 'segeln',
   },
   {
@@ -2476,6 +2681,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Da der scheinbare Wind unabhängig von der Windrichtung immer stärker als der wahre Wind ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Am Wind: Fahrtwind und wahrer Wind addieren sich – scheinbarer Wind stärker.',
     topic: 'segeln',
   },
   {
@@ -2488,6 +2694,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Bei Amwindkurs streicht der Wind am tragflächenartig gewölbten Segel entlang und wird dadurch beschleunigt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Anderes Boot gleicher Klasse: scheinbarer Wind auf Amwind stärker als auf Raumschot- und Vorwindkursen.',
     topic: 'segeln',
   },
   {
@@ -2500,6 +2707,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Da die Windrichtung durch die Segelstellung beeinflusst wird, verändert sich auch der scheinbare Wind.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bö erhöht zuerst den wahren Wind; der Fahrtwind bleibt kurz – scheinbarer Wind dreht auf Raumschot.',
     topic: 'segeln',
   },
   {
@@ -2512,6 +2720,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Ein Spinnacker kann gesetzt werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nach Bö mitdrehen (mitluvieren) nutzt die kurz drehende Windrichtung für Höhe.',
     topic: 'segeln',
   },
   {
@@ -2524,6 +2733,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Es sollte bei stärkerem Wind ganz aufgeholt werden, um die Steuerfähigkeit der Jolle zu verbessern.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vorwind: Schwert hoch, weniger Widerstand und weniger Kentergefahr bei Halse.',
     topic: 'segeln',
   },
   {
@@ -2536,6 +2746,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Abdrift wird kleiner, die Krängung nimmt ab.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schwert aufholen vergrößert Abdrift, verringert Krängung.',
     topic: 'segeln',
   },
   {
@@ -2548,6 +2759,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Möglichst nach Luv geneigt, weil dadurch die Abdrift und die Luvgierigkeit abnehmen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Jolle aufrecht segeln: weniger Abdrift und Luvgierigkeit.',
     topic: 'segeln',
   },
   {
@@ -2560,6 +2772,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Das Boot bleibt stehen, da die Strömung abreißt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Zu dicht geholt auf Halbwind: mehr Krängung, weniger Vortrieb.',
     topic: 'segeln',
   },
   {
@@ -2572,6 +2785,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Das Vorliek killt, das Achterliek wird übermäßig gereckt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hole zu weit vorne: Unterliek killt, Achterliek zu straff.',
     topic: 'segeln',
   },
   {
@@ -2584,6 +2798,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Das Achterliek killt, das Vorliek wird übermäßig gereckt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Hole zu weit achtern: Achterliek killt, Unterliek zu straff.',
     topic: 'segeln',
   },
   {
@@ -2596,6 +2811,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Schoten müssen dicht geholt werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Flaute: Segel bauchig für Anströmung.',
     topic: 'segeln',
   },
   {
@@ -2608,6 +2824,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Die Schoten müssen gefiert werden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Starkwind: flach trimmen, Krängung begrenzen.',
     topic: 'segeln',
   },
   {
@@ -2620,6 +2837,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Je nach Zugkraft wird der achtere Teil des Großsegels bauchiger oder flacher.' },
     ],
     correctAnswer: 'a',
+    hint: 'Unterliekstrecker steuert die Profilkrümmung im unteren Segelbereich.',
     topic: 'segeln',
   },
   {
@@ -2632,6 +2850,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Vorsegel flacher trimmen; Gewichtsverlagerung nach vorne.' },
     ],
     correctAnswer: 'a',
+    hint: 'Starkes Luvgier: Groß flacher, Gewicht nach achtern.',
     topic: 'segeln',
   },
   {
@@ -2644,6 +2863,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Großsegel flacher trimmen, Gewichtsverlagerung nach hinten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Starkes Leegier: Groß bauchiger, Gewicht nach vorne.',
     topic: 'segeln',
   },
   {
@@ -2656,6 +2876,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Weil es auf Raumschotkurs mehr Geschwindigkeit läuft.' },
     ],
     correctAnswer: 'a',
+    hint: 'Leichte Luvgierigkeit lässt das Boot im Notfall in den Wind gehen.',
     topic: 'segeln',
   },
   {
@@ -2668,6 +2889,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Bis 45° Krängung nimmt die Luvgierigkeit zu, dann wieder ab.' },
     ],
     correctAnswer: 'a',
+    hint: 'Mehr Krängung meist mehr Luvgierigkeit.',
     topic: 'segeln',
   },
   {
@@ -2680,6 +2902,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: '1 Wende, 2 Q-Wende, 3 Halse.' },
     ],
     correctAnswer: 'a',
+    hint: '1 Wende, 2 Halse, 3 Q-Wende – entsprechend der typischen Kursfigur.',
     topic: 'segeln',
   },
   {
@@ -2692,6 +2915,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Schwert und Ruder absenken, damit das Boot frei schwojen kann.' },
     ],
     correctAnswer: 'a',
+    hint: 'An Boje: Schwert und Ruder hoch, damit das Boot sicher schwingen kann.',
     topic: 'segeln',
   },
   {
@@ -2704,6 +2928,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Es kann erneut eine Patenthalse folgen, wenn nicht sofort abgefallen wird.' },
     ],
     correctAnswer: 'a',
+    hint: 'Patenthalse: unkontrollierte Halse mit Verletzungs- und Kenterrisiko.',
     topic: 'segeln',
   },
   {
@@ -2716,6 +2941,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Aufschießer.' },
     ],
     correctAnswer: 'a',
+    hint: 'Luvwantbruch: schnell wenden, um Krängung zu reduzieren und Druck zu nehmen.',
     topic: 'segeln',
   },
   {
@@ -2728,6 +2954,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Eine Halse fahren.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vorstagbruch unter Großsegel: sofort auf Vorwind abfallen, um Mastlast zu senken.',
     topic: 'segeln',
   },
   {
@@ -2740,6 +2967,7 @@ export const binnenSegelQuestions: Question[] = [
       { key: 'd', text: 'Durch die Fockschot oder eine Reffleine.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fock oder Fall kann als Vorstagersatz notdürftig spannen.',
     topic: 'segeln',
   },
 ];

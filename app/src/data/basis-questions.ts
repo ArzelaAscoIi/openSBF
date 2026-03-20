@@ -11,6 +11,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Ein Inhaber eines Sportbootführerscheins muss die Verantwortung übernehmen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Schiffsführer wird vor Fahrtantritt bestimmt (nicht gewählt). Ein Führerschein allein begründet keine automatische Führungspflicht.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -19,10 +20,11 @@ export const basisQuestions: Question[] = [
     answers: [
       { key: 'a', text: 'Wenn man infolge körperlicher oder geistiger Mängel oder infolge des Genusses alkoholischer Getränke oder anderer berauschender Mittel in der sicheren Führung behindert ist oder wenn eine Blutalkoholkonzentration von 0,5 ‰ oder mehr im Körper vorhanden ist.' },
       { key: 'b', text: 'Wenn man infolge körperlicher oder geistiger Mängel oder infolge des Genusses alkoholischer Getränke oder anderer berauschender Mittel in der sicheren Führung behindert ist oder wenn eine Blutalkoholkonzentration von 0,8 ‰ oder mehr im Körper vorhanden ist.' },
-      { key: 'c', text: 'Wenn man infolge körperlicher oder geistiger Mängel oder infolge des Genusses alkoholischer Getränke oder anderer berauschender Mittel in der sicheren Führung behindert ist oder wenn eine Blutalkoholkonzentration von 1,0 ‰ oder mehr im Körper vorhanden ist.' },
+      { key: 'c', text: 'Wenn man infolge körperlicher oder geistiger Mängel oder infolge des Genusses alkoholischer Getränke oder anderer berauschender Mittel in der sicheren Führung behindert ist oder wenn eine Blutalkoholkonzentration von 0,8 ‰ oder mehr im Körper vorhanden ist.' },
       { key: 'd', text: 'Wenn man infolge körperlicher oder geistiger Mängel oder infolge des Genusses alkoholischer Getränke oder anderer berauschender Mittel in der sicheren Führung behindert ist oder wenn eine Blutalkoholkonzentration von 0,3 ‰ oder mehr im Körper vorhanden ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der gesetzliche Grenzwert für Sportboote beträgt 0,5 ‰ Blutalkohol (§ 3 SportBootFüV) – analog zu Kraftfahrzeugen auf der Straße.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -35,6 +37,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wenn es weder an Land festgemacht ist noch vor Anker liegt noch Fahrt durchs Wasser macht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Laut KVR gilt ein Fahrzeug als „in Fahrt", wenn es weder vor Anker liegt, noch festgemacht ist, noch auf Grund sitzt – eigene Bewegung ist nicht erforderlich.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -47,6 +50,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Weniger als 4 Sekunden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Laut KVR Regel 32 dauert ein kurzer Ton etwa 1 Sekunde – nicht weniger und nicht 2 Sekunden.',
     topic: 'schallzeichen',
   },
   {
@@ -59,6 +63,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Etwa 6 - 8 Sekunden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Laut KVR Regel 32 dauert ein langer Ton etwa 4 bis 6 Sekunden – die Untergrenze liegt bei 4, nicht bei 2 Sekunden.',
     topic: 'schallzeichen',
   },
   {
@@ -71,6 +76,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wenn es durch das Segeln keine Fahrt über Grund macht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Entscheidend ist die gleichzeitige Nutzung der Maschine – bloße Ausrüstung mit einem Motor macht das Segelfahrzeug noch nicht zum Maschinenfahrzeug.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -83,6 +89,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Zwei schwarze Bälle senkrecht übereinander.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der schwarze Kegel mit Spitze nach unten ist das Tageszeichen dafür, dass ein Segelfahrzeug gleichzeitig Maschinenkraft benutzt und damit als Maschinenfahrzeug gilt.',
     topic: 'sichtzeichen',
   },
   {
@@ -95,6 +102,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Die Seite in Fahrtrichtung links.' },
     ],
     correctAnswer: 'a',
+    hint: 'Luv ist die dem Wind zugewandte (windwärtige) Seite – das Gegenteil ist Lee (dem Wind abgewandt).',
     topic: 'seemannschaft',
   },
   {
@@ -107,6 +115,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Die Seite in Fahrtrichtung links.' },
     ],
     correctAnswer: 'a',
+    hint: 'Lee ist die dem Wind abgewandte Seite – das Gegenteil von Luv (dem Wind zugewandt).',
     topic: 'seemannschaft',
   },
   {
@@ -119,6 +128,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Bei Dunkelheit, schlechtem Wetter und verminderter Sicht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Lichter sind von Sonnenuntergang bis Sonnenaufgang und bei verminderter Sicht zu führen – fixe Uhrzeiten gelten nicht, da die Dunkelheit saisonal variiert.',
     topic: 'lichter',
   },
   {
@@ -131,6 +141,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Sie zeigt Fahrtrichtung und Kurs eines Fahrzeugs an.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Lichterführung zeigt die Fahrtrichtung (durch Seiten- und Hecklicht) und die Lage (Fahrzeugart) an – Kurs und Geschwindigkeit lassen sich aus Lichtern nicht ablesen.',
     topic: 'lichter',
   },
   {
@@ -143,6 +154,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Eine Zweifarbenlaterne an oder nahe der Mastspitze.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kleine Segelfahrzeuge unter 20 m dürfen eine Dreifarbenlaterne führen – sie muss an oder nahe der Mastspitze angebracht sein, damit sie von allen Seiten gut sichtbar ist.',
     topic: 'lichter',
   },
   {
@@ -155,6 +167,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Seitenlichter rot und grün und ein rotes Rundumlicht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wer gleichzeitig Segel und Maschine nutzt, gilt als Maschinenfahrzeug und muss dessen Lichter führen – also zusätzlich das Topplicht.',
     topic: 'lichter',
   },
   {
@@ -167,6 +180,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Es muss das leewärtige Fahrzeug dem luvwärtigen Fahrzeug ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Gegenkurs weichen beide Fahrzeuge nach Steuerbord aus – sie passieren sich dann Backbord an Backbord.',
     topic: 'ausweichregeln',
   },
   {
@@ -179,6 +193,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Es muss das leewärtige Fahrzeug dem luvwärtigen Fahrzeug ausweichen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei kreuzenden Kursen weicht das Fahrzeug aus, das das andere an Steuerbord hat (es sieht das grüne Seitenlicht des anderen) – die Regel „grün gibt nach" gilt hier nicht.',
     topic: 'ausweichregeln',
   },
   {
@@ -191,6 +206,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Manövrierbehinderter Schleppverband über 200 m Länge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Fünf oder mehr kurze Töne bedeuten „Bleib weg!" – ein Gefahrenbereich ist sofort zu verlassen; es handelt sich nicht um ein allgemeines Warnsignal.',
     topic: 'schallzeichen',
   },
   {
@@ -203,6 +219,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Begegnungsverbot für Fahrzeuge über 20 m Länge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das rote Kreuz (X) auf weißem Grund bedeutet Überholverbot für alle Fahrzeuge – keine Einschränkung auf bestimmte Längen oder Typen.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Überholverbot (rotes X auf weißem Grund)',
@@ -218,6 +235,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Überholverbot für alle Fahrzeuge.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Tafelzeichen gilt für alle Fahrzeuge an der betreffenden Engstelle – keine Beschränkung auf bestimmte Fahrzeuglängen.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Begegnungsverbot an Engstelle',
@@ -233,6 +251,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wasserstraße, die nicht jederzeit sicher befahren werden kann; Gefahr durch Seegang.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Zeichen verlangt langsame Fahrt, um Sog und Wellenschlag zu vermeiden – zum Schutz von Anliegern, festgemachten Booten und Badenden.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Sog und Wellenschlag vermeiden',
@@ -248,6 +267,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Verengung des Fahrwassers auf 40 m.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Zahl gibt den Mindestabstand in Metern an, der ab dem Aufstellungsort zur nächsten Tafel oder zum nächsten Hindernis einzuhalten ist – keine Geschwindigkeitsangabe.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Zahl (z. B. 40) = Mindestabstand in Metern',
@@ -263,6 +283,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Weiterfahrt für Sportfahrzeuge verboten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das rote STOP-Zeichen vor Brücken, Schleusen und Sperrwerken bedeutet: anhalten und auf das Durchfahrtsignal warten – es ist keine dauernde Sperrung.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Haltegebot (rotes STOP-Schild)',
@@ -278,6 +299,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Ankern und Festmachen verboten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Ankern-verboten-Zeichen (Anker durchgestrichen) gilt für alle Fahrzeuge ohne Längeneinschränkung – Festmachen ist davon separat geregelt.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Ankern verboten (Anker durchgestrichen)',
@@ -293,6 +315,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Festmache- und Liegeverbot für gewerbliche Schiffe.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Festmache- und Liegeverbot gilt für alle Fahrzeuge – es gibt keine Ausnahmen für bestimmte Typen oder Längen.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Festmache- und Liegeverbot',
@@ -308,6 +331,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Abgabe eines kurzen und eines langen Tons.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Tafelzeichen fordert die Abgabe genau eines langen Tons (4–6 Sek.) – z.B. vor einer unübersichtlichen Kurve oder einem engen Tunnel.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Schallzeichen abgeben (langer Ton)',
@@ -323,6 +347,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Genehmigungsfreie Übungsstrecke für das Fahren mit Wasserski oder Wassermotorrädern.' },
     ],
     correctAnswer: 'a',
+    hint: 'Diese Gebotszeichen erlauben Wasserski und Wassermotorräder auf der bezeichneten Fläche – eine Vorrangregel oder Genehmigungspflicht ist nicht damit verbunden.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Wasserski/Wassermotorrad erlaubt',
@@ -338,6 +363,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wechseln der Fahrwasserseite ist gestattet.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Zeichen hebt die zuvor geltende Vorschrift (Gebot oder Verbot) auf – es erlaubt weder aktiv das Queren noch das Wechseln der Fahrwasserseite.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Ende einer Gebots-/Verbotsstrecke',
@@ -353,6 +379,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Verbot der Durchfahrt, jedoch für Kleinfahrzeuge ohne Antriebsmaschine befahrbar.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die rote Raute bedeutet vollständiges Durchfahrtsverbot für alle Fahrzeuge – es gibt keine Ausnahmen für Kleinfahrzeuge oder motorlose Boote.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Verbot der Durchfahrt (rote Raute)',
@@ -368,6 +395,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Außergewöhnliche Schifffahrtsbehinderung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-weiß-rot signalisiert eine vorübergehende Schließung (Brücke, Schleuse, Sperrwerk) – dauernde Sperrung wird durch rot-grün-rot angezeigt.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Lichtzeichen: rot-weiß-rot = Brücke/Schleuse geschlossen',
@@ -383,6 +411,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Außergewöhnliche Schifffahrtsbehinderung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Rot-grün-rot bedeutet dauernde Sperrung der Anlage – im Gegensatz zu rot-weiß-rot, das eine vorübergehende Schließung anzeigt.',
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Lichtzeichen: rot-grün-rot = Anlage dauerhaft gesperrt',
@@ -398,6 +427,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Schleuse in Betrieb, auf Ausfahrtsignal gemäß Reihenfolge warten.' },
     ],
     correctAnswer: 'a',
+    hint: 'Grün-weiß vor einer Schleuse bedeutet: Einfahrt erlaubt und Gegenverkehr gesperrt – man kann also ohne Warten auf Ausfahrende einfahren.',
     topic: 'schleusen',
     hasImage: true,
     imageDescription: 'Schleusenampel: grün-weiß = Einfahrt frei',
@@ -413,6 +443,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Die 15 Verhaltensregeln für Wassersportler.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die offizielle Bezeichnung lautet „10 goldene Regeln für Wassersportler" – es gibt keine 15 Regeln und auch keine „Grundregeln" als offizielles Merkblatt.',
     topic: 'umwelt',
   },
   {
@@ -425,6 +456,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Durch vorausschauendes Fahren und Ausweichen entsprechend der Verkehrsvorschriften.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der korrekte Titel lautet „Zehn goldene Regeln für das Verhalten von Wassersportlern in der Natur" – Verkehrsvorschriften allein schützen die Natur nicht.',
     topic: 'umwelt',
   },
   {
@@ -437,6 +469,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Weil in diesen Zonen badende Personen schwer zu erkennen sind.' },
     ],
     correctAnswer: 'a',
+    hint: 'Schilf- und Röhrichtzonen sind gesetzlich geschützte Rückzugsräume für Brut-, Rast- und Laichvorgänge – ökologischer Schutz steht hier an erster Stelle.',
     topic: 'umwelt',
   },
   {
@@ -449,6 +482,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Es kann durch dessen Bug- oder Heckwelle Seeschlag erleiden.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bug- und Heckwellen sowie der Sog eines großen Fahrzeugs können ein kleines Boot kentern lassen oder es unkontrolliert auf das größere Fahrzeug zuziehen.',
     topic: 'seemannschaft',
   },
   {
@@ -461,6 +495,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Weil dies die Steuerwirkung der Schraube erhöht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gegen Strom und Wind anlegen wirkt wie eine natürliche Bremse – das Fahrzeug bleibt kontrollierbarer und lässt sich sicherer zum Stehen bringen.',
     topic: 'seemannschaft',
   },
   {
@@ -473,6 +508,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Das mit dem Strom fahrende Fahrzeug hat aufzustoppen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Langsamere Fahrt reduziert Sog und Wellenschlag und schafft mehr Zeit für Ausweichmanöver – höhere Geschwindigkeit in engen Gewässern ist gefährlich.',
     topic: 'seemannschaft',
   },
   {
@@ -485,6 +521,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Das größere Fahrzeug kann durch Wellenbildung aus dem Kurs laufen und kollidieren oder querschlagen, in flachen Gewässern auf Grund laufen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Stau (Aufstauen vor dem Bug), Sog (Unterdruck seitlich) und Schwell (Wellen) des überholenden Fahrzeugs gefährden das kleinere Boot – in flachen Gewässern droht zusätzlich Grundberührung.',
     topic: 'seemannschaft',
   },
   {
@@ -497,6 +534,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'In der Sportbootvermietungsverordnung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Umweltbundesamt (UBA) ist die zuständige Behörde für Empfehlungen zu umweltverträglichen Bootsbeschichtungen – das Verkehrsministerium oder Führerscheinverordnungen enthalten diese Informationen nicht.',
     topic: 'umwelt',
   },
   {
@@ -509,6 +547,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wenn beim Handauflegen auf die Ankerkette oder -leine kein Rucken zu verspüren ist und sich die Ankerpeilung ändert.' },
     ],
     correctAnswer: 'a',
+    hint: 'Kein Rucken an der Kette/Leine und eine stabile Ankerpeilung (konstante Kompasspeilung auf einen festen Punkt) zeigen, dass der Anker hält – leichtes Schwojen ist normal.',
     topic: 'seemannschaft',
   },
   {
@@ -521,6 +560,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Ein Winkel von 60° bis 70°.' },
     ],
     correctAnswer: 'a',
+    hint: 'Ein spitzer Anlaufwinkel ermöglicht ein sanftes, kontrolliertes Heranfahren – ein rechter oder stumpfer Winkel führt zu hartem Aufprall auf den Steg.',
     topic: 'seemannschaft',
   },
   {
@@ -533,6 +573,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Der Bug dreht nach Backbord.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Radeffekt eines rechtsdrehenden Propellers drückt das Heck im Rückwärtsgang nach Backbord – daher empfiehlt sich mit rechtsdr. Propeller das Anlegen an Backbord.',
     topic: 'technik',
   },
   {
@@ -545,6 +586,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Automatische Schubumkehr.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Quickstopp (Totmannschalter) unterbricht sofort Zündung oder Kraftstoffzufuhr und stoppt den Motor – er verhindert, dass ein manövrierunfähiges Boot unkontrolliert weiterfährt.',
     topic: 'technik',
   },
   {
@@ -557,6 +599,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Mit entsprechendem Mittel neutralisieren.' },
     ],
     correctAnswer: 'a',
+    hint: 'Öl oder Treibstoff in der Bilge muss mit Lappen aufgenommen und als Sondermüll entsorgt werden – Pumpen oder Verdünnen würde das Gewässer verschmutzen.',
     topic: 'umwelt',
   },
   {
@@ -569,6 +612,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Von vorne gesehen in Rückwärtsfahrt Drehung des Propellers gegen den Uhrzeigersinn.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Drehrichtung wird immer von achtern (hinten) betrachtet in Vorwärtsfahrt definiert – rechtsdr. = Uhrzeigersinn von achtern gesehen.',
     topic: 'technik',
   },
   {
@@ -581,6 +625,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Von vorne gesehen in Rückwärtsfahrt Drehung des Propellers im Uhrzeigersinn.' },
     ],
     correctAnswer: 'a',
+    hint: 'Linksdrehend heißt: von achtern betrachtet in Vorwärtsfahrt gegen den Uhrzeigersinn – das Gegenteil des rechtsdrehenden Propellers.',
     topic: 'technik',
   },
   {
@@ -593,6 +638,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Das seitliche Versetzen des Bugs.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Radeffekt (indirekte Ruderwirkung) versetzt das Heck seitlich – besonders deutlich im Rückwärtsgang, wo keine direkte Strömung das Ruder anströmt.',
     topic: 'technik',
   },
   {
@@ -605,6 +651,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Sie hilft beim Begegnen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Propellerdrehrichtung bestimmt den Radeffekt und damit die Reaktion des Hecks – dieses Wissen ist beim An- und Ablegen sowie in engen Gewässern entscheidend.',
     topic: 'technik',
   },
   {
@@ -617,6 +664,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Es gibt keine empfehlenswerte Anlegeseite.' },
     ],
     correctAnswer: 'a',
+    hint: 'Im Rückwärtsgang dreht der Radeffekt das Heck bei einem rechtsdrehenden Propeller nach Backbord – Backbord anlegen nutzt diesen Effekt, der das Boot an die Pier zieht.',
     topic: 'technik',
   },
   {
@@ -629,6 +677,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Motor abstellen, Feuerlöscher bereithalten, Vorbereitung gegen das Überlaufen von Kraftstoff treffen, kein offenes Feuer.' },
     ],
     correctAnswer: 'a',
+    hint: 'Der Motor muss vollständig abgestellt (nicht nur im Leerlauf) sein – Kraftstoffdämpfe können sich entzünden, daher auch keine elektrischen Schalter betätigen.',
     topic: 'sicherheit',
   },
   {
@@ -641,6 +690,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Durch den Schraubenwiderstand und Richtung des Propellers.' },
     ],
     correctAnswer: 'a',
+    hint: 'Beim Außenbordmotor ohne separate Ruderanlage wird die Fahrtrichtung durch Schwenken des Motors geändert – der ausgestoßene Schraubenstrom und die Propellerrichtung bewirken die Steuerung.',
     topic: 'technik',
   },
   {
@@ -653,6 +703,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Weil sich durch den Radeffekt ein Unterdruck am Ruder entwickelt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Das Ruderblatt wirkt erst, wenn Wasser daran vorbeifließt (Anströmung) – im Rückwärtsgang ist das erst der Fall, wenn das Fahrzeug rückwärtige Fahrt aufgenommen hat.',
     topic: 'technik',
   },
   {
@@ -665,6 +716,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Druck der Einspritzpumpe, Impellerpumpe, Ölpumpe.' },
     ],
     correctAnswer: 'a',
+    hint: 'Motortemperatur, Öldruck und Ladekontrolle sind die drei kritischen Überwachungsgrößen – sie zeigen frühzeitig Überhitzung, Ölmangel oder Lichtmaschinenausfall an.',
     topic: 'technik',
   },
   {
@@ -677,6 +729,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Defektes Thermostat, defekte Kupplung, geschlossenes Seeventil, zu niedriger Kühlwasserstand.' },
     ],
     correctAnswer: 'a',
+    hint: 'Überhitzung entsteht durch gestörte Kühlung: defektes Thermostat, ausgefallene Impellerpumpe, geschlossenes Seeventil oder zu wenig Kühlwasser – zu viel Öl verursacht keine Überhitzung.',
     topic: 'technik',
   },
   {
@@ -689,6 +742,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Anlasser ist nach dem Starten ausgefallen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Ladekontrolllampe erlischt normalerweise, wenn die Lichtmaschine Strom erzeugt – bleibt sie an, liefert die Lichtmaschine oder ihr Regler keinen Strom und die Batterie wird nicht geladen.',
     topic: 'technik',
   },
   {
@@ -701,6 +755,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Zu hohe Motordrehzahl.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Öldruckwarnleuchte zeigt an, dass kein ausreichender Öldruck aufgebaut wird – mögliche Ursachen sind ein defekter Druckschalter oder eine defekte Öldruckpumpe.',
     topic: 'technik',
   },
   {
@@ -713,6 +768,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Verschmutzter Luftfilter.' },
     ],
     correctAnswer: 'a',
+    hint: 'Wenn der Motor erst nach dem Einkuppeln stehenbleibt, liegt die Blockade in der mechanischen Kraftübertragung – der Propeller ist wahrscheinlich durch Tauwerk oder Seegras blockiert.',
     topic: 'technik',
   },
   {
@@ -725,6 +781,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Schraube an der Welle lose.' },
     ],
     correctAnswer: 'a',
+    hint: 'Eine geschlossene Tanköffnung (Belüftungsschraube) erzeugt einen Unterdruck, der den Kraftstofffluss stoppt; auch eine verstopfte Leitung kann trotz vollem Tank den Motor zum Stillstand bringen.',
     topic: 'technik',
   },
   {
@@ -737,6 +794,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Internationales Signalbuch und Verordnung über die Sicherung der Seefahrt.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die nautischen Publikationen „Sicherheit auf dem Wasser" (BSH) und „Sicher auf See" enthalten praxisnahe Regeln und Umwelttipps – das Internationale Signalbuch ist für Signalcodes zuständig.',
     topic: 'allgemeine-vorschriften',
   },
   {
@@ -749,6 +807,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Es darf nie ohne Fahrerlaubnis geführt werden, unabhängig von der Antriebsleistung.' },
     ],
     correctAnswer: 'a',
+    hint: 'Die Grenze für führerscheinfreie Elektromotorboote liegt bei 7,5 kW Dauerbetrieb (S1) – der Wert 11,03 kW entspricht 15 PS und gilt für Verbrennungsmotoren.',
     topic: 'fuehrerschein',
   },
   {
@@ -761,6 +820,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Fahrzeug seefest hinterlassen und den Hafenmeister verständigen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Seeventile schließen verhindert das Eindringen von Wasser (Überflutungsschutz); Hauptschalter ausschalten verhindert Kurzschlüsse und Brände durch das Bordnetz.',
     topic: 'sicherheit',
   },
   {
@@ -773,6 +833,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Auf Höhe der festgemachten Fahrzeuge aufstoppen und überprüfen, dass kein Dritter behindert oder geschädigt wird.' },
     ],
     correctAnswer: 'a',
+    hint: 'Langsamere Fahrt reduziert Sog und Wellenschlag, die festgemachte Fahrzeuge beschädigen oder Menschen gefährden können – Gleitfahrt hat keinen schützenden Effekt auf den Sog.',
     topic: 'seemannschaft',
   },
   {
@@ -785,6 +846,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Möglichst an Deck, geschützt vor Sonneneinstrahlung, sonst in einem besonders abgeschlossenen Raum für Gasbehälter, der oben belüftet ist.' },
     ],
     correctAnswer: 'a',
+    hint: 'Gas ist schwerer als Luft und sinkt ab – der Lagerraum braucht daher eine Öffnung in Bodenhöhe nach außen, damit austretendes Gas abfließen kann statt sich anzusammeln.',
     topic: 'sicherheit',
   },
   {
@@ -797,6 +859,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Beide Gase sind schwerer als Luft und bilden mit Wasser ein explosives Gemisch.' },
     ],
     correctAnswer: 'a',
+    hint: 'Propan und Butan sind schwerer als Luft – ausgetretenes Gas sammelt sich in tiefen Bereichen (Bilge, Kajüte) und bildet dort mit Luft ein explosionsgefährliches Gemisch.',
     topic: 'sicherheit',
   },
   {
@@ -809,6 +872,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Gasleitung entleeren und die Gasfreiheit mit dem Feuerzeug prüfen sowie über Funk oder Mobiltelefon Hilfe anfordern.' },
     ],
     correctAnswer: 'a',
+    hint: 'Bei Gasaustritt: Haupthahn schließen, lüften und jede Zündquelle vermeiden – auch Funk und Mobiltelefone können Funken erzeugen und das explosive Gasgemisch entzünden.',
     topic: 'sicherheit',
   },
   {
@@ -821,6 +885,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Die Abnahme der Anlage darf nicht länger als drei Jahre zurückliegen. Haupthahn und andere Absperrventile sind zu öffnen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Vor Inbetriebnahme: Abnahme nachweisen, Dichtheit der Leitungen prüfen und dann Haupthahn sowie Ventile öffnen – die Bedienung erfordert keine Sonderzulassung.',
     topic: 'sicherheit',
   },
   {
@@ -833,6 +898,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Der Flüssiggasbehälter ist vollständig zu entleeren.' },
     ],
     correctAnswer: 'a',
+    hint: 'Beim Außerbetriebnehmen genügt das Schließen von Haupthahn und Ventilen – die Leitungen müssen nicht gasfrei gemacht und die Flasche nicht entleert werden.',
     topic: 'sicherheit',
   },
   {
@@ -845,6 +911,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Jährlich, jeweils vor Beginn der Wassersportsaison.' },
     ],
     correctAnswer: 'a',
+    hint: 'Aufblasbare Rettungsmittel (z.B. Rettungswesten) müssen gemäß Herstellerangabe, mindestens aber alle 2 Jahre, durch einen zugelassenen Servicebetrieb gewartet werden.',
     topic: 'sicherheit',
   },
   {
@@ -857,6 +924,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'ABC-Pulverlöscher, mindestens einmal pro Jahr.' },
     ],
     correctAnswer: 'a',
+    hint: 'ABC-Pulver- und Schaumlöscher sind geeignet, weil sie Brände aller Klassen (Feststoffe, Flüssigkeiten, Gase) bekämpfen – die Prüfpflicht besteht mindestens alle 2 Jahre.',
     topic: 'sicherheit',
   },
   {
@@ -869,6 +937,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Handhabungshinweise durchlesen und den Feuerlöscher sofort einsetzen, dabei das Feuer möglichst von unten bekämpfen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Luftzufuhr abschneiden, Löscher erst am Herd einsetzen und von unten bekämpfen – so wird das Löschmittel direkt in die Glut gebracht und die Sauerstoffzufuhr unterbrochen.',
     topic: 'sicherheit',
   },
   {
@@ -881,6 +950,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Hilfe leisten und so lange am Unfallort bleiben, bis ein weiterer Beistand nicht mehr erforderlich ist; Verschlusszustand herstellen.' },
     ],
     correctAnswer: 'a',
+    hint: 'Nach einem Zusammenstoß besteht gesetzliche Hilfeleistungspflicht; der Unfallort darf erst verlassen werden, wenn keine Hilfe mehr nötig ist – und alle Personendaten und Versicherungsangaben müssen ausgetauscht werden.',
     topic: 'sicherheit',
   },
   {
@@ -893,6 +963,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Luftdruckänderung, Tageszeit und Temperatur.' },
     ],
     correctAnswer: 'a',
+    hint: 'Luftdruckänderungen (bewegen die Luft), Luftfeuchtigkeit (beeinflusst Wolken- und Niederschlagsbildung) und Temperatur (bestimmt Auf- und Abwinde) sind die drei Haupttreiber des Wetters.',
     topic: 'wetter',
   },
   {
@@ -905,6 +976,7 @@ export const basisQuestions: Question[] = [
       { key: 'd', text: 'Wenn Gefahr für Leib oder Leben von Personen, erhebliche Sachwerte oder die maritime Umwelt besteht.' },
     ],
     correctAnswer: 'a',
+    hint: 'Notsignale dürfen ausschließlich bei Gefahr für Leib oder Leben gegeben werden – Sachschäden, Manövrierbehinderungen oder Umweltgefahren allein rechtfertigen kein Notsignal.',
     topic: 'sicherheit',
   },
 ];
