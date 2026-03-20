@@ -36,8 +36,7 @@
 
                 <!-- CTA Button -->
                 <tr>
-                  <td align="center" style="padding-bottom:28px;">
-                    <a href="{{ .ConfirmationURL }}"
+                    <a href="{{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=magiclink"
                        style="display:inline-block;background-color:#2563eb;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:8px;letter-spacing:0.1px;">
                       Jetzt anmelden
                     </a>
@@ -51,8 +50,8 @@
                       Falls der Button nicht funktioniert, kopiere diesen Link in deinen Browser:
                     </p>
                     <p style="margin:0;font-size:12px;word-break:break-all;">
-                      <a href="{{ .ConfirmationURL }}" style="color:#2563eb;text-decoration:none;">
-                        {{ .ConfirmationURL }}
+                      <a href="{{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=magiclink" style="color:#2563eb;text-decoration:none;">
+                        {{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=magiclink
                       </a>
                     </p>
                   </td>
