@@ -24,22 +24,6 @@ export async function GET(request: NextRequest) {
     },
   );
 
-  const tokenHash = searchParams.get('token_hash');
-  const type = searchParams.get('type');
-
-  if (tokenHash && type) {
-    const { error } = await supabase.auth.verifyOtp({
-      type: type as 'magiclink' | 'email',
-      token_hash: tokenHash,
-    });
-
-    if (error) {
-      return NextResponse.redirect(`${origin}/auth/login?error=${encodeURIComponent(error.message)}`);
-    }
-
-    return NextResponse.redirect(`${origin}${next}`);
-  }
-
   const code = searchParams.get('code');
 
   if (code) {
