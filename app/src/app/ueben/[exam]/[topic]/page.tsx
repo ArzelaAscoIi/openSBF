@@ -323,7 +323,7 @@ export default function QuizPage() {
           {/* Feedback */}
           {isRevealed && (
             <div
-              className="mt-4 px-4 py-3 rounded-lg flex items-center justify-between gap-3"
+              className="mt-4 px-4 py-3 rounded-lg"
               style={{
                 background:
                   selectedAnswer === currentQuestion.correctAnswer
@@ -336,29 +336,36 @@ export default function QuizPage() {
                 }`,
               }}
             >
-              <span
-                className="text-sm font-medium"
-                style={{
-                  color:
-                    selectedAnswer === currentQuestion.correctAnswer
-                      ? 'var(--green-signal)'
-                      : 'var(--red-signal)',
-                }}
-              >
-                {selectedAnswer === currentQuestion.correctAnswer
-                  ? `Richtig — ${Math.min(correctCount + 1, CORRECT_THRESHOLD)}/${CORRECT_THRESHOLD}`
-                  : 'Falsch — Richtig wäre Antwort A'}
-              </span>
-              <button
-                onClick={handleNext}
-                className="px-4 py-1.5 rounded-md text-xs font-semibold transition-opacity hover:opacity-80"
-                style={{
-                  background: 'var(--gold)',
-                  color: 'var(--navy-deepest)',
-                }}
-              >
-                Weiter →
-              </button>
+              <div className="flex items-center justify-between gap-3">
+                <span
+                  className="text-sm font-medium"
+                  style={{
+                    color:
+                      selectedAnswer === currentQuestion.correctAnswer
+                        ? 'var(--green-signal)'
+                        : 'var(--red-signal)',
+                  }}
+                >
+                  {selectedAnswer === currentQuestion.correctAnswer
+                    ? `Richtig — ${Math.min(correctCount + 1, CORRECT_THRESHOLD)}/${CORRECT_THRESHOLD}`
+                    : `Falsch — Richtig wäre Antwort ${['A', 'B', 'C', 'D'][shuffledOptions.findIndex((o) => o.originalKey === currentQuestion.correctAnswer)]}`}
+                </span>
+                <button
+                  onClick={handleNext}
+                  className="shrink-0 px-4 py-1.5 rounded-md text-xs font-semibold transition-opacity hover:opacity-80"
+                  style={{
+                    background: 'var(--gold)',
+                    color: 'var(--navy-deepest)',
+                  }}
+                >
+                  Weiter →
+                </button>
+              </div>
+              {selectedAnswer !== currentQuestion.correctAnswer && currentQuestion.hint && (
+                <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>
+                  {currentQuestion.hint}
+                </p>
+              )}
             </div>
           )}
         </div>

@@ -11,6 +11,7 @@ export interface Question {
   answers: Answer[];
   correctAnswer: 'a';
   topic: string;
+  hint?: string;
   hasImage?: boolean;
   imageDescription?: string;
   imagePath?: string;
