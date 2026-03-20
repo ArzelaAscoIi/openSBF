@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { loadProgress, getExamOverallProgress } from '@/lib/progress';
 import { getAllBinnenQuestions, getAllSeeQuestions } from '@/data/topics';
@@ -41,16 +41,14 @@ const tutorialLinks = [
 ];
 
 export default function HomePage() {
-  const [binnenPct, setBinnenPct] = useState(0);
-  const [seePct, setSeePct] = useState(0);
-
-  useEffect(() => {
+  const [binnenPct] = useState(() => {
     const progress = loadProgress();
-    const binnenIds = getAllBinnenQuestions().map((q) => q.id);
-    const seeIds = getAllSeeQuestions().map((q) => q.id);
-    setBinnenPct(getExamOverallProgress(progress, binnenIds, 'binnen').percentage);
-    setSeePct(getExamOverallProgress(progress, seeIds, 'see').percentage);
-  }, []);
+    return getExamOverallProgress(progress, getAllBinnenQuestions().map((q) => q.id), 'binnen').percentage;
+  });
+  const [seePct] = useState(() => {
+    const progress = loadProgress();
+    return getExamOverallProgress(progress, getAllSeeQuestions().map((q) => q.id), 'see').percentage;
+  });
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>

@@ -1,30 +1,27 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { TopicCard } from '@/components/quiz/TopicCard';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { binnenTopics, getAllBinnenQuestions } from '@/data/topics';
 import { loadProgress, getTopicProgress, isTopicPassed, getExamOverallProgress } from '@/lib/progress';
 
+type TopicProgressEntry = { passed: number; total: number; percentage: number; isPassed: boolean };
+
+function computeProgress() {
+  const progress = loadProgress();
+  const allIds = getAllBinnenQuestions().map((q) => q.id);
+  const data: Record<string, TopicProgressEntry> = {};
+  binnenTopics.forEach((topic) => {
+    const tp = getTopicProgress(progress, topic.questionIds, 'binnen');
+    data[topic.id] = { ...tp, isPassed: isTopicPassed(progress, topic.questionIds, 'binnen') };
+  });
+  return { overall: getExamOverallProgress(progress, allIds, 'binnen'), progressData: data };
+}
+
 export default function BinnenPage() {
-  const [progressData, setProgressData] = useState<
-    Record<string, { passed: number; total: number; percentage: number; isPassed: boolean }>
-  >({});
-  const [overall, setOverall] = useState({ passed: 0, total: 0, percentage: 0 });
-
-  useEffect(() => {
-    const progress = loadProgress();
-    const allIds = getAllBinnenQuestions().map((q) => q.id);
-    setOverall(getExamOverallProgress(progress, allIds, 'binnen'));
-
-    const data: typeof progressData = {};
-    binnenTopics.forEach((topic) => {
-      const tp = getTopicProgress(progress, topic.questionIds, 'binnen');
-      data[topic.id] = { ...tp, isPassed: isTopicPassed(progress, topic.questionIds, 'binnen') };
-    });
-    setProgressData(data);
-  }, []);
+  const [{ overall, progressData }] = useState(computeProgress);
 
   const passedTopics = Object.values(progressData).filter((p) => p.isPassed).length;
 

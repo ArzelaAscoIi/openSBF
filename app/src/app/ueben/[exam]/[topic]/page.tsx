@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Question, ExamType } from '@/lib/types';
 import { ProgressBar } from '@/components/ui/ProgressBar';
@@ -44,55 +45,55 @@ function getTopicName(topicId: string, exam: ExamType): string {
 
 type AnswerKey = 'a' | 'b' | 'c' | 'd';
 
+type QuestionView = {
+  options: { key: AnswerKey; text: string; originalKey: AnswerKey }[];
+  selectedAnswer: AnswerKey | null;
+  isRevealed: boolean;
+};
+
+type QuizState = {
+  progress: UserProgress;
+  questions: Question[];
+  currentIdx: number;
+  view: QuestionView;
+};
+
+function makeView(question: Question): QuestionView {
+  const options = shuffleArray(
+    question.answers.map((a) => ({ key: a.key as AnswerKey, text: a.text, originalKey: a.key as AnswerKey })),
+  );
+  return { options, selectedAnswer: null, isRevealed: false };
+}
+
+function initQuizState(topicId: string, exam: ExamType, initialQ: number): QuizState {
+  const progress = loadProgress();
+  const topicQuestions = getTopicQuestions(topicId, exam);
+  const unpassed = topicQuestions.filter((q) => !isQuestionPassed(progress, q.id, exam));
+  const questions = shuffleArray(unpassed.length > 0 ? unpassed : topicQuestions);
+  const currentIdx = initialQ > 0 && initialQ < questions.length ? initialQ : 0;
+  const view = questions[currentIdx] ? makeView(questions[currentIdx]) : { options: [], selectedAnswer: null, isRevealed: false };
+  return { progress, questions, currentIdx, view };
+}
+
 export default function QuizPage() {
   const params = useParams();
-  const router = useRouter();
   const exam = params.exam as ExamType;
   const topicId = params.topic as string;
 
   const initialQ = typeof window !== 'undefined' ? parseInt(new URLSearchParams(window.location.search).get('q') ?? '0', 10) : 0;
 
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<AnswerKey | null>(null);
-  const [isRevealed, setIsRevealed] = useState(false);
-  const [progress, setProgress] = useState<UserProgress>({ questions: {}, topics: {}, lastUpdated: '' });
+  const [{ progress, questions, currentIdx, view }, setQuiz] = useState<QuizState>(() =>
+    initQuizState(topicId, exam, initialQ),
+  );
+  const { options: shuffledOptions, selectedAnswer, isRevealed } = view;
+
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0, total: 0 });
   const [isComplete, setIsComplete] = useState(false);
-  const [shuffledOptions, setShuffledOptions] = useState<{ key: AnswerKey; text: string; originalKey: AnswerKey }[]>([]);
-
-  useEffect(() => {
-    const p = loadProgress();
-    setProgress(p);
-
-    const topicQuestions = getTopicQuestions(topicId, exam);
-    const unpassed = topicQuestions.filter((q) => !isQuestionPassed(p, q.id, exam));
-    const workQueue = unpassed.length > 0 ? unpassed : topicQuestions;
-    const shuffled = shuffleArray(workQueue);
-    setQuestions(shuffled);
-
-    const initialIdx = initialQ > 0 && initialQ < shuffled.length ? initialQ : 0;
-    setCurrentIdx(initialIdx);
-  }, [topicId, exam]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (questions.length === 0) return;
     window.history.replaceState(null, '', `?q=${currentIdx}`);
   }, [currentIdx, questions.length]);
-
-  useEffect(() => {
-    if (questions.length > 0 && questions[currentIdx]) {
-      const q = questions[currentIdx];
-      const mapped = q.answers.map((a) => ({
-        key: a.key as AnswerKey,
-        text: a.text,
-        originalKey: a.key as AnswerKey,
-      }));
-      setShuffledOptions(shuffleArray(mapped));
-      setSelectedAnswer(null);
-      setIsRevealed(false);
-    }
-  }, [currentIdx, questions]);
 
   const handleSelect = useCallback(
     (key: AnswerKey) => {
@@ -100,14 +101,14 @@ export default function QuizPage() {
 
       const currentQuestion = questions[currentIdx];
       const isCorrect = key === currentQuestion.correctAnswer;
-
-      setSelectedAnswer(key);
-      setIsRevealed(true);
-
       const updatedProgress = recordAnswer(progress, currentQuestion.id, exam, isCorrect);
-      setProgress(updatedProgress);
       saveProgress(updatedProgress);
 
+      setQuiz((prev) => ({
+        ...prev,
+        progress: updatedProgress,
+        view: { ...prev.view, selectedAnswer: key, isRevealed: true },
+      }));
       setSessionStats((prev) => ({
         correct: prev.correct + (isCorrect ? 1 : 0),
         wrong: prev.wrong + (isCorrect ? 0 : 1),
@@ -129,12 +130,16 @@ export default function QuizPage() {
         setIsComplete(true);
         return;
       }
-      setQuestions(shuffleArray(unpassed));
-      setCurrentIdx(0);
+      const newQuestions = shuffleArray(unpassed);
+      setQuiz((prev) => ({ ...prev, questions: newQuestions, currentIdx: 0, view: makeView(newQuestions[0]) }));
       return;
     }
-    setCurrentIdx((prev) => prev + 1);
-  }, [currentIdx, questions.length, topicId, exam, progress]);
+    setQuiz((prev) => ({
+      ...prev,
+      currentIdx: prev.currentIdx + 1,
+      view: makeView(prev.questions[prev.currentIdx + 1]),
+    }));
+  }, [currentIdx, questions, topicId, exam, progress]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -257,9 +262,11 @@ export default function QuizPage() {
           {/* Question image */}
           {currentQuestion.imagePath && (
             <div className="mb-5 flex justify-center">
-              <img
+              <Image
                 src={currentQuestion.imagePath}
                 alt={currentQuestion.imageDescription ?? ''}
+                width={400}
+                height={300}
                 className="rounded-lg max-h-48 w-auto object-contain"
                 style={{
                   background: 'white',

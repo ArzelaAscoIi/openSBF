@@ -1,30 +1,27 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { TopicCard } from '@/components/quiz/TopicCard';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { seeTopics, getAllSeeQuestions } from '@/data/topics';
 import { loadProgress, getTopicProgress, isTopicPassed, getExamOverallProgress } from '@/lib/progress';
 
+type TopicProgressEntry = { passed: number; total: number; percentage: number; isPassed: boolean };
+
+function computeProgress() {
+  const progress = loadProgress();
+  const allIds = getAllSeeQuestions().map((q) => q.id);
+  const data: Record<string, TopicProgressEntry> = {};
+  seeTopics.forEach((topic) => {
+    const tp = getTopicProgress(progress, topic.questionIds, 'see');
+    data[topic.id] = { ...tp, isPassed: isTopicPassed(progress, topic.questionIds, 'see') };
+  });
+  return { overall: getExamOverallProgress(progress, allIds, 'see'), progressData: data };
+}
+
 export default function SeePage() {
-  const [progressData, setProgressData] = useState<
-    Record<string, { passed: number; total: number; percentage: number; isPassed: boolean }>
-  >({});
-  const [overall, setOverall] = useState({ passed: 0, total: 0, percentage: 0 });
-
-  useEffect(() => {
-    const progress = loadProgress();
-    const allIds = getAllSeeQuestions().map((q) => q.id);
-    setOverall(getExamOverallProgress(progress, allIds, 'see'));
-
-    const data: typeof progressData = {};
-    seeTopics.forEach((topic) => {
-      const tp = getTopicProgress(progress, topic.questionIds, 'see');
-      data[topic.id] = { ...tp, isPassed: isTopicPassed(progress, topic.questionIds, 'see') };
-    });
-    setProgressData(data);
-  }, []);
+  const [{ overall, progressData }] = useState(computeProgress);
 
   const passedTopics = Object.values(progressData).filter((p) => p.isPassed).length;
 
