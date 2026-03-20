@@ -244,6 +244,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: zwei Topplichter + Seitenlichter + Hecklicht',
+    imagePath: '/questions/see-q92.png',
   },
   {
     id: 93,
@@ -258,6 +259,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: manövrierbehinderter Schleppverband bis 200m',
+    imagePath: '/questions/see-q93.png',
   },
   {
     id: 94,
@@ -272,6 +274,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: manövrierbehinderter Schleppverband über 200m',
+    imagePath: '/questions/see-q94.png',
   },
   {
     id: 95,
@@ -324,6 +327,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: zwei rote Rundumlichter + Seitenlichter + Hecklicht',
+    imagePath: '/questions/see-q98.png',
   },
   {
     id: 99,
@@ -338,6 +342,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Tagzeichen: zwei schwarze Bälle übereinander',
+    imagePath: '/questions/see-q99.png',
   },
   {
     id: 100,
@@ -390,6 +395,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: manövrierbehindertes Fahrzeug über 50m',
+    imagePath: '/questions/see-q103.png',
   },
   {
     id: 104,
@@ -404,6 +410,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Tagzeichen: Ball-Raute-Ball übereinander',
+    imagePath: '/questions/see-q104.png',
   },
   {
     id: 105,
@@ -418,6 +425,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: Grundsitzer unter 50m (drei Rundumlichter)',
+    imagePath: '/questions/see-q105.png',
   },
   {
     id: 106,
@@ -432,6 +440,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Tagzeichen: drei schwarze Bälle übereinander',
+    imagePath: '/questions/see-q106.png',
   },
   {
     id: 107,
@@ -446,6 +455,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: Grundsitzer über 50m (drei Rundumlichter + Topplicht)',
+    imagePath: '/questions/see-q107.png',
   },
   {
     id: 108,
@@ -460,6 +470,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: tiefgangbehindertes Fahrzeug (drei rote Rundumlichter übereinander)',
+    imagePath: '/questions/see-q108.png',
   },
   {
     id: 109,
@@ -474,6 +485,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Tagzeichen: schwarzer Zylinder',
+    imagePath: '/questions/see-q109.png',
   },
   {
     id: 110,
@@ -488,6 +500,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: Trawler über 50m mit Fahrt (Grün über Weiß + Topplichter)',
+    imagePath: '/questions/see-q110.png',
   },
   {
     id: 111,
@@ -502,6 +515,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: fischendes Fahrzeug nicht-Trawler (Rot über Weiß)',
+    imagePath: '/questions/see-q111.png',
   },
   {
     id: 112,
@@ -516,6 +530,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Tagzeichen: zwei Kegel, Spitzen zusammen',
+    imagePath: '/questions/see-q112.png',
   },
   {
     id: 113,
@@ -772,6 +787,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'ausweichregeln',
     hasImage: true,
     imageDescription: 'Lichtbild: tiefgangbehindertes Fahrzeug (drei rote Rundumlichter senkrecht übereinander)',
+    imagePath: '/questions/see-q116.png',
   },
   {
     id: 134,
@@ -786,6 +802,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'ausweichregeln',
     hasImage: true,
     imageDescription: 'Lichtbild: Fahrzeug mit Taucher im Einsatz',
+    imagePath: '/questions/see-q134.png',
   },
   {
     id: 135,
@@ -874,6 +891,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'schallzeichen',
     hasImage: true,
     imageDescription: 'Schallzeichen: kurz, lang, kurz (Ankerlieger-Warnsignal)',
+    imagePath: '/questions/see-q141.png',
   },
   {
     id: 142,
@@ -974,6 +992,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: manövrierbehindertes Fahrzeug in Fahrt (nicht behindert)',
+    imagePath: '/questions/see-q149.png',
   },
   {
     id: 150,
@@ -988,6 +1007,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'lichter',
     hasImage: true,
     imageDescription: 'Lichtbild: manövrierbehindertes Fahrzeug ohne Fahrt (zwei grüne Rundumlichter = freie Seite)',
+    imagePath: '/questions/see-q150.png',
   },
   {
     id: 151,
@@ -1002,6 +1022,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Sichtzeichen: Fahrzeug mit gefährlichen Gütern (blauer Kegel/Kugel)',
+    imagePath: '/questions/see-q151.png',
   },
   {
     id: 152,
@@ -1320,6 +1341,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Sichtzeichen: Schutzbedürftige Anlage',
+    imagePath: '/questions/see-q177.png',
   },
   {
     id: 178,
@@ -1334,6 +1356,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'schallzeichen',
     hasImage: true,
     imageDescription: 'Schallzeichen: lang-kurz-kurz-kurz (Brücke/Schleuse nicht öffenbar)',
+    imagePath: '/questions/see-q178.png',
   },
   {
     id: 179,
@@ -1348,6 +1371,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Sichtzeichen: Geschwindigkeit 8 km/h (Badebetrieb 500m)',
+    imagePath: '/questions/see-q179.png',
   },
   {
     id: 180,
@@ -1362,6 +1386,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Schifffahrtszeichen: Sperrung für Maschinenfahrzeuge/Wassermotorräder (Badebetrieb)',
+    imagePath: '/questions/see-q180.png',
   },
   {
     id: 181,
@@ -1428,6 +1453,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'sichtzeichen',
     hasImage: true,
     imageDescription: 'Flaggensignal: Anhalten (Fahrzeug des öffentlichen Dienstes)',
+    imagePath: '/questions/see-q185.png',
   },
   {
     id: 186,
@@ -1442,6 +1468,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'schallzeichen',
     hasImage: true,
     imageDescription: 'Schallzeichen: Polizeifahrzeug fordert zum Anhalten auf',
+    imagePath: '/questions/see-q186.png',
   },
   {
     id: 187,
@@ -1456,6 +1483,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Sichtzeichen: Dauernde Sperrung (rote Lichter/Tafeln)',
+    imagePath: '/questions/see-q187.png',
   },
   {
     id: 188,
@@ -1470,6 +1498,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'schallzeichen',
     hasImage: true,
     imageDescription: 'Schallzeichen: Sperrung der Seeschifffahrtsstraße',
+    imagePath: '/questions/see-q188.png',
   },
   {
     id: 189,
@@ -1484,6 +1513,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Sichtzeichen: Außergewöhnliche Schifffahrtsbehinderung',
+    imagePath: '/questions/see-q189.png',
   },
   {
     id: 190,
@@ -1498,6 +1528,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Mitte des Schifffahrtsweges (rot-weiß senkrecht gestreift)',
+    imagePath: '/questions/see-q190.png',
   },
   {
     id: 191,
@@ -1512,6 +1543,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Schifffahrtszeichen: Steuerbordseite des Fahrwassers (grüne Tonne/Stange)',
+    imagePath: '/questions/see-q191.png',
   },
   {
     id: 192,
@@ -1526,6 +1558,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Schifffahrtszeichen: Backbordseite des Fahrwassers (rote Tonne/Stange)',
+    imagePath: '/questions/see-q192.png',
   },
   {
     id: 193,
@@ -1540,6 +1573,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne/Stange: Steuerbordseite des Wattfahrwassers',
+    imagePath: '/questions/see-q193.png',
   },
   {
     id: 194,
@@ -1554,6 +1588,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne/Stange: Backbordseite des Wattfahrwassers',
+    imagePath: '/questions/see-q194.png',
   },
   {
     id: 195,
@@ -1568,6 +1603,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Steuerbordseite des Hauptfahrwassers / Backbordseite des Nebenfahrwassers (grün mit rotem Band)',
+    imagePath: '/questions/see-q195.png',
   },
   {
     id: 196,
@@ -1582,6 +1618,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Backbordseite des Hauptfahrwassers / Steuerbordseite des Nebenfahrwassers (rot mit grünem Band)',
+    imagePath: '/questions/see-q196.png',
   },
   {
     id: 197,
@@ -1646,6 +1683,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Kardinaltonne Ost (schwarz-gelb-schwarz, Kegel nach außen)',
+    imagePath: '/questions/see-q201.png',
   },
   {
     id: 202,
@@ -1660,6 +1698,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Kardinaltonne Süd (gelb über schwarz, zwei nach unten zeigende Kegel)',
+    imagePath: '/questions/see-q202.png',
   },
   {
     id: 203,
@@ -1674,6 +1713,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Kardinaltonne West (gelb-schwarz-gelb, Kegel nach innen)',
+    imagePath: '/questions/see-q203.png',
   },
   {
     id: 204,
@@ -1688,6 +1728,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Lichtkennung: Kardinaltonne Nord (schnelles Funkelfeuer oder Funkelfeuer weiß)',
+    imagePath: '/questions/see-q204.png',
   },
   {
     id: 205,
@@ -1702,6 +1743,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Lichtkennung: Kardinaltonne Ost (schnelles Funkelfeuer (3) oder Funkelfeuer (3) weiß)',
+    imagePath: '/questions/see-q205.png',
   },
   {
     id: 206,
@@ -1716,6 +1758,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Lichtkennung: Kardinaltonne Süd (schnelles Funkelfeuer (6)+Festfeuer oder Funkelfeuer (6)+Festfeuer weiß)',
+    imagePath: '/questions/see-q206.png',
   },
   {
     id: 207,
@@ -1730,6 +1773,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Lichtkennung: Kardinaltonne West (schnelles Funkelfeuer (9) oder Funkelfeuer (9) weiß)',
+    imagePath: '/questions/see-q207.png',
   },
   {
     id: 208,
@@ -1744,6 +1788,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seezeichen',
     hasImage: true,
     imageDescription: 'Tonne: Einzelgefahrenstelle (schwarz über rot, zwei schwarze Kugeln als Toppzeichen)',
+    imagePath: '/questions/see-q208.png',
   },
   {
     id: 209,
@@ -2446,6 +2491,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'wetter',
     hasImage: true,
     imageDescription: 'Wetterkarte: Tiefdruckgebiet auf der Nordhalbkugel mit Warm- und Kaltfront (T)',
+    imagePath: '/questions/see-q266.png',
   },
   {
     id: 267,
@@ -2680,6 +2726,7 @@ export const seeSpecificQuestions: Question[] = [
     topic: 'seenotrettung',
     hasImage: true,
     imageDescription: 'Signal: seitliches Heben und Senken der ausgestreckten Arme (Seenotsignal)',
+    imagePath: '/questions/see-q285.png',
   },
 ];
 

@@ -13,6 +13,7 @@ export interface Question {
   topic: string;
   hasImage?: boolean;
   imageDescription?: string;
+  imagePath?: string;
 }
 
 export interface Topic {

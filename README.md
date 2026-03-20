@@ -8,7 +8,7 @@
 
 **openSBF** ist eine kostenlose, offene Lernplattform zur Vorbereitung auf den **Sportbootführerschein See (SBF See)** und den **Sportbootführerschein Binnen (SBF Binnen)** – ohne Abogebühren, ohne versteckte Kosten, ohne Anmeldepflicht.
 
-Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teuer sein muss. Statt für Online-Kurse bei Bootschule X, Y oder Z zu bezahlen, bietet openSBF denselben Lernstoff frei und community-getrieben an.
+Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teuer sein muss. Statt für Online-Kurse zu bezahlen, bietet openSBF denselben Lernstoff frei und community-getrieben an.
 
 ### 🌐 Live-Version
 
@@ -23,7 +23,7 @@ Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teue
 
 Die Inhalte basieren auf den offiziellen Fragen- und Antwortkatalogen des Bundesministeriums für Digitales und Verkehr (BMDV), veröffentlicht auf [ELWIS](https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Sportbootfuehrerscheine-node.html).
 
-> ⚠️ **KI-Hinweis:** Teile dieser Anwendung wurden mithilfe von KI (künstlicher Intelligenz) generiert, die auf Inhalten der offiziellen ELWIS-Website basiert. Die Inhalte wurden nach bestem Wissen aufbereitet, ersetzen jedoch nicht die offizielle Prüfungsvorbereitung oder rechtliche Beratung. Für die Richtigkeit aller Inhalte wird keine Gewähr übernommen.
+> ⚠️ **KI-Hinweis:** Teile dieser Anwendung wurden mithilfe von KI generiert, die auf Inhalten der offiziellen ELWIS-Website basiert. Die Inhalte wurden nach bestem Wissen aufbereitet, ersetzen jedoch nicht die offizielle Prüfungsvorbereitung oder rechtliche Beratung. Für die Richtigkeit aller Inhalte wird keine Gewähr übernommen.
 
 ### ⚠️ Einschränkungen
 

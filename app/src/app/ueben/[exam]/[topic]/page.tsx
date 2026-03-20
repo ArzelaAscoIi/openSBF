@@ -221,7 +221,7 @@ export default function QuizPage() {
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">
               <Badge variant="muted" size="sm">#{currentQuestion.id}</Badge>
-              {currentQuestion.hasImage && (
+              {currentQuestion.hasImage && !currentQuestion.imagePath && (
                 <Badge variant="blue" size="sm">{currentQuestion.imageDescription}</Badge>
               )}
             </div>
@@ -243,6 +243,22 @@ export default function QuizPage() {
               </div>
             </div>
           </div>
+
+          {/* Question image */}
+          {currentQuestion.imagePath && (
+            <div className="mb-5 flex justify-center">
+              <img
+                src={currentQuestion.imagePath}
+                alt={currentQuestion.imageDescription ?? ''}
+                className="rounded-lg max-h-48 w-auto object-contain"
+                style={{
+                  background: 'white',
+                  padding: '8px',
+                  border: '1px solid var(--border)',
+                }}
+              />
+            </div>
+          )}
 
           {/* Question text */}
           <h2 className="text-base font-medium leading-relaxed mb-6" style={{ color: 'var(--white)' }}>

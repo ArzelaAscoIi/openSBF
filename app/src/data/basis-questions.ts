@@ -206,6 +206,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Überholverbot (rotes X auf weißem Grund)',
+    imagePath: '/questions/basis-q17.png',
   },
   {
     id: 18,
@@ -220,6 +221,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Begegnungsverbot an Engstelle',
+    imagePath: '/questions/basis-q18.png',
   },
   {
     id: 19,
@@ -234,6 +236,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Sog und Wellenschlag vermeiden',
+    imagePath: '/questions/basis-q19.png',
   },
   {
     id: 20,
@@ -248,6 +251,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Zahl (z. B. 40) = Mindestabstand in Metern',
+    imagePath: '/questions/basis-q20.png',
   },
   {
     id: 21,
@@ -262,6 +266,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Haltegebot (rotes STOP-Schild)',
+    imagePath: '/questions/basis-q21.png',
   },
   {
     id: 22,
@@ -276,6 +281,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Ankern verboten (Anker durchgestrichen)',
+    imagePath: '/questions/basis-q22.png',
   },
   {
     id: 23,
@@ -290,6 +296,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Festmache- und Liegeverbot',
+    imagePath: '/questions/basis-q23.png',
   },
   {
     id: 24,
@@ -304,6 +311,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Schallzeichen abgeben (langer Ton)',
+    imagePath: '/questions/basis-q24.png',
   },
   {
     id: 25,
@@ -318,6 +326,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Wasserski/Wassermotorrad erlaubt',
+    imagePath: '/questions/basis-q25.png',
   },
   {
     id: 26,
@@ -332,6 +341,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Ende einer Gebots-/Verbotsstrecke',
+    imagePath: '/questions/basis-q26.png',
   },
   {
     id: 27,
@@ -346,6 +356,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Tafelzeichen: Verbot der Durchfahrt (rote Raute)',
+    imagePath: '/questions/basis-q27.png',
   },
   {
     id: 28,
@@ -360,6 +371,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Lichtzeichen: rot-weiß-rot = Brücke/Schleuse geschlossen',
+    imagePath: '/questions/basis-q28.png',
   },
   {
     id: 29,
@@ -374,6 +386,7 @@ export const basisQuestions: Question[] = [
     topic: 'schifffahrtszeichen',
     hasImage: true,
     imageDescription: 'Lichtzeichen: rot-grün-rot = Anlage dauerhaft gesperrt',
+    imagePath: '/questions/basis-q29.png',
   },
   {
     id: 30,
@@ -388,6 +401,7 @@ export const basisQuestions: Question[] = [
     topic: 'schleusen',
     hasImage: true,
     imageDescription: 'Schleusenampel: grün-weiß = Einfahrt frei',
+    imagePath: '/questions/basis-q30.png',
   },
   {
     id: 31,
