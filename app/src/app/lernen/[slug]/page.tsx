@@ -14,90 +14,96 @@ export default async function TutorialPage({ params }: Props) {
     notFound();
   }
 
-  const examLabel = tutorial.exam === 'both' ? 'Binnen & See' : tutorial.exam === 'binnen' ? 'SBF Binnen' : 'SBF See';
-  const examColor = tutorial.exam === 'see' ? 'var(--seafoam)' : 'var(--gold)';
+  const examLabel =
+    tutorial.exam === 'both' ? 'Binnen & See' : tutorial.exam === 'binnen' ? 'SBF Binnen' : 'SBF See';
+  const accentColor = tutorial.exam === 'see' ? 'var(--seafoam)' : 'var(--gold)';
 
-  const allTutorials = tutorials;
-  const currentIdx = allTutorials.findIndex((t) => t.id === slug);
-  const prev = currentIdx > 0 ? allTutorials[currentIdx - 1] : null;
-  const next = currentIdx < allTutorials.length - 1 ? allTutorials[currentIdx + 1] : null;
+  const currentIdx = tutorials.findIndex((t) => t.id === slug);
+  const prev = currentIdx > 0 ? tutorials[currentIdx - 1] : null;
+  const next = currentIdx < tutorials.length - 1 ? tutorials[currentIdx + 1] : null;
 
   return (
-    <div className="min-h-screen py-10 px-4" style={{ background: 'var(--navy-deep)' }}>
-      <div className="max-w-3xl mx-auto">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm mb-8" style={{ color: 'var(--muted)' }}>
-          <Link href="/" className="hover:opacity-70 transition-opacity">Start</Link>
-          <span>›</span>
-          <Link href="/lernen" className="hover:opacity-70 transition-opacity">Wissen</Link>
-          <span>›</span>
-          <span style={{ color: 'var(--white)' }}>{tutorial.title}</span>
-        </div>
+    <div className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>
+      <div
+        className="border-b px-4 py-6"
+        style={{ borderColor: 'var(--border)' }}
+      >
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-2 text-xs mb-4" style={{ color: 'var(--muted)' }}>
+            <Link href="/" className="hover:opacity-70 transition-opacity">Start</Link>
+            <span>/</span>
+            <Link href="/lernen" className="hover:opacity-70 transition-opacity">Wissen</Link>
+            <span>/</span>
+            <span style={{ color: 'var(--white)' }}>{tutorial.title}</span>
+          </div>
 
-        {/* Header */}
-        <div className="mb-8">
           <span
-            className="inline-block text-xs px-3 py-1 rounded-full mb-4"
-            style={{ background: `${examColor}20`, color: examColor, border: `1px solid ${examColor}40` }}
+            className="inline-block text-xs px-2.5 py-0.5 rounded font-medium mb-3"
+            style={{
+              background: `color-mix(in srgb, ${accentColor} 12%, transparent)`,
+              color: accentColor,
+              border: `1px solid color-mix(in srgb, ${accentColor} 25%, transparent)`,
+            }}
           >
             {examLabel}
           </span>
+
           <h1
-            className="text-3xl sm:text-4xl font-bold leading-tight"
+            className="text-2xl sm:text-3xl font-bold leading-tight"
             style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
           >
             {tutorial.title}
           </h1>
         </div>
+      </div>
 
+      <div className="max-w-3xl mx-auto px-4 py-10">
         {/* Content */}
         <div
-          className="rounded-2xl p-6 sm:p-8 mb-8"
+          className="rounded-xl p-6 sm:p-8 mb-8"
           style={{
-            background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-muted) 100%)',
-            border: '1px solid rgba(200, 169, 81, 0.15)',
+            background: 'var(--navy)',
+            border: '1px solid var(--border)',
           }}
         >
           <TutorialContent content={tutorial.content} />
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between gap-4">
+        <div className="grid grid-cols-2 gap-3">
           {prev ? (
             <Link
               href={`/lernen/${prev.id}`}
-              className="flex-1 p-4 rounded-xl text-sm transition-all hover:scale-[1.02]"
+              className="p-4 rounded-lg transition-colors hover:bg-white/5"
               style={{
-                background: 'rgba(17, 34, 64, 0.6)',
-                border: '1px solid rgba(200, 169, 81, 0.1)',
-                color: 'var(--muted)',
+                background: 'var(--navy)',
+                border: '1px solid var(--border)',
               }}
             >
-              <div className="text-xs mb-1">← Vorheriges</div>
-              <div style={{ color: 'var(--white)' }}>{prev.title}</div>
+              <div className="text-xs mb-1" style={{ color: 'var(--muted)' }}>← Vorheriges</div>
+              <div className="text-sm font-medium" style={{ color: 'var(--white)' }}>{prev.title}</div>
             </Link>
-          ) : <div className="flex-1" />}
+          ) : <div />}
 
           {next ? (
             <Link
               href={`/lernen/${next.id}`}
-              className="flex-1 p-4 rounded-xl text-sm text-right transition-all hover:scale-[1.02]"
+              className="p-4 rounded-lg text-right transition-colors hover:bg-white/5"
               style={{
-                background: 'rgba(17, 34, 64, 0.6)',
-                border: '1px solid rgba(200, 169, 81, 0.1)',
-                color: 'var(--muted)',
+                background: 'var(--navy)',
+                border: '1px solid var(--border)',
               }}
             >
-              <div className="text-xs mb-1">Nächstes →</div>
-              <div style={{ color: 'var(--white)' }}>{next.title}</div>
+              <div className="text-xs mb-1" style={{ color: 'var(--muted)' }}>Nächstes →</div>
+              <div className="text-sm font-medium" style={{ color: 'var(--white)' }}>{next.title}</div>
             </Link>
-          ) : <div className="flex-1" />}
+          ) : <div />}
         </div>
 
         <div className="mt-6 text-center">
           <Link
             href="/lernen"
-            className="text-sm transition-opacity hover:opacity-70"
+            className="text-xs transition-opacity hover:opacity-70"
             style={{ color: 'var(--muted)' }}
           >
             ← Alle Themen
@@ -137,7 +143,7 @@ function TutorialContent({ content }: { content: string }) {
                 <th
                   key={ci}
                   className="px-3 py-2 text-left text-xs font-semibold border-b"
-                  style={{ color: 'var(--gold)', borderColor: 'rgba(200, 169, 81, 0.3)' }}
+                  style={{ color: 'var(--gold)', borderColor: 'var(--border)' }}
                 >
                   {cell}
                 </th>
@@ -146,10 +152,7 @@ function TutorialContent({ content }: { content: string }) {
           </thead>
           <tbody>
             {body.map((row, ri) => (
-              <tr
-                key={ri}
-                style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
-              >
+              <tr key={ri} style={{ borderBottom: '1px solid var(--border)' }}>
                 {row.map((cell, ci) => (
                   <td key={ci} className="px-3 py-2 text-xs" style={{ color: 'var(--muted)' }}>
                     <span dangerouslySetInnerHTML={{ __html: formatInline(cell) }} />
@@ -178,24 +181,28 @@ function TutorialContent({ content }: { content: string }) {
 
       if (line.startsWith('## ')) {
         elements.push(
-          <h2 key={i} className="text-xl font-bold mt-6 mb-3" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--gold)' }}>
+          <h2
+            key={i}
+            className="text-lg font-bold mt-7 mb-3"
+            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
+          >
             {line.slice(3)}
           </h2>,
         );
       } else if (line.startsWith('### ')) {
         elements.push(
-          <h3 key={i} className="text-base font-semibold mt-4 mb-2" style={{ color: 'var(--seafoam)' }}>
+          <h3 key={i} className="text-sm font-semibold mt-5 mb-2" style={{ color: 'var(--gold)' }}>
             {line.slice(4)}
           </h3>,
         );
       } else if (line.startsWith('---')) {
         elements.push(
-          <hr key={i} className="my-5" style={{ borderColor: 'rgba(200, 169, 81, 0.15)' }} />,
+          <hr key={i} className="my-5" style={{ borderColor: 'var(--border)' }} />,
         );
       } else if (line.startsWith('- ')) {
         elements.push(
-          <p key={i} className="text-sm mb-1.5 flex gap-2" style={{ color: 'rgba(248, 249, 250, 0.85)' }}>
-            <span style={{ color: 'var(--gold)', flexShrink: 0 }}>•</span>
+          <p key={i} className="text-sm mb-1.5 flex gap-2.5" style={{ color: 'rgba(232, 238, 246, 0.8)' }}>
+            <span className="shrink-0 mt-1.5 w-1 h-1 rounded-full" style={{ background: 'var(--gold)', display: 'block' }} />
             <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
           </p>,
         );
@@ -203,11 +210,11 @@ function TutorialContent({ content }: { content: string }) {
         elements.push(
           <blockquote
             key={i}
-            className="px-4 py-3 rounded-lg mb-3 text-sm italic"
+            className="px-4 py-3 rounded-lg mb-3 text-sm"
             style={{
-              borderLeft: '3px solid var(--gold)',
-              background: 'rgba(200, 169, 81, 0.08)',
-              color: 'rgba(248, 249, 250, 0.8)',
+              borderLeft: '2px solid var(--gold)',
+              background: 'rgba(188, 147, 50, 0.07)',
+              color: 'rgba(232, 238, 246, 0.75)',
             }}
           >
             <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
@@ -224,16 +231,21 @@ function TutorialContent({ content }: { content: string }) {
           <pre
             key={i}
             className="p-4 rounded-lg text-sm mb-4 overflow-x-auto"
-            style={{ background: 'rgba(0,0,0,0.3)', color: 'var(--seafoam)', fontFamily: 'monospace' }}
+            style={{
+              background: 'rgba(0, 0, 0, 0.3)',
+              color: 'var(--seafoam)',
+              fontFamily: 'monospace',
+              border: '1px solid var(--border)',
+            }}
           >
             {codeLines.join('\n')}
           </pre>,
         );
       } else if (line === '') {
-        elements.push(<div key={i} className="h-2" />);
+        elements.push(<div key={i} className="h-1" />);
       } else {
         elements.push(
-          <p key={i} className="text-sm leading-relaxed mb-3" style={{ color: 'rgba(248, 249, 250, 0.85)' }}>
+          <p key={i} className="text-sm leading-relaxed mb-3" style={{ color: 'rgba(232, 238, 246, 0.8)' }}>
             <span dangerouslySetInnerHTML={{ __html: formatInline(line) }} />
           </p>,
         );
@@ -243,7 +255,7 @@ function TutorialContent({ content }: { content: string }) {
   }
 
   if (inTable) {
-    flushTable(tableBuffer, `table-end`);
+    flushTable(tableBuffer, 'table-end');
   }
 
   return <div>{elements}</div>;

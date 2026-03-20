@@ -130,6 +130,7 @@ export default function QuizPage() {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Enter' && isRevealed) {
         handleNext();
+        return;
       }
       if (!isRevealed) {
         const map: Record<string, AnswerKey> = { '1': 'a', '2': 'b', '3': 'c', '4': 'd' };
@@ -144,8 +145,11 @@ export default function QuizPage() {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--navy-deep)' }}>
         <div className="text-center">
-          <div className="text-4xl mb-4">⚓</div>
-          <p style={{ color: 'var(--muted)' }}>Lade Fragen...</p>
+          <div
+            className="w-10 h-10 rounded-full mx-auto mb-4"
+            style={{ background: 'var(--navy)', border: '1px solid var(--border)' }}
+          />
+          <p className="text-sm" style={{ color: 'var(--muted)' }}>Lade Fragen…</p>
         </div>
       </div>
     );
@@ -164,32 +168,36 @@ export default function QuizPage() {
   return (
     <div className="min-h-screen py-8 px-4" style={{ background: 'var(--navy-deep)' }}>
       <div className="max-w-2xl mx-auto">
-        {/* Header */}
+        {/* Top bar */}
         <div className="flex items-center justify-between mb-6">
           <Link
             href={`/${exam}`}
-            className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
+            className="text-xs font-medium transition-opacity hover:opacity-70"
             style={{ color: 'var(--muted)' }}
           >
             ← {exam === 'binnen' ? 'SBF Binnen' : 'SBF See'}
           </Link>
-          <div className="flex items-center gap-3">
-            {sessionStats.total > 0 && (
-              <>
-                <span className="text-xs px-2 py-1 rounded-full" style={{ background: 'rgba(76, 175, 130, 0.15)', color: 'var(--green-signal)' }}>
-                  ✓ {sessionStats.correct}
-                </span>
-                <span className="text-xs px-2 py-1 rounded-full" style={{ background: 'rgba(224, 82, 82, 0.15)', color: 'var(--red-signal)' }}>
-                  ✗ {sessionStats.wrong}
-                </span>
-              </>
-            )}
-          </div>
+          {sessionStats.total > 0 && (
+            <div className="flex items-center gap-2 text-xs">
+              <span
+                className="px-2 py-0.5 rounded"
+                style={{ background: 'rgba(18, 184, 112, 0.10)', color: 'var(--green-signal)' }}
+              >
+                {sessionStats.correct} ✓
+              </span>
+              <span
+                className="px-2 py-0.5 rounded"
+                style={{ background: 'rgba(232, 68, 68, 0.10)', color: 'var(--red-signal)' }}
+              >
+                {sessionStats.wrong} ✗
+              </span>
+            </div>
+          )}
         </div>
 
-        {/* Topic title */}
-        <div className="mb-6">
-          <h1 className="text-lg font-bold mb-1" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}>
+        {/* Topic + progress */}
+        <div className="mb-5">
+          <h1 className="text-base font-semibold mb-2" style={{ color: 'var(--white)' }}>
             {getTopicName(topicId, exam)}
           </h1>
           <ProgressBar
@@ -203,57 +211,53 @@ export default function QuizPage() {
 
         {/* Question card */}
         <div
-          className="rounded-2xl p-6 mb-4"
+          className="rounded-xl p-6 mb-3"
           style={{
-            background: 'linear-gradient(135deg, var(--navy) 0%, var(--navy-muted) 100%)',
-            border: '1px solid rgba(200, 169, 81, 0.2)',
+            background: 'var(--navy)',
+            border: '1px solid var(--border)',
           }}
         >
-          {/* Question counter + correct count */}
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full" style={{ background: 'rgba(200, 169, 81, 0.1)', color: 'var(--gold)' }}>
-              Frage {currentIdx + 1} von {questions.length}
-            </span>
-            <div className="flex gap-1">
-              {Array.from({ length: CORRECT_THRESHOLD }).map((_, i) => (
-                <div
-                  key={i}
-                  className="w-3 h-3 rounded-full border transition-all"
-                  style={{
-                    background: i < correctCount ? 'var(--green-signal)' : 'transparent',
-                    borderColor: i < correctCount ? 'var(--green-signal)' : 'rgba(255,255,255,0.2)',
-                  }}
-                />
-              ))}
+          {/* Meta row */}
+          <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center gap-2">
+              <Badge variant="muted" size="sm">#{currentQuestion.id}</Badge>
+              {currentQuestion.hasImage && (
+                <Badge variant="blue" size="sm">{currentQuestion.imageDescription}</Badge>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs" style={{ color: 'var(--muted)' }}>
+                {currentIdx + 1}/{questions.length}
+              </span>
+              <div className="flex gap-1">
+                {Array.from({ length: CORRECT_THRESHOLD }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 rounded-full border transition-all"
+                    style={{
+                      background: i < correctCount ? 'var(--green-signal)' : 'transparent',
+                      borderColor: i < correctCount ? 'var(--green-signal)' : 'rgba(255,255,255,0.15)',
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Question number badge */}
-          <div className="mb-4">
-            <Badge variant="muted" size="sm">
-              Frage {currentQuestion.id}
-            </Badge>
-            {currentQuestion.hasImage && (
-              <Badge variant="blue" size="sm" className="ml-2">
-                🖼 {currentQuestion.imageDescription}
-              </Badge>
-            )}
-          </div>
-
           {/* Question text */}
-          <h2 className="text-lg font-semibold leading-relaxed mb-6" style={{ color: 'var(--white)' }}>
+          <h2 className="text-base font-medium leading-relaxed mb-6" style={{ color: 'var(--white)' }}>
             {currentQuestion.text}
           </h2>
 
           {/* Answer options */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             {shuffledOptions.map((option, i) => {
               const isSelected = selectedAnswer === option.key;
               const isCorrectOption = option.originalKey === currentQuestion.correctAnswer;
-              let className = 'answer-option flex items-start gap-3 p-4 rounded-xl border';
+              let className = 'answer-option flex items-start gap-3 p-3.5 rounded-lg border w-full text-left';
               let style: React.CSSProperties = {
-                borderColor: 'rgba(200, 169, 81, 0.15)',
-                background: 'rgba(255,255,255,0.03)',
+                borderColor: 'var(--border)',
+                background: 'transparent',
               };
 
               if (isRevealed) {
@@ -271,21 +275,23 @@ export default function QuizPage() {
                 <button
                   key={option.key}
                   onClick={() => handleSelect(option.key)}
-                  className={`w-full text-left ${className}`}
+                  className={className}
                   style={style}
                   disabled={isRevealed}
                 >
                   <span
-                    className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                    className="shrink-0 w-5 h-5 rounded flex items-center justify-center text-xs font-semibold mt-0.5"
                     style={{
-                      background: isRevealed && isCorrectOption
-                        ? 'var(--green-signal)'
-                        : isRevealed && isSelected && !isCorrectOption
-                          ? 'var(--red-signal)'
-                          : 'rgba(200, 169, 81, 0.15)',
-                      color: isRevealed && (isCorrectOption || (isSelected && !isCorrectOption))
-                        ? 'white'
-                        : 'var(--gold)',
+                      background:
+                        isRevealed && isCorrectOption
+                          ? 'var(--green-signal)'
+                          : isRevealed && isSelected && !isCorrectOption
+                            ? 'var(--red-signal)'
+                            : 'rgba(255,255,255,0.06)',
+                      color:
+                        isRevealed && (isCorrectOption || (isSelected && !isCorrectOption))
+                          ? 'white'
+                          : 'var(--muted)',
                     }}
                   >
                     {['A', 'B', 'C', 'D'][i]}
@@ -301,29 +307,35 @@ export default function QuizPage() {
           {/* Feedback */}
           {isRevealed && (
             <div
-              className="mt-4 p-3 rounded-lg flex items-center justify-between gap-3"
+              className="mt-4 px-4 py-3 rounded-lg flex items-center justify-between gap-3"
               style={{
-                background: selectedAnswer === currentQuestion.correctAnswer
-                  ? 'rgba(76, 175, 130, 0.1)'
-                  : 'rgba(224, 82, 82, 0.1)',
-                border: `1px solid ${selectedAnswer === currentQuestion.correctAnswer ? 'rgba(76, 175, 130, 0.3)' : 'rgba(224, 82, 82, 0.3)'}`,
+                background:
+                  selectedAnswer === currentQuestion.correctAnswer
+                    ? 'rgba(18, 184, 112, 0.08)'
+                    : 'rgba(232, 68, 68, 0.08)',
+                border: `1px solid ${
+                  selectedAnswer === currentQuestion.correctAnswer
+                    ? 'rgba(18, 184, 112, 0.25)'
+                    : 'rgba(232, 68, 68, 0.25)'
+                }`,
               }}
             >
               <span
                 className="text-sm font-medium"
                 style={{
-                  color: selectedAnswer === currentQuestion.correctAnswer
-                    ? 'var(--green-signal)'
-                    : 'var(--red-signal)',
+                  color:
+                    selectedAnswer === currentQuestion.correctAnswer
+                      ? 'var(--green-signal)'
+                      : 'var(--red-signal)',
                 }}
               >
                 {selectedAnswer === currentQuestion.correctAnswer
-                  ? `✓ Richtig! (${Math.min(correctCount + 1, CORRECT_THRESHOLD)}/${CORRECT_THRESHOLD})`
-                  : `✗ Falsch – Richtig wäre Antwort A`}
+                  ? `Richtig — ${Math.min(correctCount + 1, CORRECT_THRESHOLD)}/${CORRECT_THRESHOLD}`
+                  : 'Falsch — Richtig wäre Antwort A'}
               </span>
               <button
                 onClick={handleNext}
-                className="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all hover:scale-105"
+                className="px-4 py-1.5 rounded-md text-xs font-semibold transition-opacity hover:opacity-80"
                 style={{
                   background: 'var(--gold)',
                   color: 'var(--navy-deepest)',
@@ -335,9 +347,8 @@ export default function QuizPage() {
           )}
         </div>
 
-        {/* Keyboard hint */}
-        <p className="text-center text-xs" style={{ color: 'rgba(143, 168, 200, 0.4)' }}>
-          Tastatur: 1-4 auswählen · Enter = weiter
+        <p className="text-center text-xs" style={{ color: 'rgba(106, 136, 168, 0.4)' }}>
+          1–4 auswählen · Enter = weiter
         </p>
       </div>
     </div>
@@ -354,42 +365,46 @@ function CompletionScreen({
   sessionStats: { correct: number; wrong: number; total: number };
 }) {
   const topicName = getTopicName(topicId, exam);
-  const accuracy = sessionStats.total > 0
-    ? Math.round((sessionStats.correct / sessionStats.total) * 100)
-    : 0;
+  const accuracy = sessionStats.total > 0 ? Math.round((sessionStats.correct / sessionStats.total) * 100) : 0;
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--navy-deep)' }}>
       <div
-        className="max-w-md w-full p-8 rounded-2xl text-center"
+        className="max-w-sm w-full p-8 rounded-xl"
         style={{
-          background: 'linear-gradient(135deg, var(--navy), var(--navy-muted))',
-          border: '1px solid rgba(76, 175, 130, 0.3)',
+          background: 'var(--navy)',
+          border: '1px solid rgba(18, 184, 112, 0.25)',
         }}
       >
-        <div className="text-6xl mb-4">🏆</div>
-        <h2
-          className="text-2xl font-bold mb-2"
-          style={{ fontFamily: 'Playfair Display, serif', color: 'var(--gold)' }}
+        <div
+          className="w-12 h-12 rounded-full flex items-center justify-center text-xl mb-5 mx-auto"
+          style={{ background: 'rgba(18, 184, 112, 0.12)', color: 'var(--green-signal)' }}
         >
-          Thema bestanden!
+          ✓
+        </div>
+
+        <h2
+          className="text-xl font-bold mb-1 text-center"
+          style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
+        >
+          Thema bestanden
         </h2>
-        <p className="text-lg mb-6" style={{ color: 'var(--white)' }}>
+        <p className="text-sm mb-7 text-center" style={{ color: 'var(--muted)' }}>
           {topicName}
         </p>
 
-        <div className="grid grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-3 gap-2 mb-7">
           {[
-            { label: 'Richtig', value: sessionStats.correct, color: 'var(--green-signal)' },
-            { label: 'Falsch', value: sessionStats.wrong, color: 'var(--red-signal)' },
-            { label: 'Genauigkeit', value: `${accuracy}%`, color: 'var(--gold)' },
+            { label: 'Richtig',    value: sessionStats.correct, color: 'var(--green-signal)' },
+            { label: 'Falsch',     value: sessionStats.wrong,   color: 'var(--red-signal)' },
+            { label: 'Genauigkeit', value: `${accuracy}%`,      color: 'var(--gold)' },
           ].map((stat) => (
             <div
               key={stat.label}
-              className="p-3 rounded-xl"
-              style={{ background: 'rgba(255,255,255,0.05)' }}
+              className="p-3 rounded-lg text-center"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border)' }}
             >
-              <div className="text-2xl font-bold" style={{ color: stat.color }}>
+              <div className="text-xl font-bold tabular-nums" style={{ color: stat.color }}>
                 {stat.value}
               </div>
               <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
@@ -399,27 +414,24 @@ function CompletionScreen({
           ))}
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           <Link
             href={`/${exam}`}
-            className="w-full py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-            style={{
-              background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
-              color: 'var(--navy-deepest)',
-            }}
+            className="w-full py-2.5 rounded-lg text-sm font-semibold text-center transition-opacity hover:opacity-90"
+            style={{ background: 'var(--gold)', color: 'var(--navy-deepest)' }}
           >
-            ← Zurück zur Übersicht
+            Zur Übersicht
           </Link>
           <button
             onClick={() => window.location.reload()}
-            className="w-full py-3 rounded-xl text-sm font-medium transition-all hover:opacity-90"
+            className="w-full py-2.5 rounded-lg text-sm font-medium transition-opacity hover:opacity-80"
             style={{
-              background: 'rgba(200, 169, 81, 0.1)',
-              border: '1px solid rgba(200, 169, 81, 0.2)',
-              color: 'var(--gold)',
+              background: 'transparent',
+              border: '1px solid var(--border)',
+              color: 'var(--muted)',
             }}
           >
-            🔄 Nochmals üben
+            Nochmals üben
           </button>
         </div>
       </div>

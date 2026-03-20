@@ -20,34 +20,34 @@ export function NavBar() {
       as="nav"
       className="sticky top-0 z-50 border-b"
       style={{
-        background: 'rgba(5, 14, 26, 0.95)',
-        backdropFilter: 'blur(12px)',
-        borderColor: 'rgba(200, 169, 81, 0.2)',
+        background: 'rgba(6, 12, 24, 0.92)',
+        backdropFilter: 'blur(16px)',
+        borderColor: 'var(--border)',
       }}
     >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <Link href="/" className="flex items-center gap-3 group">
+            <div className="flex items-center justify-between h-14">
+              <Link href="/" className="flex items-center gap-2.5 group">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold transition-all group-hover:scale-110"
+                  className="w-7 h-7 rounded flex items-center justify-center text-sm font-bold"
                   style={{
-                    background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                    background: 'var(--gold)',
                     color: 'var(--navy-deepest)',
                   }}
                 >
                   ⚓
                 </div>
                 <span
-                  className="text-xl font-bold tracking-wide"
-                  style={{ fontFamily: 'Playfair Display, serif', color: 'var(--gold)' }}
+                  className="text-base font-bold tracking-tight"
+                  style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
                 >
                   OpenSBF
                 </span>
               </Link>
 
-              <div className="hidden md:flex items-center gap-1">
+              <div className="hidden md:flex items-center gap-0.5">
                 {navLinks.map((link) => {
                   const isActive =
                     link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
@@ -55,10 +55,10 @@ export function NavBar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                      className="px-3.5 py-1.5 rounded-md text-sm font-medium transition-colors"
                       style={{
-                        color: isActive ? 'var(--gold)' : 'var(--muted)',
-                        background: isActive ? 'rgba(200, 169, 81, 0.1)' : 'transparent',
+                        color: isActive ? 'var(--white)' : 'var(--muted)',
+                        background: isActive ? 'rgba(255,255,255,0.07)' : 'transparent',
                       }}
                     >
                       {link.label}
@@ -67,18 +67,24 @@ export function NavBar() {
                 })}
               </div>
 
-              <Disclosure.Button className="md:hidden p-2 rounded-lg" style={{ color: 'var(--muted)' }}>
+              <Disclosure.Button
+                className="md:hidden p-1.5 rounded-md"
+                style={{ color: 'var(--muted)' }}
+              >
                 {open ? (
-                  <XMarkIcon className="h-6 w-6" />
+                  <XMarkIcon className="h-5 w-5" />
                 ) : (
-                  <Bars3Icon className="h-6 w-6" />
+                  <Bars3Icon className="h-5 w-5" />
                 )}
               </Disclosure.Button>
             </div>
           </div>
 
-          <Disclosure.Panel className="md:hidden border-t" style={{ borderColor: 'rgba(200, 169, 81, 0.1)' }}>
-            <div className="px-4 py-3 space-y-1">
+          <Disclosure.Panel
+            className="md:hidden border-t"
+            style={{ borderColor: 'var(--border)' }}
+          >
+            <div className="px-4 py-2 space-y-0.5">
               {navLinks.map((link) => {
                 const isActive =
                   link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
@@ -87,10 +93,10 @@ export function NavBar() {
                     key={link.href}
                     as={Link}
                     href={link.href}
-                    className="block px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                    className="block px-3.5 py-2 rounded-md text-sm font-medium transition-colors"
                     style={{
-                      color: isActive ? 'var(--gold)' : 'var(--muted)',
-                      background: isActive ? 'rgba(200, 169, 81, 0.1)' : 'transparent',
+                      color: isActive ? 'var(--white)' : 'var(--muted)',
+                      background: isActive ? 'rgba(255,255,255,0.07)' : 'transparent',
                     }}
                   >
                     {link.label}

@@ -6,6 +6,37 @@ import { ProgressBar } from '@/components/ui/ProgressBar';
 import { loadProgress, getExamOverallProgress } from '@/lib/progress';
 import { getAllBinnenQuestions, getAllSeeQuestions } from '@/data/topics';
 
+const features = [
+  {
+    label: 'Alle Fragen',
+    detail: 'Vollständiger offizieller ELWIS-Fragenkatalog (August 2023)',
+  },
+  {
+    label: '3× Richtig',
+    detail: 'Jede Frage muss 3× korrekt beantwortet werden',
+  },
+  {
+    label: 'Erklärungen',
+    detail: 'Kurze Erklärungen zu Lichtern, Zeichen, Regeln und Navigation',
+  },
+  {
+    label: 'Kein Konto',
+    detail: 'Fortschritt wird lokal gespeichert — keine Anmeldung nötig',
+  },
+];
+
+const tutorialLinks = [
+  { href: '/lernen/lichter-grundlagen', label: 'Lichterführung Grundlagen' },
+  { href: '/lernen/lichter-see', label: 'Lichter nach KVR' },
+  { href: '/lernen/ausweichregeln-kvr', label: 'Ausweichregeln KVR' },
+  { href: '/lernen/ausweichregeln-binnen', label: 'Ausweichregeln Binnen' },
+  { href: '/lernen/seezeichen', label: 'Seezeichen & Betonnung' },
+  { href: '/lernen/navigation-grundlagen', label: 'Navigation' },
+  { href: '/lernen/schallzeichen-see', label: 'Schallzeichen See' },
+  { href: '/lernen/schallzeichen-binnen', label: 'Schallzeichen Binnen' },
+  { href: '/lernen/sicherheit-ausruestung', label: 'Sicherheit & Ausrüstung' },
+];
+
 export default function HomePage() {
   const [binnenPct, setBinnenPct] = useState(0);
   const [seePct, setSeePct] = useState(0);
@@ -20,235 +51,191 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>
+
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-32 px-4">
-        {/* Background decorations */}
+      <section className="relative pt-24 pb-28 px-4 overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 20% 50%, rgba(200, 169, 81, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(78, 184, 184, 0.05) 0%, transparent 50%)',
+              'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(188, 147, 50, 0.07) 0%, transparent 70%)',
           }}
         />
-        <div
-          className="absolute top-10 right-10 text-9xl opacity-5 select-none pointer-events-none"
-          style={{ fontSize: '20rem', lineHeight: 1 }}
-        >
-          ⚓
-        </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm mb-8"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium mb-10"
             style={{
-              background: 'rgba(200, 169, 81, 0.1)',
-              border: '1px solid rgba(200, 169, 81, 0.3)',
+              background: 'rgba(188, 147, 50, 0.10)',
+              border: '1px solid rgba(188, 147, 50, 0.22)',
               color: 'var(--gold)',
+              letterSpacing: '0.04em',
             }}
           >
-            <span>⚓</span>
-            <span>Kostenlose Prüfungsvorbereitung</span>
+            Kostenlose Prüfungsvorbereitung
           </div>
 
           <h1
-            className="text-5xl sm:text-7xl font-black mb-6 leading-tight"
+            className="text-6xl sm:text-8xl font-black mb-6 leading-none tracking-tight"
             style={{
               fontFamily: 'Playfair Display, serif',
-              background: 'linear-gradient(135deg, #f8f9fa 0%, var(--gold-light) 50%, var(--gold) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: 'var(--white)',
             }}
           >
-            Open
-            <span style={{ color: 'var(--gold)', WebkitTextFillColor: 'var(--gold)' }}>SBF</span>
+            Open<span style={{ color: 'var(--gold)' }}>SBF</span>
           </h1>
 
-          <p className="text-xl sm:text-2xl mb-4 font-light" style={{ color: 'rgba(248, 249, 250, 0.85)' }}>
+          <p className="text-lg sm:text-xl mb-2 font-light" style={{ color: 'var(--muted)' }}>
             Deine Lernplattform für den
           </p>
-          <p
-            className="text-2xl sm:text-3xl font-semibold mb-10"
-            style={{ color: 'var(--seafoam)', fontFamily: 'Playfair Display, serif' }}
-          >
+          <p className="text-xl sm:text-2xl font-semibold mb-10" style={{ color: 'var(--white)' }}>
             Sportbootführerschein Binnen & See
           </p>
 
-          <p className="text-base sm:text-lg max-w-2xl mx-auto mb-12" style={{ color: 'var(--muted)' }}>
-            Alle offiziellen Prüfungsfragen aus dem ELWIS-Katalog (Stand August 2023), strukturiert nach
-            Themen mit Lerntracking und Erklärungen.
+          <p className="text-sm max-w-xl mx-auto mb-12 leading-relaxed" style={{ color: 'var(--muted)' }}>
+            Alle offiziellen Prüfungsfragen aus dem ELWIS-Katalog (Stand August 2023),
+            strukturiert nach Themen mit Lerntracking und Erklärungen.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/binnen"
-              className="px-8 py-4 rounded-xl text-lg font-semibold transition-all hover:scale-105 hover:shadow-lg"
+              className="px-7 py-3 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
               style={{
-                background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                background: 'var(--gold)',
                 color: 'var(--navy-deepest)',
-                boxShadow: '0 4px 20px rgba(200, 169, 81, 0.3)',
               }}
             >
-              🏞️ SBF Binnen
+              SBF Binnen →
             </Link>
             <Link
               href="/see"
-              className="px-8 py-4 rounded-xl text-lg font-semibold transition-all hover:scale-105 hover:shadow-lg"
+              className="px-7 py-3 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
               style={{
-                background: 'linear-gradient(135deg, #0a3d6b, var(--navy-muted))',
+                background: 'transparent',
                 color: 'var(--white)',
-                border: '1px solid rgba(78, 184, 184, 0.3)',
-                boxShadow: '0 4px 20px rgba(78, 184, 184, 0.15)',
+                border: '1px solid var(--border-hover)',
               }}
             >
-              🌊 SBF See
+              SBF See →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Progress overview */}
-      <section className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div
-            className="p-6 rounded-2xl nautical-card"
-            style={{ transition: 'all 0.3s ease' }}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-lg font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  SBF Binnen
-                </h3>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
-                  Binnenschifffahrtsstraßen
-                </p>
-              </div>
-              <span className="text-3xl">🏞️</span>
-            </div>
-            <ProgressBar value={binnenPct} showLabel label="Gesamtfortschritt" className="mb-4" />
-            <Link
-              href="/binnen"
-              className="w-full block text-center py-2.5 rounded-lg text-sm font-medium transition-all hover:opacity-90"
-              style={{
-                background: 'rgba(200, 169, 81, 0.15)',
-                border: '1px solid rgba(200, 169, 81, 0.3)',
-                color: 'var(--gold)',
-              }}
+      {/* Progress cards */}
+      <section className="max-w-5xl mx-auto px-4 pb-12">
+        <div className="grid md:grid-cols-2 gap-4 mb-12">
+          {[
+            {
+              title: 'SBF Binnen',
+              sub: 'Binnenschifffahrtsstraßen',
+              href: '/binnen',
+              pct: binnenPct,
+              color: 'gold' as const,
+            },
+            {
+              title: 'SBF See',
+              sub: 'Seeschifffahrtsstraßen',
+              href: '/see',
+              pct: seePct,
+              color: 'seafoam' as const,
+            },
+          ].map((card) => (
+            <div
+              key={card.title}
+              className="p-6 rounded-xl nautical-card"
             >
-              Weiterlernen →
-            </Link>
-          </div>
-
-          <div className="p-6 rounded-2xl nautical-card">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-lg font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  SBF See
-                </h3>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
-                  Seeschifffahrtsstraßen
-                </p>
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <div>
+                  <h3 className="text-base font-semibold" style={{ color: 'var(--white)' }}>
+                    {card.title}
+                  </h3>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                    {card.sub}
+                  </p>
+                </div>
+                <span
+                  className="text-xs font-semibold tabular-nums px-2 py-0.5 rounded"
+                  style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    color: card.pct > 0 ? 'var(--white)' : 'var(--muted)',
+                  }}
+                >
+                  {card.pct}%
+                </span>
               </div>
-              <span className="text-3xl">🌊</span>
+              <ProgressBar value={card.pct} size="sm" color={card.color} className="mb-4" />
+              <Link
+                href={card.href}
+                className="text-xs font-medium transition-opacity hover:opacity-70"
+                style={{ color: card.color === 'gold' ? 'var(--gold)' : 'var(--seafoam)' }}
+              >
+                Weiterlernen →
+              </Link>
             </div>
-            <ProgressBar value={seePct} showLabel label="Gesamtfortschritt" color="seafoam" className="mb-4" />
-            <Link
-              href="/see"
-              className="w-full block text-center py-2.5 rounded-lg text-sm font-medium transition-all hover:opacity-90"
-              style={{
-                background: 'rgba(78, 184, 184, 0.1)',
-                border: '1px solid rgba(78, 184, 184, 0.3)',
-                color: 'var(--seafoam)',
-              }}
-            >
-              Weiterlernen →
-            </Link>
-          </div>
+          ))}
         </div>
 
         {/* Features */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {[
-            {
-              icon: '📚',
-              title: 'Alle Fragen',
-              text: 'Vollständiger offizieller Fragenkatalog nach ELWIS-Standard (August 2023)',
-            },
-            {
-              icon: '🎯',
-              title: '3× Richtig',
-              text: 'Jede Frage muss 3× korrekt beantwortet werden – so lernt man nachhaltig',
-            },
-            {
-              icon: '📖',
-              title: 'Erklärungen',
-              text: 'Kurze deutsche Erklärungen zu Lichtern, Zeichen, Regeln und Navigation',
-            },
-            {
-              icon: '📊',
-              title: 'Fortschritt',
-              text: 'Dein Lernfortschritt wird lokal gespeichert – keine Anmeldung nötig',
-            },
-          ].map((f) => (
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-hidden mb-12"
+          style={{ background: 'var(--border)' }}
+        >
+          {features.map((f) => (
             <div
-              key={f.title}
-              className="p-5 rounded-xl"
-              style={{
-                background: 'rgba(17, 34, 64, 0.6)',
-                border: '1px solid rgba(200, 169, 81, 0.1)',
-              }}
+              key={f.label}
+              className="px-5 py-4"
+              style={{ background: 'var(--navy)' }}
             >
-              <div className="text-3xl mb-3">{f.icon}</div>
-              <h4 className="font-semibold mb-1.5 text-sm" style={{ color: 'var(--white)' }}>
-                {f.title}
+              <h4 className="text-sm font-semibold mb-1" style={{ color: 'var(--white)' }}>
+                {f.label}
               </h4>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>
-                {f.text}
+                {f.detail}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Quick links to tutorials */}
+        {/* Tutorial links */}
         <div
-          className="rounded-2xl p-8"
+          className="rounded-xl p-6"
           style={{
-            background: 'linear-gradient(135deg, rgba(17, 34, 64, 0.8), rgba(30, 58, 95, 0.8))',
-            border: '1px solid rgba(200, 169, 81, 0.15)',
+            background: 'var(--navy)',
+            border: '1px solid var(--border)',
           }}
         >
-          <h2
-            className="text-2xl font-bold mb-2"
-            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--gold)' }}
-          >
-            Theorie & Wissen
-          </h2>
-          <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
-            Kurze Erklärungen zu den wichtigsten Themen – zum Lesen und Verstehen
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { href: '/lernen/lichter-grundlagen', label: '💡 Lichterführung Grundlagen' },
-              { href: '/lernen/lichter-see', label: '🚢 Lichter nach KVR' },
-              { href: '/lernen/ausweichregeln-kvr', label: '↔️ Ausweichregeln KVR' },
-              { href: '/lernen/ausweichregeln-binnen', label: '🚤 Ausweichregeln Binnen' },
-              { href: '/lernen/seezeichen', label: '🔴 Seezeichen & Betonnung' },
-              { href: '/lernen/navigation-grundlagen', label: '🧭 Navigation' },
-              { href: '/lernen/schallzeichen-see', label: '📣 Schallzeichen See' },
-              { href: '/lernen/schallzeichen-binnen', label: '🔊 Schallzeichen Binnen' },
-              { href: '/lernen/sicherheit-ausruestung', label: '🦺 Sicherheit' },
-            ].map((link) => (
+          <div className="flex items-baseline justify-between mb-5">
+            <div>
+              <h2 className="text-base font-semibold" style={{ color: 'var(--white)' }}>
+                Theorie & Wissen
+              </h2>
+              <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                Kurze Erklärungen zu den wichtigsten Themen
+              </p>
+            </div>
+            <Link
+              href="/lernen"
+              className="text-xs font-medium transition-opacity hover:opacity-70"
+              style={{ color: 'var(--gold)' }}
+            >
+              Alle anzeigen →
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-1">
+            {tutorialLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:scale-[1.02]"
-                style={{
-                  background: 'rgba(200, 169, 81, 0.05)',
-                  border: '1px solid rgba(200, 169, 81, 0.15)',
-                  color: 'var(--white)',
-                }}
+                className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-sm transition-colors hover:bg-white/5"
+                style={{ color: 'var(--muted)' }}
               >
-                {link.label}
+                <span
+                  className="w-1 h-1 rounded-full shrink-0"
+                  style={{ background: 'var(--gold)', opacity: 0.7 }}
+                />
+                <span className="hover:text-white transition-colors">{link.label}</span>
               </Link>
             ))}
           </div>

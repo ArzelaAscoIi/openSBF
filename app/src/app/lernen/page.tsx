@@ -7,71 +7,85 @@ export default function LernenPage() {
   const seeTutorials = tutorials.filter((t) => t.exam === 'see');
 
   return (
-    <div className="min-h-screen py-12 px-4" style={{ background: 'var(--navy-deep)' }}>
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-10">
-          <Link href="/" className="text-sm mb-6 block hover:opacity-70 transition-opacity" style={{ color: 'var(--muted)' }}>
+    <div className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>
+      <div
+        className="border-b px-4 py-10"
+        style={{ borderColor: 'var(--border)' }}
+      >
+        <div className="max-w-4xl mx-auto">
+          <Link
+            href="/"
+            className="text-xs font-medium mb-6 inline-block transition-opacity hover:opacity-70"
+            style={{ color: 'var(--muted)' }}
+          >
             ← Start
           </Link>
           <h1
-            className="text-4xl font-bold mb-3"
+            className="text-3xl font-bold mb-1"
             style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
           >
-            📖 Wissen & Theorie
+            Wissen & Theorie
           </h1>
-          <p style={{ color: 'var(--muted)' }}>
+          <p className="text-sm" style={{ color: 'var(--muted)' }}>
             Kurze, prägnante Erklärungen zu den wichtigsten Themen der SBF-Prüfung
           </p>
         </div>
+      </div>
 
-        {/* Both */}
-        <section className="mb-10">
-          <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--gold)' }}>
-            🚢 Allgemeine Themen (Binnen & See)
-          </h2>
-          <TutorialGrid tutorials={bothTutorials} />
-        </section>
-
-        {/* Binnen */}
-        <section className="mb-10">
-          <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--gold)' }}>
-            🏞️ SBF Binnen
-          </h2>
-          <TutorialGrid tutorials={binnenTutorials} />
-        </section>
-
-        {/* See */}
-        <section className="mb-10">
-          <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--seafoam)' }}>
-            🌊 SBF See
-          </h2>
-          <TutorialGrid tutorials={seeTutorials} />
-        </section>
+      <div className="max-w-4xl mx-auto px-4 py-10 space-y-10">
+        <Section title="Allgemeine Themen" sub="Binnen & See" tutorials={bothTutorials} />
+        <Section title="SBF Binnen" tutorials={binnenTutorials} />
+        <Section title="SBF See" tutorials={seeTutorials} accent="sea" />
       </div>
     </div>
   );
 }
 
-function TutorialGrid({ tutorials }: { tutorials: { id: string; title: string; exam: string }[] }) {
+function Section({
+  title,
+  sub,
+  tutorials,
+  accent = 'gold',
+}: {
+  title: string;
+  sub?: string;
+  tutorials: { id: string; title: string; exam: string }[];
+  accent?: 'gold' | 'sea';
+}) {
   return (
-    <div className="grid sm:grid-cols-2 gap-3">
-      {tutorials.map((t) => (
-        <Link
-          key={t.id}
-          href={`/lernen/${t.id}`}
-          className="p-4 rounded-xl flex items-center gap-3 transition-all hover:scale-[1.02] nautical-card"
-        >
-          <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-sm shrink-0"
-            style={{ background: 'rgba(200, 169, 81, 0.15)', color: 'var(--gold)' }}
-          >
-            📄
-          </div>
-          <span className="text-sm font-medium" style={{ color: 'var(--white)' }}>
-            {t.title}
+    <section>
+      <div className="flex items-baseline gap-2 mb-4">
+        <h2 className="text-sm font-semibold" style={{ color: 'var(--white)' }}>
+          {title}
+        </h2>
+        {sub && (
+          <span className="text-xs" style={{ color: 'var(--muted)' }}>
+            {sub}
           </span>
-        </Link>
-      ))}
-    </div>
+        )}
+      </div>
+      <div className="grid sm:grid-cols-2 gap-2">
+        {tutorials.map((t) => (
+          <Link
+            key={t.id}
+            href={`/lernen/${t.id}`}
+            className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-white/5"
+            style={{
+              background: 'var(--navy)',
+              border: '1px solid var(--border)',
+              color: 'var(--white)',
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full shrink-0"
+              style={{
+                background: accent === 'sea' ? 'var(--seafoam)' : 'var(--gold)',
+              }}
+            />
+            <span className="text-sm">{t.title}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
