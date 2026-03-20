@@ -27,6 +27,7 @@ export function NavBar() {
         background: 'rgba(6, 12, 24, 0.92)',
         backdropFilter: 'blur(16px)',
         borderColor: 'var(--border)',
+        paddingTop: 'env(safe-area-inset-top)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
