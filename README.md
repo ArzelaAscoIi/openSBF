@@ -10,9 +10,15 @@
 
 Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teuer sein muss. Statt für Online-Kurse zu bezahlen, bietet openSBF denselben Lernstoff frei und community-getrieben an.
 
+> **Privatprojekt – Keine offizielle Affiliation:** openSBF ist ein privates Hobbyprojekt von [ArzelaAscoIi](https://github.com/ArzelaAscoIi) und steht in keinerlei Verbindung mit dem Bundesministerium für Digitales und Verkehr (BMDV), ELWIS, dem DMYV, dem DSV oder anderen offiziellen Stellen. Die Nutzung erfolgt auf eigene Verantwortung.
+
 ### 🌐 Live-Version
 
-[opensbf.de](opensbf.de)
+[opensbf.de](https://opensbf.de)
+
+### 💻 GitHub
+
+[github.com/ArzelaAscoIi/openSBF](https://github.com/ArzelaAscoIi/openSBF)
 
 ### 📚 Inhalte
 
@@ -21,9 +27,9 @@ Das Projekt entstand aus der Überzeugung, dass Prüfungsvorbereitung nicht teue
 - Lernmodus und Prüfungssimulation
 - Kostenlos und ohne Registrierung nutzbar
 
-Die Inhalte basieren auf den offiziellen Fragen- und Antwortkatalogen des Bundesministeriums für Digitales und Verkehr (BMDV), veröffentlicht auf [ELWIS](https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Sportbootfuehrerscheine-node.html).
+Die Inhalte basieren auf den offiziellen Fragen- und Antwortkatalogen des Bundesministeriums für Digitales und Verkehr (BMDV), veröffentlicht auf [ELWIS](https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Sportbootfuehrerscheine-node.html). Diese Inhalte sind amtliches Material und daher nicht urheberrechtlich geschützt (§ 5 UrhG).
 
-> ⚠️ **KI-Hinweis:** Teile dieser Anwendung wurden mithilfe von KI generiert, die auf Inhalten der offiziellen ELWIS-Website basiert. Die Inhalte wurden nach bestem Wissen aufbereitet, ersetzen jedoch nicht die offizielle Prüfungsvorbereitung oder rechtliche Beratung. Für die Richtigkeit aller Inhalte wird keine Gewähr übernommen.
+> ⚠️ **Haftungsausschluss:** openSBF ist ein inoffizielles Privatprojekt ohne Gewinnabsicht. Die Inhalte wurden nach bestem Wissen aufbereitet, ersetzen jedoch nicht die offizielle Prüfungsvorbereitung, einen zugelassenen Kurs oder rechtliche Beratung. Für die Vollständigkeit und Richtigkeit aller Inhalte wird keine Gewähr übernommen. Maßgeblich sind stets die aktuellen offiziellen Unterlagen auf [elwis.de](https://www.elwis.de).
 
 ### ⚠️ Einschränkungen
 
@@ -44,7 +50,7 @@ Alle aktuellen Anforderungen findest du auf der offiziellen ELWIS-Seite: [elwis.
 
 ### 🚀 Lokale Entwicklung
 
-**Voraussetzungen:** [uv](https://github.com/astral-sh/uv) ist nicht erforderlich – das Projekt ist ein reines Next.js-Frontend. Node.js >= 18 wird benötigt.
+**Voraussetzungen:** Node.js >= 18
 
 ```bash
 cd app
@@ -56,7 +62,11 @@ Die App läuft dann unter [http://localhost:3000](http://localhost:3000).
 
 ### 🤝 Mitmachen
 
-Dieses Projekt lebt von der Community. Fehler gefunden, Frage falsch oder veraltet? Pull Requests und Issues sind herzlich willkommen.
+Dieses Projekt lebt von der Community. Fehler gefunden, Frage falsch oder veraltet? Pull Requests und Issues sind herzlich willkommen auf [GitHub](https://github.com/ArzelaAscoIi/openSBF).
+
+### 📄 Lizenz
+
+Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Die Fragenkataloge stammen aus amtlichem Material (BMDV/ELWIS) und unterliegen § 5 UrhG (keine urheberrechtliche Einschränkung für amtliche Werke).
 
 ---
 
@@ -66,9 +76,15 @@ Dieses Projekt lebt von der Community. Fehler gefunden, Frage falsch oder veralt
 
 The project exists because exam preparation shouldn't cost money. Instead of paying for online courses at various boating schools, openSBF offers the same learning content for free, community-driven.
 
+> **Personal Project – No Official Affiliation:** openSBF is a private hobby project by [ArzelaAscoIi](https://github.com/ArzelaAscoIi) and is in no way affiliated with the German Federal Ministry for Digital and Transport (BMDV), ELWIS, DMYV, DSV, or any other official authority. Use at your own risk.
+
 ### 🌐 Live Version
 
-[https://open-rha56srt8-kristofs-projects-03cd34cf.vercel.app](https://open-rha56srt8-kristofs-projects-03cd34cf.vercel.app?_vercel_share=g0tfmtkfnYeq0PcKYcIBw4b5CyDIwVxY)
+[opensbf.de](https://opensbf.de)
+
+### 💻 GitHub
+
+[github.com/ArzelaAscoIi/openSBF](https://github.com/ArzelaAscoIi/openSBF)
 
 ### 📚 Content
 
@@ -77,9 +93,9 @@ The project exists because exam preparation shouldn't cost money. Instead of pay
 - Study mode and exam simulation
 - Free to use, no account needed
 
-Content is based on the official question and answer catalogs published by the German Federal Ministry for Digital and Transport (BMDV) via [ELWIS](https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Sportbootfuehrerscheine-node.html).
+Content is based on the official question and answer catalogs published by the German Federal Ministry for Digital and Transport (BMDV) via [ELWIS](https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Sportbootfuehrerscheine-node.html). These catalogs are official government publications and are not subject to copyright under § 5 UrhG (German Copyright Act).
 
-> ⚠️ **AI Disclaimer:** Parts of this application were generated with the help of AI based on content from the official ELWIS website. While content has been prepared to the best of our knowledge, it does not replace official exam preparation or legal advice. No guarantee is made for the accuracy of all content.
+> ⚠️ **Disclaimer:** openSBF is an unofficial, non-commercial personal project. While content has been prepared to the best of our knowledge, it does not replace official exam preparation, an accredited course, or legal advice. No guarantee is made for the completeness or accuracy of any content. Always refer to the current official materials at [elwis.de](https://www.elwis.de).
 
 ### ⚠️ Limitations
 
@@ -111,8 +127,12 @@ The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ### 🤝 Contributing
 
-This project thrives on community contributions. Found an error or an outdated question? Pull requests and issues are very welcome.
+This project thrives on community contributions. Found an error or an outdated question? Pull requests and issues are very welcome on [GitHub](https://github.com/ArzelaAscoIi/openSBF).
+
+### 📄 License
+
+Source code is released under the [MIT License](LICENSE). The question catalogs are sourced from official government publications (BMDV/ELWIS) and are not subject to copyright restrictions under § 5 UrhG (German Copyright Act).
 
 ---
 
-*Built with Next.js · Hosted on Vercel · Content sourced from ELWIS (BMDV)*
+*Built with Next.js · Hosted on Vercel · Content sourced from ELWIS (BMDV) · [GitHub](https://github.com/ArzelaAscoIi/openSBF) · [ArzelaAscoIi](https://github.com/ArzelaAscoIi)*

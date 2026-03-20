@@ -83,6 +83,39 @@ export function resetProgress(): void {
   localStorage.removeItem(STORAGE_KEY);
 }
 
+export function exportProgress(): string {
+  const progress = loadProgress();
+  return JSON.stringify(progress, null, 2);
+}
+
+export function mergeProgress(current: UserProgress, imported: UserProgress): UserProgress {
+  const merged: UserProgress['questions'] = { ...current.questions };
+
+  for (const [key, importedQ] of Object.entries(imported.questions)) {
+    const existing = merged[key];
+    merged[key] = {
+      ...importedQ,
+      correctCount: Math.max(importedQ.correctCount, existing?.correctCount ?? 0),
+    };
+  }
+
+  return {
+    questions: merged,
+    topics: {},
+    lastUpdated: new Date().toISOString(),
+  };
+}
+
+export function validateImport(raw: string): UserProgress | null {
+  try {
+    const parsed = JSON.parse(raw) as UserProgress;
+    if (typeof parsed !== 'object' || !parsed.questions) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
 export function resetTopicProgress(
   progress: UserProgress,
   questionIds: number[],
