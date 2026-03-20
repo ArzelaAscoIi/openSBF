@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/binnen', label: 'SBF Binnen' },
   { href: '/see', label: 'SBF See' },
   { href: '/lernen', label: 'Wissen' },
+  { href: '/navigation', label: 'Navigation' },
 ];
 
 export function NavBar() {

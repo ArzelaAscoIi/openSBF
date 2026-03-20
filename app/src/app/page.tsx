@@ -36,6 +36,7 @@ const tutorialLinks = [
   { href: '/lernen/schallzeichen-binnen', label: 'Schallzeichen Binnen' },
   { href: '/lernen/sicherheit-ausruestung', label: 'Sicherheit & Ausrüstung' },
   { href: '/lernen/knoten', label: 'Knoten & Tauwerk' },
+  { href: '/navigation', label: 'Navigationsrechner' },
 ];
 
 export default function HomePage() {
