@@ -174,6 +174,16 @@ export function NavBar() {
             {navGroups.map((group) => (
               <DesktopDropdown key={group.label} group={group} pathname={pathname} />
             ))}
+            <Link
+              href="/forum"
+              className="px-3.5 py-1.5 rounded-md text-sm font-medium transition-colors"
+              style={{
+                color: pathname?.startsWith('/forum') ? 'var(--white)' : 'var(--muted)',
+                background: pathname?.startsWith('/forum') ? 'rgba(255,255,255,0.07)' : undefined,
+              }}
+            >
+              Forum
+            </Link>
           </div>
 
           <div className="flex items-center gap-1">
@@ -193,6 +203,18 @@ export function NavBar() {
       {mobileOpen && (
         <div className="md:hidden border-t" style={{ borderColor: 'var(--border)' }}>
           <div className="px-4 py-2 space-y-0.5">
+            <Link
+              href="/forum"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2.5 px-3.5 py-2 rounded-md text-sm font-semibold transition-colors"
+              style={{
+                color: pathname?.startsWith('/forum') ? 'var(--gold-light)' : 'var(--muted)',
+                background: pathname?.startsWith('/forum') ? 'rgba(255,255,255,0.05)' : undefined,
+              }}
+            >
+              <span className="text-base leading-none">💬</span>
+              Forum
+            </Link>
             {navGroups.map((group) => {
               const isGroupActive = group.activePrefixes.some((p) => pathname.startsWith(p));
               const isExpanded = mobileExpanded === group.label;

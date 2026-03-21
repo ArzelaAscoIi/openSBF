@@ -93,6 +93,15 @@ export default function UserMenu() {
               </div>
 
               <div className="px-4 py-3 space-y-1">
+                <Link
+                  href="/profil"
+                  onClick={() => setOpen(false)}
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5"
+                  style={{ color: 'var(--white)' }}
+                >
+                  <span className="text-base leading-none">📊</span>
+                  Mein Fortschritt
+                </Link>
                 <button
                   onClick={handleSignOut}
                   className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-white/5 text-left"
