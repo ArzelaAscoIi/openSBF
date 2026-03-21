@@ -95,7 +95,7 @@ export default function ImpressumPage() {
             Urheberrecht
           </p>
           <p>
-            Der Quellcode steht unter der{' '}
+            Der Code steht unter der{' '}
             <a
               href="https://github.com/ArzelaAscoIi/openSBF/blob/main/LICENSE"
               target="_blank"

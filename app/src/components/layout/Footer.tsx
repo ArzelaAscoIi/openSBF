@@ -31,7 +31,7 @@ export function Footer() {
                   className="hover:underline transition-colors"
                   style={{ color: 'var(--seafoam-light)' }}
                 >
-                  GitHub – Quellcode
+                  GitHub – Code
                 </a>
               </li>
               <li>
@@ -112,7 +112,7 @@ export function Footer() {
             >
               elwis.de
             </a>
-            ) und sind gemäß § 5 UrhG nicht urheberrechtlich geschützt. Quellcode lizenziert unter MIT.
+            ) und sind gemäß § 5 UrhG nicht urheberrechtlich geschützt. Code lizenziert unter MIT.
           </p>
         </div>
       </div>

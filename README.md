@@ -66,7 +66,7 @@ Dieses Projekt lebt von der Community. Fehler gefunden, Frage falsch oder veralt
 
 ### 📄 Lizenz
 
-Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Die Fragenkataloge stammen aus amtlichem Material (BMDV/ELWIS) und unterliegen § 5 UrhG (keine urheberrechtliche Einschränkung für amtliche Werke).
+Der Code steht unter der [MIT-Lizenz](LICENSE). Die Fragenkataloge stammen aus amtlichem Material (BMDV/ELWIS) und unterliegen § 5 UrhG (keine urheberrechtliche Einschränkung für amtliche Werke).
 
 ---
 
