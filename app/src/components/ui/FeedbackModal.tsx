@@ -13,9 +13,19 @@ const TYPES: { value: FeedbackType; label: string; emoji: string }[] = [
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
-export function FeedbackModal() {
+export interface FeedbackContext {
+  questionId: string;
+  questionText: string;
+}
+
+interface FeedbackModalProps {
+  context?: FeedbackContext;
+  trigger?: React.ReactNode;
+}
+
+export function FeedbackModal({ context, trigger }: FeedbackModalProps) {
   const [open, setOpen] = useState(false);
-  const [type, setType] = useState<FeedbackType>('bug');
+  const [type, setType] = useState<FeedbackType>(context ? 'bug' : 'bug');
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<Status>('idle');
@@ -25,6 +35,11 @@ export function FeedbackModal() {
     setMessage('');
     setEmail('');
     setStatus('idle');
+  }
+
+  function handleOpen() {
+    reset();
+    setOpen(true);
   }
 
   function handleClose() {
@@ -41,9 +56,13 @@ export function FeedbackModal() {
     const supabase = createClient();
     const page = typeof window !== 'undefined' ? window.location.pathname : null;
 
+    const fullMessage = context
+      ? `[Frage ${context.questionId}] ${message.trim()}`
+      : message.trim();
+
     const { error } = await supabase.from('feedback').insert({
       type,
-      message: message.trim(),
+      message: fullMessage,
       email: email.trim() || null,
       page,
     });
@@ -58,13 +77,16 @@ export function FeedbackModal() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="hover:underline transition-colors"
-        style={{ color: 'var(--seafoam-light)', background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit' }}
-      >
-        Feedback geben
-      </button>
+      <span onClick={handleOpen} style={{ cursor: 'pointer', display: 'contents' }}>
+        {trigger ?? (
+          <button
+            className="hover:underline transition-colors"
+            style={{ color: 'var(--seafoam-light)', background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit' }}
+          >
+            Feedback geben
+          </button>
+        )}
+      </span>
 
       {open && (
         <div
@@ -77,9 +99,18 @@ export function FeedbackModal() {
             style={{ background: 'var(--navy)', border: '1px solid var(--border)' }}
           >
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-base font-semibold" style={{ color: 'var(--white)' }}>
-                Feedback
-              </h2>
+              <div>
+                <h2 className="text-base font-semibold" style={{ color: 'var(--white)' }}>
+                  Feedback
+                </h2>
+                {context && (
+                  <p className="text-xs mt-0.5 truncate max-w-xs" style={{ color: 'var(--muted)' }}>
+                    Frage {context.questionId}: {context.questionText.length > 50
+                      ? `${context.questionText.slice(0, 50)}…`
+                      : context.questionText}
+                  </p>
+                )}
+              </div>
               <button
                 onClick={handleClose}
                 className="text-xl leading-none transition-opacity hover:opacity-60"
@@ -134,11 +165,13 @@ export function FeedbackModal() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={
-                    type === 'bug'
-                      ? 'Was ist passiert? Was hast du erwartet?'
-                      : type === 'suggestion'
-                        ? 'Was könnte verbessert werden?'
-                        : 'Deine Nachricht…'
+                    context
+                      ? 'Was stimmt an dieser Frage nicht?'
+                      : type === 'bug'
+                        ? 'Was ist passiert? Was hast du erwartet?'
+                        : type === 'suggestion'
+                          ? 'Was könnte verbessert werden?'
+                          : 'Deine Nachricht…'
                   }
                   rows={4}
                   className="w-full rounded-lg px-3 py-2.5 text-sm resize-none mb-3 outline-none"

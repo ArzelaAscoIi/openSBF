@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDownIcon, ChevronRightIcon, ArrowLeftIcon, MapIcon, CalculatorIcon, InformationCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, ChevronRightIcon, ArrowLeftIcon, MapIcon, CalculatorIcon, InformationCircleIcon, CheckCircleIcon, PlayCircleIcon } from '@heroicons/react/24/outline';
 import { navAufgaben, NavAufgabe, NavQuestion, QTyp } from '@/data/nav-aufgaben';
 
 // ─── tiny helpers ────────────────────────────────────────────────────────────
@@ -317,9 +317,22 @@ function TaskDetail({ aufgabe }: { aufgabe: NavAufgabe }) {
           </span>
         </div>
         <p className="text-sm text-white/70 leading-relaxed whitespace-pre-line">{aufgabe.szenario}</p>
-        <div className="mt-3 pt-3 border-t border-white/8 flex flex-wrap gap-4 text-xs text-slate-400">
-          <span>Übungskarte: <strong className="text-slate-300">D49 (Deutsche Bucht)</strong></span>
-          <span>Missweisung: <strong className="text-seafoam-300 font-mono">{aufgabe.mw >= 0 ? '+' : ''}{aufgabe.mw}°</strong></span>
+        <div className="mt-3 pt-3 border-t border-white/8 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap gap-4 text-xs text-slate-400">
+            <span>Übungskarte: <strong className="text-slate-300">D49 (Deutsche Bucht)</strong></span>
+            <span>Missweisung: <strong className="text-seafoam-300 font-mono">{aufgabe.mw >= 0 ? '+' : ''}{aufgabe.mw}°</strong></span>
+          </div>
+          {aufgabe.youtubeUrl && (
+            <a
+              href={aufgabe.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:border-red-500/50 hover:text-red-300 transition-colors shrink-0"
+            >
+              <PlayCircleIcon className="h-3.5 w-3.5" />
+              Musterlösung auf YouTube
+            </a>
+          )}
         </div>
       </div>
 

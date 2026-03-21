@@ -7,6 +7,8 @@ import Link from 'next/link';
 import type { Question, ExamType } from '@/lib/types';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Badge } from '@/components/ui/Badge';
+import { FeedbackModal } from '@/components/ui/FeedbackModal';
+import { LoginPromptModal } from '@/components/ui/LoginPromptModal';
 import { binnenTopics, seeTopics, getAllBinnenQuestions, getAllSeeQuestions } from '@/data/topics';
 import {
   loadProgress,
@@ -17,7 +19,10 @@ import {
   getTopicProgress,
   isTopicPassed,
 } from '@/lib/progress';
+import { useAuth } from '@/hooks/useAuth';
 import type { UserProgress } from '@/lib/types';
+
+const FREE_QUESTIONS_LIMIT = 10;
 
 const CORRECT_THRESHOLD = 3;
 
@@ -89,6 +94,9 @@ export default function QuizPage() {
 
   const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0, total: 0 });
   const [isComplete, setIsComplete] = useState(false);
+  const { user, loading } = useAuth();
+
+  const showLoginPrompt = !loading && !user && sessionStats.total >= FREE_QUESTIONS_LIMIT;
 
   useEffect(() => {
     if (questions.length === 0) return;
@@ -182,6 +190,7 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen py-8 px-4" style={{ background: 'var(--navy-deep)' }}>
+      {showLoginPrompt && <LoginPromptModal questionsAnswered={sessionStats.total} />}
       <div className="max-w-2xl mx-auto">
         {/* Top bar */}
         <div className="flex items-center justify-between mb-6">
@@ -335,6 +344,25 @@ export default function QuizPage() {
                 </button>
               );
             })}
+          </div>
+
+          {/* Report error */}
+          <div className="mt-4 flex justify-end">
+            <FeedbackModal
+              context={{ questionId: String(currentQuestion.id), questionText: currentQuestion.text }}
+              trigger={
+                <button
+                  className="flex items-center gap-1 px-2 py-0.5 rounded text-xs transition-opacity hover:opacity-80"
+                  style={{
+                    background: 'rgba(232,68,68,0.10)',
+                    border: '1px solid rgba(232,68,68,0.25)',
+                    color: 'var(--red-signal)',
+                  }}
+                >
+                  Fehler melden
+                </button>
+              }
+            />
           </div>
 
           {/* Feedback */}

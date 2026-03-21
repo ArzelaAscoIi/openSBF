@@ -42,6 +42,7 @@ export interface NavAufgabe {
   szenario: string;
   mw: number;           // Missweisung for this task (from chart, pre-computed)
   questions: NavQuestion[];
+  youtubeUrl?: string;
 }
 
 export const navAufgaben: NavAufgabe[] = [
@@ -50,6 +51,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '05.05.2012',
     szenario: 'Ein Sportboot befindet sich am 05.05.2012 in der Deutschen Bucht auf der Reise von Borkum nach Cuxhaven. Die Fahrt über Grund beträgt 8 kn.\n\nUm 10:00 Uhr wird die Leuchttonne "TG19/Weser 2" nahebei passiert. Von dieser Tonne wird der Kurs auf die Ansteuerungstonne der alten Weser "ST" abgesetzt.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=jYWMqmiAeuc',
     questions: [
       { nr: 1, frage: 'Wie lautet der rwK?', antwort: 'rwK = 079°', typ: 'chart' },
       { nr: 2, frage: 'Die Ablenkung beträgt +4°, die Mw ist der Seekarte zu entnehmen. Wie lautet der MgK?', antwort: 'MgK = 074°', typ: 'mgk', rwk: 79, dev: 4, mw: 1 },
@@ -67,6 +69,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '10.06.2011',
     szenario: 'Ein Sportboot befindet sich am 10.06.2011 in der Deutschen Bucht auf der Reise von Helgoland nach Cuxhaven. Die Fahrt über Grund beträgt 10 kn.\n\nUm 11:00 Uhr wird 1,2 sm südlich von Helgoland die Tonne "Helgoland-O" nahebei passiert.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=cQA6Me1A8Mw',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Sportbootes um 11:00 Uhr.', antwort: '54° 09,0\' N 007° 53,5\' E', typ: 'chart' },
       { nr: 2, frage: 'Im Abstand von ca. 0,6 sm südwestlich der Tonne "Helgoland-O" befindet sich eine Eintragung. Was bedeutet diese Eintragung in der Seekarte?', antwort: 'Wrack, Kartentiefe 53,6 m', typ: 'info' },
@@ -84,6 +87,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '23.05.2011',
     szenario: 'Ein Sportboot befindet sich am 23.05.2011 in der Deutschen Bucht auf der Fahrt aus der Jade nach Langeoog.\n\nUm 13:30 Uhr wird die Tonne "1b/Jade 1" nahebei passiert. Die Fahrt über Grund wird mit 6 kn angenommen.',
     mw: 0,
+    youtubeUrl: 'https://www.youtube.com/watch?v=z_VmXaaK4K0',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Sportbootes um 13:30 Uhr.', antwort: '53° 52,4\' N 007° 44,0\' E', typ: 'chart' },
       { nr: 2, frage: 'Von dieser Tonne aus wird der Kurs auf die Tonne "Accumer Ee" abgesetzt. Tragen Sie den Kurs in die Seekarte ein.', antwort: 'Kurs in die Seekarte eingetragen.', typ: 'karte' },
@@ -101,6 +105,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '18.04.2014',
     szenario: 'Ein aus Langeoog auslaufendes Sportboot befindet sich am 18.04.2014 um 09:00 Uhr nahe bei der Tonne "Accumer Ee".',
     mw: 0,
+    youtubeUrl: 'https://www.youtube.com/watch?v=ef6lf9r9im4',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Bootes um 09:00 Uhr.', antwort: '53° 47,2\' N 007° 29,1\' E', typ: 'chart' },
       { nr: 2, frage: 'Von der Tonne "Accumer Ee" aus wird der Kurs auf die Tonne "Otzumer Balje" abgesetzt. Tragen Sie den Kurs in die Seekarte ein.', antwort: 'Kurs in die Seekarte eingetragen.', typ: 'karte' },
@@ -118,6 +123,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '29.07.2011',
     szenario: 'Ein Motorboot befindet sich am 29.07.2011 in der Küstenverkehrszone und möchte in die Jade einlaufen.',
     mw: 0,
+    youtubeUrl: 'https://www.youtube.com/watch?v=r2rmB_CXVAs',
     questions: [
       { nr: 1, frage: 'Zur Standortbestimmung werden um 14:00 Uhr mit dem Peilaufsatz am Magnetkompass gepeilt. Ablenkung −4°, Mw aus Seekarte.\nWasserturm Langeoog: MgP = 225°\nTonne "Otzumer Balje": MgP = 131°\nWie lauten die rw-Peilungen?', antwort: 'Wasserturm Langeoog: rwP = 221°\nTonne "Otzumer Balje": rwP = 127°', typ: 'peilung', peilungen: [{ name: 'Wasserturm Langeoog', mgp: 225, dev: -4, mw: 0, rwp: 221 }, { name: 'Tonne "Otzumer Balje"', mgp: 131, dev: -4, mw: 0, rwp: 127 }] },
       { nr: 2, frage: 'Tragen Sie die rechtweisenden Peilungen in die Seekarte ein.', antwort: 'Peilungen in die Seekarte eingetragen.', typ: 'karte' },
@@ -135,6 +141,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '30.06.2012',
     szenario: 'Ein aus der Alten Weser auslaufendes Motorboot befindet sich am 30.06.2012 auf dem Weg in die Elbe und steht um 09:00 Uhr nahebei der Tonne "A2".',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=Ev3ORQwvMD0',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Motorbootes.', antwort: '53° 55,3\' N 007° 58,8\' E', typ: 'chart' },
       { nr: 2, frage: 'Von der Tonne "A2" aus setzt das Boot seinen Kurs auf die Tonne "Westertill-N" ab. Tragen Sie den Kurs in die Seekarte ein.', antwort: 'Kurs in die Seekarte eingetragen.', typ: 'karte' },
@@ -152,6 +159,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '22.10.2010',
     szenario: 'Ein aus der Elbe auslaufendes Motorboot steht am 22.10.2010 um 11:00 Uhr nahebei der Tonne "Außenelbe-Reede 2". Die Fahrt über Grund beträgt 8 kn.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=HoodX3bO9CQ',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Motorbootes um 11:00 Uhr.', antwort: '54° 03,5\' N 008° 06,9\' E', typ: 'chart' },
       { nr: 2, frage: 'Beschreiben Sie Farbe, Kennung und Toppzeichen der Tonne "Außenelbe-Reede 2".', antwort: 'Farbe: gelb\nKennung: gelbes unterbrochenes Feuer in 3er Gruppen, Wiederkehr 12 Sekunden\nToppzeichen: keines', typ: 'info' },
@@ -169,6 +177,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '28.05.2012',
     szenario: 'Ein Motorboot steht am 28.05.2012 um 10:00 Uhr in der Deutschen Bucht. Die Fahrt über Grund wird mit 9 kn angenommen.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=6ADVwbnjyTg',
     questions: [
       { nr: 1, frage: 'Durch Peilung und Abstandsmessung wird eine Standortbestimmung durchgeführt. Die Tonne "E2" wird gepeilt: rwP = 084°, Distanz 1,6 sm. Tragen Sie die rw-Peilung in die Seekarte ein.', antwort: 'rwP = 084° in die Seekarte eingetragen.', typ: 'karte' },
       { nr: 2, frage: 'Entnehmen Sie der Seekarte die geographische Position.', antwort: '54° 07,0\' N 007° 41,0\' E', typ: 'chart' },
@@ -186,6 +195,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '23.06.2011',
     szenario: 'Ein Sportboot befährt am 23.06.2011 nördlich des roten Tonnenstrichs die Elbe seewärts. Gegen 12:00 Uhr wird die Tonne "14" nahebei passiert. Die Fahrt über Grund beträgt 5,8 kn.',
     mw: 0,
+    youtubeUrl: 'https://www.youtube.com/watch?v=sIw6i0hGbLo',
     questions: [
       { nr: 1, frage: 'Wann erreicht das Boot voraussichtlich die Tonne "6"? (Distanz ca. 5,8 sm)', antwort: 'gegen 13:00 Uhr', typ: 'ankunft', distanz: 5.8, speed: 5.8, startUhr: '12:00' },
       { nr: 2, frage: 'Gut südlich des grünen Tonnenstrichs geht es elbabwärts bis gegen 13:50 Uhr, als Tonne "1" an Steuerbord querab ist. Nun wird rwK 206° auf den Leuchtturm "Alte Weser" abgesetzt. Ablenkung +4°, Mw aus Seekarte. Wie lautet der MgK?', antwort: 'MgK = 202°', typ: 'mgk', rwk: 206, dev: 4, mw: 0 },
@@ -203,6 +213,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '14.07.2010',
     szenario: 'Ein am 14.07.2010 aus der "Alten Weser" auslaufendes Fahrzeug hat den Leuchtturm "Alte Weser" passiert und steht um 12:00 Uhr nahebei der Tonne "A10".',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=XouLDmrqqK4',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position dieser Tonne.', antwort: '53° 52,6\' N 008° 06,4\' E', typ: 'chart' },
       { nr: 2, frage: 'Beschreiben Sie das Feuer des Leuchtturms "Alte Weser".', antwort: 'Festfeuer mit weißen, roten und grünen Sektoren.\nFeuerhöhe 33 m, Nenntragweite 23 sm bis 18 sm.', typ: 'info' },
@@ -220,6 +231,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '05.08.2013',
     szenario: 'Ein Sportboot steht am 05.08.2013 um 09:00 Uhr in der Deutschen Bucht auf Position 53° 54,2\' N und 007° 53,8\' E und möchte in die Neue Weser einlaufen.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=ypERrnNVsyk',
     questions: [
       { nr: 1, frage: 'Tragen Sie die Position in die Karte ein.', antwort: '53° 54,2\' N 007° 53,8\' E in die Seekarte eingetragen.', typ: 'karte' },
       { nr: 2, frage: 'Auf der o. g. Position befindet sich ein Eintrag. Was bedeutet diese Eintragung in der Seekarte?', antwort: 'Kartentiefe 18,5 m', typ: 'info' },
@@ -237,6 +249,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '02.05.2012',
     szenario: 'Ein am 02.05.2012 aus der Jade auslaufendes Sportboot steht um 08:00 Uhr nahebei der Tonne "10" des Wangerooger Fahrwassers und möchte in nördlicher Richtung ablaufen. Die Fahrt über Grund wird mit 8 kn angenommen.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=iAmmbx4PDxk',
     questions: [
       { nr: 1, frage: 'Entnehmen Sie der Seekarte die geographische Position des Bootes.', antwort: '53° 50,0\' N 007° 53,4\' E', typ: 'chart' },
       { nr: 2, frage: 'Von der angegebenen Position wird der Kurs auf die Tonne "ST" abgesetzt. Tragen Sie den Kurs in die Seekarte ein.', antwort: 'Kurs in die Seekarte eingetragen.', typ: 'karte' },
@@ -254,6 +267,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '02.07.2014',
     szenario: 'Ein aus Helgoland ausgelaufenes Sportboot befindet sich am 02.07.2014 auf dem Weg nach Bremerhaven.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=C2k1ITI2aJg',
     questions: [
       { nr: 1, frage: 'Um 09:00 Uhr werden mit dem Hand-Peilkompass gepeilt. Ablenkung 0°, Mw aus Seekarte.\nTonne "Helgoland-O": MgP = 284°\nTonne "Düne-S": MgP = 008°\nWie lauten die rw-Peilungen?', antwort: 'Tonne "Helgoland-O": rwP = 285°\nTonne "Düne-S": rwP = 009°', typ: 'peilung', peilungen: [{ name: 'Tonne "Helgoland-O"', mgp: 284, dev: 0, mw: 1, rwp: 285 }, { name: 'Tonne "Düne-S"', mgp: 8, dev: 0, mw: 1, rwp: 9 }] },
       { nr: 2, frage: 'Tragen Sie die rechtweisenden Peilungen in die Seekarte ein.', antwort: 'Peilungen in die Seekarte eingetragen.', typ: 'karte' },
@@ -271,6 +285,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '31.08.2013',
     szenario: 'Ein Sportboot verlässt am frühen Morgen des 31.08.2013 die Insel Neuwerk mit dem Ziel Husum. Die Fahrt über Grund wird mit 6 kn angegeben.',
     mw: 1,
+    youtubeUrl: 'https://www.youtube.com/watch?v=rDwapPdrokQ',
     questions: [
       { nr: 1, frage: 'Beschreiben Sie das Feuer des Leuchtturms Neuwerk.', antwort: 'Blink in 3er Gruppen, weiß-rot-grün. 20 Sekunden Wiederkehr. Feuerträger 38 m hoch. Nenntragweite 16 sm bis 11 sm.', typ: 'info' },
       { nr: 2, frage: 'Erläutern Sie die Bedeutung folgender Hintergrundfarben in der Seekarte: weiß, hellblau, hellgrün und hellgelb.', antwort: 'Weiß: tiefes Wasser\nHellblau: flaches Wasser\nHellgrün: Watt\nHellgelb: Land', typ: 'info' },
@@ -288,6 +303,7 @@ export const navAufgaben: NavAufgabe[] = [
     datum: '20.08.2011',
     szenario: 'Ein Sportboot läuft am 20.08.2011 von der Weser kommend in die Elbmündung.',
     mw: 0,
+    youtubeUrl: 'https://www.youtube.com/watch?v=5HojecpCsos',
     questions: [
       { nr: 1, frage: 'Um 09:00 Uhr werden folgende Peilungen ermittelt. Ablenkung +5°, Mw aus Seekarte.\nLeuchtturm "Alte Weser": MgP = 175°\nLeuchtturm "Neuwerk": MgP = 085°\nWie lauten die rw-Peilungen?', antwort: 'Leuchtturm "Alte Weser": rwP = 180°\nLeuchtturm "Neuwerk": rwP = 090°', typ: 'peilung', peilungen: [{ name: 'Leuchtturm "Alte Weser"', mgp: 175, dev: 5, mw: 0, rwp: 180 }, { name: 'Leuchtturm "Neuwerk"', mgp: 85, dev: 5, mw: 0, rwp: 90 }] },
       { nr: 2, frage: 'Tragen Sie die rwP in die Karte ein.', antwort: 'Peilungen in die Seekarte eingetragen.', typ: 'karte' },

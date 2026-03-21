@@ -6,6 +6,9 @@ import { TopicCard } from '@/components/quiz/TopicCard';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { binnenTopics, getAllBinnenQuestions } from '@/data/topics';
 import { loadProgress, getTopicProgress, isTopicPassed, getExamOverallProgress } from '@/lib/progress';
+import { useAuth } from '@/hooks/useAuth';
+
+const FREE_TOPICS_LIMIT = 1;
 
 type TopicProgressEntry = { passed: number; total: number; percentage: number; isPassed: boolean };
 
@@ -22,6 +25,7 @@ function computeProgress() {
 
 export default function BinnenPage() {
   const [{ overall, progressData }] = useState(computeProgress);
+  const { user, loading } = useAuth();
 
   const passedTopics = Object.values(progressData).filter((p) => p.isPassed).length;
 
@@ -93,11 +97,31 @@ export default function BinnenPage() {
           </span>
         </div>
 
+        {!loading && !user && (
+          <div
+            className="mb-5 px-4 py-3 rounded-lg flex items-center gap-3"
+            style={{
+              background: 'rgba(188, 147, 50, 0.08)',
+              border: '1px solid rgba(188, 147, 50, 0.25)',
+            }}
+          >
+            <span style={{ color: 'var(--gold)' }}>🔒</span>
+            <p className="text-xs" style={{ color: 'var(--muted)' }}>
+              Nur das erste Thema ist ohne Konto verfügbar.{' '}
+              <Link href="/auth/login" className="underline" style={{ color: 'var(--gold)' }}>
+                Jetzt anmelden
+              </Link>{' '}
+              um alle {binnenTopics.length} Themen freizuschalten.
+            </p>
+          </div>
+        )}
+
         <div className="grid sm:grid-cols-2 gap-3">
           {binnenTopics
             .filter((t) => (progressData[t.id]?.total ?? 0) > 0)
-            .map((topic) => {
+            .map((topic, index) => {
               const pd = progressData[topic.id] ?? { passed: 0, total: 0, percentage: 0, isPassed: false };
+              const isLocked = !loading && !user && index >= FREE_TOPICS_LIMIT;
               return (
                 <TopicCard
                   key={topic.id}
@@ -107,6 +131,7 @@ export default function BinnenPage() {
                   percentage={pd.percentage}
                   isPassed={pd.isPassed}
                   exam="binnen"
+                  locked={isLocked}
                 />
               );
             })}
