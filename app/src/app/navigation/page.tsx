@@ -73,10 +73,11 @@ function CompassRose({ courses }: { courses: { angle: number; color: string }[] 
         const isInt = deg % 45 === 0 && !isCard;
         const isTen = deg % 10 === 0;
         const innerR = isCard ? r - 22 : isInt ? r - 16 : isTen ? r - 11 : r - 7;
-        const x1 = cx + r * Math.sin(toRad(deg));
-        const y1 = cy - r * Math.cos(toRad(deg));
-        const x2 = cx + innerR * Math.sin(toRad(deg));
-        const y2 = cy - innerR * Math.cos(toRad(deg));
+        const round = (n: number) => Math.round(n * 1e4) / 1e4;
+        const x1 = round(cx + r * Math.sin(toRad(deg)));
+        const y1 = round(cy - r * Math.cos(toRad(deg)));
+        const x2 = round(cx + innerR * Math.sin(toRad(deg)));
+        const y2 = round(cy - innerR * Math.cos(toRad(deg)));
         return (
           <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2}
             stroke={isCard ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.14)'}
@@ -87,24 +88,30 @@ function CompassRose({ courses }: { courses: { angle: number; color: string }[] 
       {/* Cardinal labels */}
       {([{ a: 0, l: 'N' }, { a: 45, l: 'NE' }, { a: 90, l: 'E' }, { a: 135, l: 'SE' },
         { a: 180, l: 'S' }, { a: 225, l: 'SW' }, { a: 270, l: 'W' }, { a: 315, l: 'NW' }] as { a: number; l: string }[])
-        .map(({ a, l }) => (
-          <text key={a}
-            x={cx + (r + 28) * Math.sin(toRad(a))} y={cy - (r + 28) * Math.cos(toRad(a))}
-            textAnchor="middle" dominantBaseline="middle"
-            fontSize={a % 90 === 0 ? 14 : 10} fontWeight={a % 90 === 0 ? '700' : '500'}
-            fill={a % 90 === 0 ? 'var(--gold)' : 'rgba(255,255,255,0.4)'}
-            fontFamily="Inter, sans-serif"
-          >{l}</text>
-        ))}
+        .map(({ a, l }) => {
+          const r4 = (n: number) => Math.round(n * 1e4) / 1e4;
+          return (
+            <text key={a}
+              x={r4(cx + (r + 28) * Math.sin(toRad(a)))} y={r4(cy - (r + 28) * Math.cos(toRad(a)))}
+              textAnchor="middle" dominantBaseline="middle"
+              fontSize={a % 90 === 0 ? 14 : 10} fontWeight={a % 90 === 0 ? '700' : '500'}
+              fill={a % 90 === 0 ? 'var(--gold)' : 'rgba(255,255,255,0.4)'}
+              fontFamily="Inter, sans-serif"
+            >{l}</text>
+          );
+        })}
 
       {/* Inner degree labels */}
-      {[30, 60, 120, 150, 210, 240, 300, 330].map((a) => (
-        <text key={a}
-          x={cx + (r - 30) * Math.sin(toRad(a))} y={cy - (r - 30) * Math.cos(toRad(a))}
-          textAnchor="middle" dominantBaseline="middle"
-          fontSize={7.5} fill="rgba(255,255,255,0.2)" fontFamily="Inter, sans-serif"
-        >{a}°</text>
-      ))}
+      {[30, 60, 120, 150, 210, 240, 300, 330].map((a) => {
+        const r4 = (n: number) => Math.round(n * 1e4) / 1e4;
+        return (
+          <text key={a}
+            x={r4(cx + (r - 30) * Math.sin(toRad(a)))} y={r4(cy - (r - 30) * Math.cos(toRad(a)))}
+            textAnchor="middle" dominantBaseline="middle"
+            fontSize={7.5} fill="rgba(255,255,255,0.2)" fontFamily="Inter, sans-serif"
+          >{a}°</text>
+        );
+      })}
 
       {/* Center */}
       <circle cx={cx} cy={cy} r={4} fill="var(--navy-light)" stroke="rgba(255,255,255,0.35)" strokeWidth={1} />
@@ -687,9 +694,17 @@ export default function NavigationPage() {
           style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.02)' }}
         >
           <div className="flex-1">
-            <h3 className="text-base font-semibold text-white mb-1">Prüfungssimulation</h3>
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="text-base font-semibold text-white">Prüfungssimulation</h3>
+              <span
+                className="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide"
+                style={{ background: 'rgba(96,165,250,0.12)', color: '#60a5fa', border: '1px solid rgba(96,165,250,0.22)' }}
+              >
+                Seekarte Beta
+              </span>
+            </div>
             <p className="text-sm" style={{ color: 'var(--muted)' }}>
-              Alle 15 offiziellen ELWIS-Navigationsaufgaben mit interaktiven Berechnungen — ohne Seekarte lösbar.
+              Alle 15 offiziellen ELWIS-Navigationsaufgaben mit interaktiven Berechnungen — die interaktive Seekarte ist im Beta-Stadium.
             </p>
           </div>
           <Link

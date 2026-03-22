@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Question, ExamType } from '@/lib/types';
+import type { Question, ExamType, AnswerKey, SessionStats } from '@/lib/types';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Badge } from '@/components/ui/Badge';
 import { FeedbackModal } from '@/components/ui/FeedbackModal';
@@ -16,6 +16,8 @@ import {
   recordAnswer,
   isQuestionPassed,
   getQuestionCorrectCount,
+  getQuestionWrongCount,
+  getHardestQuestions,
   getTopicProgress,
   isTopicPassed,
 } from '@/lib/progress';
@@ -23,8 +25,8 @@ import { useAuth } from '@/hooks/useAuth';
 import type { UserProgress } from '@/lib/types';
 
 const FREE_QUESTIONS_LIMIT = 10;
-
 const CORRECT_THRESHOLD = 3;
+const HARD_QUESTIONS_TOPIC_ID = 'schwierige-fragen';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const shuffled = [...arr];
@@ -44,14 +46,15 @@ function getTopicQuestions(topicId: string, exam: ExamType): Question[] {
 }
 
 function getTopicName(topicId: string, exam: ExamType): string {
+  if (topicId === HARD_QUESTIONS_TOPIC_ID) return 'Deine Problemfragen';
   const topics = exam === 'binnen' ? binnenTopics : seeTopics;
   return topics.find((t) => t.id === topicId)?.name ?? topicId;
 }
 
-type AnswerKey = 'a' | 'b' | 'c' | 'd';
+type ShuffledOption = { key: AnswerKey; text: string; originalKey: AnswerKey };
 
 type QuestionView = {
-  options: { key: AnswerKey; text: string; originalKey: AnswerKey }[];
+  options: ShuffledOption[];
   selectedAnswer: AnswerKey | null;
   isRevealed: boolean;
 };
@@ -65,34 +68,47 @@ type QuizState = {
 
 function makeView(question: Question): QuestionView {
   const options = shuffleArray(
-    question.answers.map((a) => ({ key: a.key as AnswerKey, text: a.text, originalKey: a.key as AnswerKey })),
+    question.answers.map((a) => ({ key: a.key, text: a.text, originalKey: a.key })),
   );
   return { options, selectedAnswer: null, isRevealed: false };
 }
 
 function initQuizState(topicId: string, exam: ExamType, initialQ: number): QuizState {
   const progress = loadProgress();
-  const topicQuestions = getTopicQuestions(topicId, exam);
-  const unpassed = topicQuestions.filter((q) => !isQuestionPassed(progress, q.id, exam));
-  const questions = shuffleArray(unpassed.length > 0 ? unpassed : topicQuestions);
+  const allQuestions = exam === 'binnen' ? getAllBinnenQuestions() : getAllSeeQuestions();
+
+  let questions: Question[];
+  if (topicId === HARD_QUESTIONS_TOPIC_ID) {
+    questions = shuffleArray(getHardestQuestions(progress, exam, allQuestions));
+  } else {
+    const topicQuestions = getTopicQuestions(topicId, exam);
+    const unpassed = topicQuestions.filter((q) => !isQuestionPassed(progress, q.id, exam));
+    questions = shuffleArray(unpassed.length > 0 ? unpassed : topicQuestions);
+  }
+
   const currentIdx = initialQ > 0 && initialQ < questions.length ? initialQ : 0;
-  const view = questions[currentIdx] ? makeView(questions[currentIdx]) : { options: [], selectedAnswer: null, isRevealed: false };
+  const view = questions[currentIdx]
+    ? makeView(questions[currentIdx])
+    : { options: [], selectedAnswer: null, isRevealed: false };
   return { progress, questions, currentIdx, view };
 }
 
-export default function QuizPage() {
+export default function QuizPage(): React.ReactElement {
   const params = useParams();
   const exam = params.exam as ExamType;
   const topicId = params.topic as string;
 
-  const initialQ = typeof window !== 'undefined' ? parseInt(new URLSearchParams(window.location.search).get('q') ?? '0', 10) : 0;
+  const initialQ =
+    typeof window !== 'undefined'
+      ? parseInt(new URLSearchParams(window.location.search).get('q') ?? '0', 10)
+      : 0;
 
   const [{ progress, questions, currentIdx, view }, setQuiz] = useState<QuizState>(() =>
     initQuizState(topicId, exam, initialQ),
   );
   const { options: shuffledOptions, selectedAnswer, isRevealed } = view;
 
-  const [sessionStats, setSessionStats] = useState({ correct: 0, wrong: 0, total: 0 });
+  const [sessionStats, setSessionStats] = useState<SessionStats>({ correct: 0, wrong: 0, total: 0 });
   const [isComplete, setIsComplete] = useState(false);
   const { user, loading } = useAuth();
 
@@ -104,7 +120,7 @@ export default function QuizPage() {
   }, [currentIdx, questions.length]);
 
   const handleSelect = useCallback(
-    (key: AnswerKey) => {
+    (key: AnswerKey): void => {
       if (isRevealed) return;
 
       const currentQuestion = questions[currentIdx];
@@ -126,8 +142,12 @@ export default function QuizPage() {
     [isRevealed, questions, currentIdx, progress, exam],
   );
 
-  const handleNext = useCallback(() => {
+  const handleNext = useCallback((): void => {
     if (currentIdx + 1 >= questions.length) {
+      if (topicId === HARD_QUESTIONS_TOPIC_ID) {
+        setIsComplete(true);
+        return;
+      }
       const topicQuestions = getTopicQuestions(topicId, exam);
       if (isTopicPassed(progress, topicQuestions.map((q) => q.id), exam)) {
         setIsComplete(true);
@@ -150,14 +170,15 @@ export default function QuizPage() {
   }, [currentIdx, questions, topicId, exam, progress]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
+    const handler = (e: KeyboardEvent): void => {
       if (e.key === 'Enter' && isRevealed) {
         handleNext();
         return;
       }
       if (!isRevealed) {
         const map: Record<string, AnswerKey> = { '1': 'a', '2': 'b', '3': 'c', '4': 'd' };
-        if (map[e.key]) handleSelect(map[e.key]);
+        const mapped = map[e.key];
+        if (mapped) handleSelect(mapped);
       }
     };
     window.addEventListener('keydown', handler);
@@ -165,26 +186,62 @@ export default function QuizPage() {
   }, [isRevealed, handleNext, handleSelect]);
 
   if (questions.length === 0) {
+    const isHardModeEmpty = topicId === HARD_QUESTIONS_TOPIC_ID;
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--navy-deep)' }}>
-        <div className="text-center">
-          <div
-            className="w-10 h-10 rounded-full mx-auto mb-4"
-            style={{ background: 'var(--navy)', border: '1px solid var(--border)' }}
-          />
-          <p className="text-sm" style={{ color: 'var(--muted)' }}>Lade Fragen…</p>
+      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--navy-deep)' }}>
+        <div className="text-center max-w-xs">
+          {isHardModeEmpty ? (
+            <>
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-xl mb-4 mx-auto"
+                style={{ background: 'rgba(18, 184, 112, 0.12)', color: 'var(--green-signal)' }}
+              >
+                ✓
+              </div>
+              <p className="text-base font-semibold mb-2" style={{ color: 'var(--white)' }}>
+                Keine Problemfragen
+              </p>
+              <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
+                Du hast noch keine Frage falsch beantwortet — weiter so!
+              </p>
+              <Link
+                href={`/${exam}`}
+                className="px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-80"
+                style={{ background: 'var(--gold)', color: 'var(--navy-deepest)' }}
+              >
+                Zur Übersicht
+              </Link>
+            </>
+          ) : (
+            <>
+              <div
+                className="w-10 h-10 rounded-full mx-auto mb-4"
+                style={{ background: 'var(--navy)', border: '1px solid var(--border)' }}
+              />
+              <p className="text-sm" style={{ color: 'var(--muted)' }}>Lade Fragen…</p>
+            </>
+          )}
         </div>
       </div>
     );
   }
 
   if (isComplete) {
-    return <CompletionScreen exam={exam} topicId={topicId} sessionStats={sessionStats} />;
+    return (
+      <CompletionScreen
+        exam={exam}
+        topicId={topicId}
+        sessionStats={sessionStats}
+        isHardMode={topicId === HARD_QUESTIONS_TOPIC_ID}
+      />
+    );
   }
 
   const currentQuestion = questions[currentIdx];
   const correctCount = getQuestionCorrectCount(progress, currentQuestion.id, exam);
-  const topicQuestions = getTopicQuestions(topicId, exam);
+  const wrongCount = getQuestionWrongCount(progress, currentQuestion.id, exam);
+  const isHardMode = topicId === HARD_QUESTIONS_TOPIC_ID;
+  const topicQuestions = isHardMode ? questions : getTopicQuestions(topicId, exam);
   const topicProgress = getTopicProgress(progress, topicQuestions.map((q) => q.id), exam);
   const totalQuestions = topicQuestions.length;
 
@@ -192,7 +249,6 @@ export default function QuizPage() {
     <div className="min-h-screen py-8 px-4" style={{ background: 'var(--navy-deep)' }}>
       {showLoginPrompt && <LoginPromptModal questionsAnswered={sessionStats.total} />}
       <div className="max-w-2xl mx-auto">
-        {/* Top bar */}
         <div className="flex items-center justify-between mb-6">
           <Link
             href={`/${exam}`}
@@ -219,7 +275,6 @@ export default function QuizPage() {
           )}
         </div>
 
-        {/* Topic + progress */}
         <div className="mb-5">
           <h1 className="text-base font-semibold mb-2" style={{ color: 'var(--white)' }}>
             {getTopicName(topicId, exam)}
@@ -233,18 +288,16 @@ export default function QuizPage() {
           />
         </div>
 
-        {/* Question card */}
         <div
           className="rounded-xl p-6 mb-3"
-          style={{
-            background: 'var(--navy)',
-            border: '1px solid var(--border)',
-          }}
+          style={{ background: 'var(--navy)', border: '1px solid var(--border)' }}
         >
-          {/* Meta row */}
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">
               <Badge variant="muted" size="sm">#{currentQuestion.id}</Badge>
+              {wrongCount > 0 && (
+                <Badge variant="red" size="sm">{wrongCount}× falsch</Badge>
+              )}
               {currentQuestion.hasImage && !currentQuestion.imagePath && (
                 <Badge variant="blue" size="sm">{currentQuestion.imageDescription}</Badge>
               )}
@@ -268,7 +321,6 @@ export default function QuizPage() {
             </div>
           </div>
 
-          {/* Question image */}
           {currentQuestion.imagePath && (
             <div className="mb-5 flex justify-center">
               <Image
@@ -286,18 +338,16 @@ export default function QuizPage() {
             </div>
           )}
 
-          {/* Question text */}
           <h2 className="text-base font-medium leading-relaxed mb-6" style={{ color: 'var(--white)' }}>
             {currentQuestion.text}
           </h2>
 
-          {/* Answer options */}
           <div className="space-y-2">
             {shuffledOptions.map((option, i) => {
               const isSelected = selectedAnswer === option.key;
               const isCorrectOption = option.originalKey === currentQuestion.correctAnswer;
               let className = 'answer-option flex items-start gap-3 p-3.5 rounded-lg border w-full text-left';
-              let style: React.CSSProperties = {
+              let optionStyle: React.CSSProperties = {
                 borderColor: 'var(--border)',
                 background: 'transparent',
               };
@@ -306,10 +356,10 @@ export default function QuizPage() {
                 className += ' disabled';
                 if (isCorrectOption) {
                   className += ' correct';
-                  style = {};
-                } else if (isSelected && !isCorrectOption) {
+                  optionStyle = {};
+                } else if (isSelected) {
                   className += ' wrong';
-                  style = {};
+                  optionStyle = {};
                 }
               }
 
@@ -318,7 +368,7 @@ export default function QuizPage() {
                   key={option.key}
                   onClick={() => handleSelect(option.key)}
                   className={className}
-                  style={style}
+                  style={optionStyle}
                   disabled={isRevealed}
                 >
                   <span
@@ -346,7 +396,6 @@ export default function QuizPage() {
             })}
           </div>
 
-          {/* Report error */}
           <div className="mt-4 flex justify-end">
             <FeedbackModal
               context={{ questionId: String(currentQuestion.id), questionText: currentQuestion.text }}
@@ -365,7 +414,6 @@ export default function QuizPage() {
             />
           </div>
 
-          {/* Feedback */}
           {isRevealed && (
             <div
               className="mt-4 px-4 py-3 rounded-lg"
@@ -398,10 +446,7 @@ export default function QuizPage() {
                 <button
                   onClick={handleNext}
                   className="shrink-0 px-4 py-1.5 rounded-md text-xs font-semibold transition-opacity hover:opacity-80"
-                  style={{
-                    background: 'var(--gold)',
-                    color: 'var(--navy-deepest)',
-                  }}
+                  style={{ background: 'var(--gold)', color: 'var(--navy-deepest)' }}
                 >
                   Weiter →
                 </button>
@@ -423,17 +468,27 @@ export default function QuizPage() {
   );
 }
 
+interface CompletionScreenProps {
+  exam: ExamType;
+  topicId: string;
+  sessionStats: SessionStats;
+  isHardMode: boolean;
+}
+
 function CompletionScreen({
   exam,
   topicId,
   sessionStats,
-}: {
-  exam: ExamType;
-  topicId: string;
-  sessionStats: { correct: number; wrong: number; total: number };
-}) {
+  isHardMode,
+}: CompletionScreenProps): React.ReactElement {
   const topicName = getTopicName(topicId, exam);
   const accuracy = sessionStats.total > 0 ? Math.round((sessionStats.correct / sessionStats.total) * 100) : 0;
+
+  const stats: Array<{ label: string; value: number | string; color: string }> = [
+    { label: 'Richtig',     value: sessionStats.correct, color: 'var(--green-signal)' },
+    { label: 'Falsch',      value: sessionStats.wrong,   color: 'var(--red-signal)' },
+    { label: 'Genauigkeit', value: `${accuracy}%`,       color: 'var(--gold)' },
+  ];
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--navy-deep)' }}>
@@ -441,32 +496,31 @@ function CompletionScreen({
         className="max-w-sm w-full p-8 rounded-xl"
         style={{
           background: 'var(--navy)',
-          border: '1px solid rgba(18, 184, 112, 0.25)',
+          border: `1px solid ${isHardMode ? 'rgba(188, 147, 50, 0.25)' : 'rgba(18, 184, 112, 0.25)'}`,
         }}
       >
         <div
           className="w-12 h-12 rounded-full flex items-center justify-center text-xl mb-5 mx-auto"
-          style={{ background: 'rgba(18, 184, 112, 0.12)', color: 'var(--green-signal)' }}
+          style={{
+            background: isHardMode ? 'rgba(188, 147, 50, 0.12)' : 'rgba(18, 184, 112, 0.12)',
+            color: isHardMode ? 'var(--gold)' : 'var(--green-signal)',
+          }}
         >
-          ✓
+          {isHardMode ? '★' : '✓'}
         </div>
 
         <h2
           className="text-xl font-bold mb-1 text-center"
           style={{ fontFamily: 'Playfair Display, serif', color: 'var(--white)' }}
         >
-          Thema bestanden
+          {isHardMode ? 'Gut gemacht!' : 'Thema bestanden'}
         </h2>
         <p className="text-sm mb-7 text-center" style={{ color: 'var(--muted)' }}>
-          {topicName}
+          {isHardMode ? 'Du hast alle Problemfragen geübt' : topicName}
         </p>
 
         <div className="grid grid-cols-3 gap-2 mb-7">
-          {[
-            { label: 'Richtig',    value: sessionStats.correct, color: 'var(--green-signal)' },
-            { label: 'Falsch',     value: sessionStats.wrong,   color: 'var(--red-signal)' },
-            { label: 'Genauigkeit', value: `${accuracy}%`,      color: 'var(--gold)' },
-          ].map((stat) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
               className="p-3 rounded-lg text-center"

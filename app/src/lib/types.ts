@@ -1,7 +1,11 @@
 export type ExamType = 'binnen' | 'see';
 
+export type AnswerKey = 'a' | 'b' | 'c' | 'd';
+
+export type AccentColor = 'gold' | 'seafoam';
+
 export interface Answer {
-  key: 'a' | 'b' | 'c' | 'd';
+  key: AnswerKey;
   text: string;
 }
 
@@ -30,6 +34,7 @@ export interface QuestionProgress {
   questionId: number;
   exam: ExamType;
   correctCount: number;
+  wrongCount: number;
   lastAnswered: string;
 }
 
@@ -52,4 +57,17 @@ export interface TutorialSection {
   title: string;
   content: string;
   relatedTopics?: string[];
+}
+
+export interface SessionStats {
+  correct: number;
+  wrong: number;
+  total: number;
+}
+
+export interface TopicProgressEntry {
+  passed: number;
+  total: number;
+  percentage: number;
+  isPassed: boolean;
 }

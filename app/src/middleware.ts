@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { type NextRequest, NextResponse } from 'next/server';
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest): Promise<NextResponse> {
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
     },
   );
 
-  // Refresh session if expired — required for Server Components to read auth state
+  // Refresh session if expired — required for Server Components to read auth state.
   await supabase.auth.getUser();
 
   return supabaseResponse;

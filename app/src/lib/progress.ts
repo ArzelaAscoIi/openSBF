@@ -1,4 +1,4 @@
-import type { UserProgress, QuestionProgress, ExamType } from './types';
+import type { UserProgress, QuestionProgress, ExamType, Question } from './types';
 
 const STORAGE_KEY = 'opensbf_progress';
 const CORRECT_THRESHOLD = 3;
@@ -37,6 +37,7 @@ export function recordAnswer(
     questionId,
     exam,
     correctCount: isCorrect ? (existing?.correctCount ?? 0) + 1 : existing?.correctCount ?? 0,
+    wrongCount: isCorrect ? (existing?.wrongCount ?? 0) : (existing?.wrongCount ?? 0) + 1,
     lastAnswered: new Date().toISOString(),
   };
 
@@ -58,6 +59,27 @@ export function isQuestionPassed(progress: UserProgress, questionId: number, exa
 export function getQuestionCorrectCount(progress: UserProgress, questionId: number, exam: ExamType): number {
   const key = getQuestionKey(questionId, exam);
   return progress.questions[key]?.correctCount ?? 0;
+}
+
+export function getQuestionWrongCount(progress: UserProgress, questionId: number, exam: ExamType): number {
+  const key = getQuestionKey(questionId, exam);
+  return progress.questions[key]?.wrongCount ?? 0;
+}
+
+export const HARD_QUESTIONS_LIMIT = 20;
+
+export function getHardestQuestions(
+  progress: UserProgress,
+  exam: ExamType,
+  allQuestions: Question[],
+  limit = HARD_QUESTIONS_LIMIT,
+): Question[] {
+  return allQuestions
+    .map((q) => ({ question: q, wrongCount: progress.questions[getQuestionKey(q.id, exam)]?.wrongCount ?? 0 }))
+    .filter(({ wrongCount }) => wrongCount > 0)
+    .sort((a, b) => b.wrongCount - a.wrongCount)
+    .slice(0, limit)
+    .map(({ question }) => question);
 }
 
 export function getTopicProgress(
@@ -96,6 +118,7 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
     merged[key] = {
       ...importedQ,
       correctCount: Math.max(importedQ.correctCount, existing?.correctCount ?? 0),
+      wrongCount: Math.max(importedQ.wrongCount ?? 0, existing?.wrongCount ?? 0),
     };
   }
 
