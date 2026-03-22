@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 // ─── Math utilities ────────────────────────────────────────────────────────────
 
@@ -310,6 +311,12 @@ const kursDreieckProblems = [
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
 
 type Tab = 'kompass' | 'kursdreieck' | 'ueben';
+
+const TAB_LABELS: Record<Tab, string> = {
+  kompass: 'Kompasskorrektur',
+  kursdreieck: 'Kursdreieck',
+  ueben: 'Übungsaufgaben',
+};
 
 // ─── Kompasskorrektur Tab ─────────────────────────────────────────────────────
 
@@ -631,12 +638,6 @@ function UebenTab() {
 export default function NavigationPage() {
   const [tab, setTab] = useState<Tab>('kompass');
 
-  const tabs: { id: Tab; label: string }[] = [
-    { id: 'kompass', label: 'Kompasskorrektur' },
-    { id: 'kursdreieck', label: 'Kursdreieck' },
-    { id: 'ueben', label: 'Übungsaufgaben' },
-  ];
-
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy-deep)' }}>
       {/* Header */}
@@ -664,20 +665,28 @@ export default function NavigationPage() {
       {/* Tabs */}
       <div className="border-b" style={{ borderColor: 'var(--border)' }}>
         <div className="max-w-5xl mx-auto px-4">
-          <div className="flex gap-0">
-            {tabs.map((t) => (
+          <div className="flex items-stretch gap-0">
+            {(Object.keys(TAB_LABELS) as Tab[]).map((t) => (
               <button
-                key={t.id}
-                onClick={() => setTab(t.id)}
+                key={t}
+                onClick={() => setTab(t)}
                 className="px-4 py-3 text-sm font-medium border-b-2 transition-colors"
                 style={{
-                  borderColor: tab === t.id ? 'var(--gold)' : 'transparent',
-                  color: tab === t.id ? 'var(--white)' : 'var(--muted)',
+                  borderColor: tab === t ? 'var(--gold)' : 'transparent',
+                  color: tab === t ? 'var(--white)' : 'var(--muted)',
                 }}
               >
-                {t.label}
+                {TAB_LABELS[t]}
               </button>
             ))}
+            <Link
+              href="/navigation/aufgaben"
+              className="ml-auto flex items-center gap-1.5 px-4 py-3 text-sm font-medium border-b-2 border-transparent transition-colors hover:text-white"
+              style={{ color: 'var(--muted)' }}
+            >
+              Prüfungsaufgaben
+              <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5 opacity-60" />
+            </Link>
           </div>
         </div>
       </div>
@@ -687,34 +696,6 @@ export default function NavigationPage() {
         {tab === 'kompass' && <KompassTab />}
         {tab === 'kursdreieck' && <KursDreieckTab />}
         {tab === 'ueben' && <UebenTab />}
-
-        {/* Navigationsaufgaben CTA */}
-        <div
-          className="mt-10 rounded-xl border p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"
-          style={{ borderColor: 'var(--border)', background: 'rgba(255,255,255,0.02)' }}
-        >
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-base font-semibold text-white">Prüfungssimulation</h3>
-              <span
-                className="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide"
-                style={{ background: 'rgba(96,165,250,0.12)', color: '#60a5fa', border: '1px solid rgba(96,165,250,0.22)' }}
-              >
-                Seekarte Beta
-              </span>
-            </div>
-            <p className="text-sm" style={{ color: 'var(--muted)' }}>
-              Alle 15 offiziellen ELWIS-Navigationsaufgaben mit interaktiven Berechnungen — die interaktive Seekarte ist im Beta-Stadium.
-            </p>
-          </div>
-          <Link
-            href="/navigation/aufgaben"
-            className="shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-            style={{ background: 'var(--gold)', color: '#0a1628' }}
-          >
-            Zu den Aufgaben →
-          </Link>
-        </div>
       </div>
     </div>
   );
