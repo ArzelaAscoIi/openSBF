@@ -1,17 +1,20 @@
-import type { UserProgress, QuestionProgress, ExamType, Question } from './types';
+import type { UserProgress, QuestionProgress, ExamType, Question, ExamResult } from './types';
 
 const STORAGE_KEY = 'opensbf_progress';
 const CORRECT_THRESHOLD = 3;
 
+function emptyProgress(): UserProgress {
+  return { questions: {}, topics: {}, pruefungsboegen: {}, lastUpdated: new Date().toISOString() };
+}
+
 export function loadProgress(): UserProgress {
-  if (typeof window === 'undefined') {
-    return { questions: {}, topics: {}, lastUpdated: new Date().toISOString() };
-  }
+  if (typeof window === 'undefined') return emptyProgress();
   const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) {
-    return { questions: {}, topics: {}, lastUpdated: new Date().toISOString() };
-  }
-  return JSON.parse(raw) as UserProgress;
+  if (!raw) return emptyProgress();
+  const parsed = JSON.parse(raw) as UserProgress;
+  // backfill for older stored data that predates the pruefungsboegen field
+  if (!parsed.pruefungsboegen) parsed.pruefungsboegen = {};
+  return parsed;
 }
 
 export function saveProgress(progress: UserProgress): void {
@@ -122,9 +125,21 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
     };
   }
 
+  // Merge exam results: combine arrays, deduplicate by takenAt
+  const mergedPb: UserProgress['pruefungsboegen'] = { ...(current.pruefungsboegen ?? {}) };
+  for (const [key, results] of Object.entries(imported.pruefungsboegen ?? {})) {
+    const existingResults = mergedPb[key] ?? [];
+    const existingTimes = new Set(existingResults.map((r) => r.takenAt));
+    const newResults = results.filter((r) => !existingTimes.has(r.takenAt));
+    mergedPb[key] = [...existingResults, ...newResults].sort((a, b) =>
+      a.takenAt.localeCompare(b.takenAt),
+    );
+  }
+
   return {
     questions: merged,
     topics: {},
+    pruefungsboegen: mergedPb,
     lastUpdated: new Date().toISOString(),
   };
 }
@@ -158,4 +173,41 @@ export function getExamOverallProgress(
   exam: ExamType,
 ): { passed: number; total: number; percentage: number } {
   return getTopicProgress(progress, allQuestionIds, exam);
+}
+
+// ---------------------------------------------------------------------------
+// Prüfungsbögen exam result persistence
+// ---------------------------------------------------------------------------
+
+export function pruefungsbogenKey(nummer: number): string {
+  return `see_pb_${String(nummer).padStart(2, '0')}`;
+}
+
+export function saveExamResult(result: ExamResult, nummer: number): void {
+  const progress = loadProgress();
+  const key = pruefungsbogenKey(nummer);
+  const existing = progress.pruefungsboegen[key] ?? [];
+  const updated: UserProgress = {
+    ...progress,
+    pruefungsboegen: {
+      ...progress.pruefungsboegen,
+      [key]: [...existing, result],
+    },
+  };
+  saveProgress(updated);
+}
+
+export function getExamResults(progress: UserProgress, nummer: number): ExamResult[] {
+  return progress.pruefungsboegen[pruefungsbogenKey(nummer)] ?? [];
+}
+
+export function getBestExamResult(progress: UserProgress, nummer: number): ExamResult | null {
+  const results = getExamResults(progress, nummer);
+  if (results.length === 0) return null;
+  return results.reduce((best, r) => (r.correct > best.correct ? r : best), results[0]);
+}
+
+export function getLastExamResult(progress: UserProgress, nummer: number): ExamResult | null {
+  const results = getExamResults(progress, nummer);
+  return results.length > 0 ? results[results.length - 1] : null;
 }

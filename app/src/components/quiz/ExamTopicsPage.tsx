@@ -24,6 +24,7 @@ interface ExamTopicsPageProps {
   subtitle: string;
   accentColor: AccentColor;
   explanationContent: React.ReactNode;
+  quickLinks?: React.ReactNode;
 }
 
 function computeExamProgress(
@@ -53,6 +54,7 @@ export function ExamTopicsPage({
   subtitle,
   accentColor,
   explanationContent,
+  quickLinks,
 }: ExamTopicsPageProps): React.ReactElement {
   const [{ overall, progressData, hardCount }] = useState(() =>
     computeExamProgress(exam, topics, getAllQuestions),
@@ -176,6 +178,8 @@ export function ExamTopicsPage({
             </Link>
           </div>
         )}
+
+        {quickLinks && <div className="mb-6">{quickLinks}</div>}
 
         <div className="grid sm:grid-cols-2 gap-3">
           {topics

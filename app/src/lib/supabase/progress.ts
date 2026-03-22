@@ -8,7 +8,7 @@ export async function fetchCloudProgress(
 ): Promise<UserProgress | null> {
   const { data, error } = await supabase
     .from('user_progress')
-    .select('questions, topics, last_updated')
+    .select('questions, topics, pruefungsboegen, last_updated')
     .eq('user_id', userId)
     .single();
 
@@ -17,6 +17,7 @@ export async function fetchCloudProgress(
   return {
     questions: data.questions as UserProgress['questions'],
     topics: data.topics as UserProgress['topics'],
+    pruefungsboegen: (data.pruefungsboegen ?? {}) as UserProgress['pruefungsboegen'],
     lastUpdated: data.last_updated as string,
   };
 }
@@ -31,6 +32,7 @@ export async function pushProgressToCloud(
       user_id: userId,
       questions: progress.questions,
       topics: progress.topics,
+      pruefungsboegen: progress.pruefungsboegen ?? {},
       last_updated: new Date().toISOString(),
     },
     { onConflict: 'user_id' },

@@ -49,6 +49,7 @@ export interface TopicProgress {
 export interface UserProgress {
   questions: Record<string, QuestionProgress>;
   topics: Record<string, TopicProgress>;
+  pruefungsboegen: Record<string, ExamResult[]>;
   lastUpdated: string;
 }
 
@@ -70,4 +71,21 @@ export interface TopicProgressEntry {
   total: number;
   percentage: number;
   isPassed: boolean;
+}
+
+export interface Pruefungsbogen {
+  nummer: number;
+  questionIds: number[];
+}
+
+export interface ExamResult {
+  takenAt: string;
+  correct: number;
+  wrong: number;
+  total: number;
+  basisCorrect: number;
+  basisTotal: number;
+  specificCorrect: number;
+  specificTotal: number;
+  passed: boolean;
 }
