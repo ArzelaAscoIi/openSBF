@@ -57,6 +57,7 @@ type QuestionView = {
   options: ShuffledOption[];
   selectedAnswer: AnswerKey | null;
   isRevealed: boolean;
+  isHintVisible: boolean;
 };
 
 type QuizState = {
@@ -70,7 +71,7 @@ function makeView(question: Question): QuestionView {
   const options = shuffleArray(
     question.answers.map((a) => ({ key: a.key, text: a.text, originalKey: a.key })),
   );
-  return { options, selectedAnswer: null, isRevealed: false };
+  return { options, selectedAnswer: null, isRevealed: false, isHintVisible: false };
 }
 
 function initQuizState(topicId: string, exam: ExamType, initialQ: number): QuizState {
@@ -89,7 +90,7 @@ function initQuizState(topicId: string, exam: ExamType, initialQ: number): QuizS
   const currentIdx = initialQ > 0 && initialQ < questions.length ? initialQ : 0;
   const view = questions[currentIdx]
     ? makeView(questions[currentIdx])
-    : { options: [], selectedAnswer: null, isRevealed: false };
+    : { options: [], selectedAnswer: null, isRevealed: false, isHintVisible: false };
   return { progress, questions, currentIdx, view };
 }
 
@@ -106,7 +107,7 @@ export default function QuizPage(): React.ReactElement {
   const [{ progress, questions, currentIdx, view }, setQuiz] = useState<QuizState>(() =>
     initQuizState(topicId, exam, initialQ),
   );
-  const { options: shuffledOptions, selectedAnswer, isRevealed } = view;
+  const { options: shuffledOptions, selectedAnswer, isRevealed, isHintVisible } = view;
 
   const [sessionStats, setSessionStats] = useState<SessionStats>({ correct: 0, wrong: 0, total: 0 });
   const [isComplete, setIsComplete] = useState(false);
@@ -131,7 +132,7 @@ export default function QuizPage(): React.ReactElement {
       setQuiz((prev) => ({
         ...prev,
         progress: updatedProgress,
-        view: { ...prev.view, selectedAnswer: key, isRevealed: true },
+        view: { ...prev.view, selectedAnswer: key, isRevealed: true, isHintVisible: false },
       }));
       setSessionStats((prev) => ({
         correct: prev.correct + (isCorrect ? 1 : 0),
@@ -168,6 +169,15 @@ export default function QuizPage(): React.ReactElement {
       view: makeView(prev.questions[prev.currentIdx + 1]),
     }));
   }, [currentIdx, questions, topicId, exam, progress]);
+
+  const handleToggleHint = useCallback((): void => {
+    const hint = questions[currentIdx]?.hint;
+    if (!hint || isRevealed) return;
+    setQuiz((prev) => ({
+      ...prev,
+      view: { ...prev.view, isHintVisible: !prev.view.isHintVisible },
+    }));
+  }, [questions, currentIdx, isRevealed]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent): void => {
@@ -396,7 +406,33 @@ export default function QuizPage(): React.ReactElement {
             })}
           </div>
 
-          <div className="mt-4 flex justify-end">
+          <div className="mt-4 flex items-center justify-between">
+            <div>
+              {currentQuestion.hint && !isRevealed && (
+                <button
+                  onClick={handleToggleHint}
+                  className="flex items-center gap-1 px-2 py-0.5 rounded text-xs transition-opacity hover:opacity-80"
+                  aria-pressed={isHintVisible}
+                  style={
+                    isHintVisible
+                      ? {
+                          background: 'rgba(255,191,36,0.22)',
+                          border: '1px solid rgba(255,191,36,0.55)',
+                          color: 'var(--gold)',
+                          boxShadow: '0 0 0 1px rgba(255,191,36,0.35)',
+                        }
+                      : {
+                          background: 'rgba(255,191,36,0.10)',
+                          border: '1px solid rgba(255,191,36,0.25)',
+                          color: 'var(--gold)',
+                        }
+                  }
+                >
+                  Hinweis
+                </button>
+              )}
+            </div>
+
             <FeedbackModal
               context={{ questionId: String(currentQuestion.id), questionText: currentQuestion.text }}
               trigger={
@@ -413,6 +449,20 @@ export default function QuizPage(): React.ReactElement {
               }
             />
           </div>
+
+          {isHintVisible && !isRevealed && currentQuestion.hint && (
+            <div
+              className="mt-4 px-4 py-3 rounded-lg"
+              style={{
+                background: 'rgba(255,191,36,0.08)',
+                border: '1px solid rgba(255,191,36,0.25)',
+              }}
+            >
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>
+                {currentQuestion.hint}
+              </p>
+            </div>
+          )}
 
           {isRevealed && (
             <div
